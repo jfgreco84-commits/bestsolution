@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"   stop-color="#7C3AED"/>
+      <stop offset="0.55" stop-color="#4C1D95"/>
+      <stop offset="1"   stop-color="#3B1473"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.65">
+      <stop offset="0"   stop-color="#9B5BF0" stop-opacity="0.85"/>
+      <stop offset="0.6" stop-color="#4C1D95" stop-opacity="0.25"/>
+      <stop offset="1"   stop-color="#3B1473" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gemglow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFD700" stop-opacity="0.55"/>
+      <stop offset="1"   stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gTable" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE680"/>
+      <stop offset="1" stop-color="#FFD700"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD700"/>
+      <stop offset="1" stop-color="#D4A017"/>
+    </linearGradient>
+  </defs><rect width="512" height="512" rx="112.64" fill="url(#bg)"/><rect width="512" height="512" rx="112.64" fill="url(#glow)"/><rect x="43.52" y="43.52" width="424.96" height="424.96" rx="78.848" fill="none" stroke="url(#gold)" stroke-width="6.144" stroke-opacity="0.9"/><g transform="translate(107.52,107.52) scale(2.9696)"><ellipse cx="50" cy="50" rx="62" ry="62" fill="url(#gemglow)"/><polygon points="30,8 70,8 77,32 23,32" fill="url(#gTable)"/><polygon points="30,8 23,32 10,32" fill="#E8C84A"/><polygon points="70,8 90,32 77,32" fill="#E8C84A"/><polygon points="10,32 23,32 50,92" fill="#A6760A"/><polygon points="23,32 50,32 50,92" fill="#C99A12"/><polygon points="50,32 77,32 50,92" fill="#E8C84A"/><polygon points="77,32 90,32 50,92" fill="#A6760A"/><polyline points="10,32 90,32" fill="none" stroke="#FFF3C0" stroke-width="0.8" stroke-opacity="0.7"/><polyline points="23,32 30,8 70,8 77,32" fill="none" stroke="#FFF3C0" stroke-width="0.8" stroke-opacity="0.55"/><polyline points="23,32 50,92 77,32" fill="none" stroke="#A6760A" stroke-width="0.8" stroke-opacity="0.6"/><polygon points="30,8 70,8 90,32 50,92 10,32" fill="none" stroke="#FFF7D6" stroke-width="1.6" stroke-linejoin="round"/><polygon points="34,11 47,11 41,16" fill="#FFFFFF" fill-opacity="0.55"/></g></svg>
