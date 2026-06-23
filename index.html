@@ -425,7 +425,7 @@ img{max-width:100%;display:block}
     <button class="pay-btn" data-pay="Zelle">Zelle</button>
     <button class="pay-btn" data-pay="Cash App">Cash App</button>
   </div>
-  <p class="pay-note">Just a preference. Froggy sends you a request to pay after he confirms shipping.</p>
+  <p class="pay-note">Just a preference. Justin sends you a request to pay after he confirms shipping.</p>
 
   <!-- ============ CUSTOMER FORM ============ -->
   <form class="form" id="order-form" novalidate>
@@ -444,7 +444,7 @@ img{max-width:100%;display:block}
     <div class="field">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com">
-      <div class="hint">Give a phone OR email so Froggy can reach you.</div>
+      <div class="hint">Give a phone OR email so Justin can reach you.</div>
     </div>
 
     <div class="field">
@@ -462,7 +462,7 @@ img{max-width:100%;display:block}
     <div class="check">✓</div>
     <h2 class="gold-text">Order Received!</h2>
     <p>Thanks <span id="ok-name">friend</span>, your order is in.</p>
-    <p class="gold-line">Froggy will reach out to confirm shipping cost before collecting payment.</p>
+    <p class="gold-line">Justin will reach out to confirm shipping cost before collecting payment.</p>
     <button type="button" class="btn" id="new-order-btn">Place Another Order</button>
   </section>
 
@@ -496,7 +496,7 @@ img{max-width:100%;display:block}
     </details>
     <details>
       <summary>How does shipping work?</summary>
-      <div class="a">Prices are <strong>plus shipping</strong>. After your order comes in, Froggy reaches out personally to confirm the shipping cost before you pay. No surprise charges.</div>
+      <div class="a">Prices are <strong>plus shipping</strong>. After your order comes in, Justin reaches out personally to confirm the shipping cost before you pay. No surprise charges.</div>
     </details>
   </div>
 
@@ -697,8 +697,8 @@ form.addEventListener('submit', async (e)=>{
 
   if(orderTotal()===0){ showErrText("Your order is empty. Add a bundle first.");
     document.getElementById('cart-section').scrollIntoView({behavior:'smooth'}); return; }
-  if(!name){ showErrText("Please add your name so Froggy knows who to thank."); return; }
-  if(!phone && !email){ showErrText("Add a phone OR email so Froggy can reach you about shipping."); return; }
+  if(!name){ showErrText("Please add your name so Justin knows who to thank."); return; }
+  if(!phone && !email){ showErrText("Add a phone OR email so Justin can reach you about shipping."); return; }
   if(!payment){ showErrText("Pick how you'd like to pay (Square, Venmo, Zelle, or Cash App)."); return; }
 
   const contact = [phone && ("Phone: "+phone), email && ("Email: "+email)].filter(Boolean).join("  |  ");
@@ -718,7 +718,7 @@ form.addEventListener('submit', async (e)=>{
 
   if(FORMSPREE_ID === "YOUR_FORM_ID"){
     btn.disabled = false; btn.textContent = "Place My Order";
-    return failWithCopy(payload, "This order page isn't connected to Froggy's inbox yet.");
+    return failWithCopy(payload, "This order page isn't connected to Justin's inbox yet.");
   }
 
   try{
@@ -758,7 +758,7 @@ Time: ${payload.timestamp}`;
     } else { legacyCopy(txt, done); }
   });
   errBox.replaceChildren(
-    document.createTextNode(lead + " You can copy your order and text it to Froggy so nothing is lost."),
+    document.createTextNode(lead + " You can copy your order and text it to Justin so nothing is lost."),
     el('br'),
     copyBtn
   );
