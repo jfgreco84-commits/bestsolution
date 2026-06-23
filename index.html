@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Solution - Reorder Your Polish</title>
+
+<!-- ============================================================
+     FROGGY: PASTE YOUR FORMSPREE FORM ID BELOW (one place only).
+     1. Go to formspree.io > Forms > New Form > recipient
+        bestsolutionpolish@gmail.com
+     2. Copy the endpoint, it looks like  https://formspree.io/f/abcdwxyz
+     3. Put ONLY the part after /f/  (abcdwxyz) inside the quotes
+        in the <script> at the bottom of this file:
+        const FORMSPREE_ID = "abcdwxyz";
+     Until then the order button shows a friendly error and lets the
+     customer copy their order so nothing is lost.
+============================================================ -->
+
+<!-- Open Graph / link preview -->
+<meta property="og:title" content="Best Solution Polish - Reorder">
+<meta property="og:description" content="Before &amp; After Results in Seconds. No Acid. No Ammonia. No Abrasives.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="banner.jpg">
+<meta name="theme-color" content="#4C1D95">
+
+<!-- Gold diamond favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234C1D95'/%3E%3Cpath d='M16 5 L27 16 L16 27 L5 16 Z' fill='%23FFD700' stroke='%23D4A017' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<!-- Google Fonts: Oswald (headlines) + Lato (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --purple-deep:#4C1D95;
+  --purple:#6B21A8;
+  --purple-glow:#7C3AED;
+  --gold:#D4A017;
+  --gold-bright:#FFD700;
+  --gold-soft:#E8C84A;
+  --cream:#f5f0e8;
+  --cream-panel:#fbf7ef;
+  --ink:#3B1A6B;
+  --body:#444;
+  --radius:16px;
+  --shadow:0 8px 24px rgba(38,12,80,.28);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Lato',system-ui,sans-serif;
+  color:var(--body);
+  background:var(--cream);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+
+.wrap{max-width:680px;margin:0 auto;padding:0 14px 120px}
+
+/* ---------- Beveled gold text (banner lettering) ---------- */
+.gold-text{
+  background:linear-gradient(180deg,#FFF1A8 0%,var(--gold-bright) 38%,var(--gold) 70%,#9c7510 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold-bright);
+  text-shadow:0 2px 0 rgba(0,0,0,.18);
+  letter-spacing:.5px;
+}
+
+/* ---------- Diamond divider ---------- */
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px 0 22px}
+.divider::before,.divider::after{content:"";height:3px;flex:1;max-width:120px;
+  background:linear-gradient(90deg,transparent,var(--gold));border-radius:3px}
+.divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.divider .gem{color:var(--gold-bright);font-size:18px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+
+/* ====================== HERO ====================== */
+.hero{
+  margin:14px auto 0;max-width:680px;
+  background:
+    radial-gradient(120% 80% at 50% 0%,var(--purple-glow) 0%,var(--purple) 38%,var(--purple-deep) 100%);
+  border-radius:20px;
+  padding:8px;
+  box-shadow:var(--shadow);
+}
+.hero-frame{
+  border:3px solid var(--gold);
+  border-radius:14px;
+  padding:26px 18px 22px;
+  position:relative;
+  background:
+    radial-gradient(80% 60% at 50% 8%,rgba(255,255,255,.14),transparent 60%);
+  box-shadow:inset 0 0 0 1px rgba(255,215,0,.25);
+}
+.hero .kicker{
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:4px;font-size:15px;color:var(--gold-soft);text-align:center;
+}
+.hero h1{
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  text-align:center;line-height:.92;margin:2px 0 0;
+  font-size:clamp(44px,15vw,86px);
+}
+.hero .restore{
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  text-align:center;letter-spacing:2px;font-size:clamp(20px,6vw,30px);
+  color:var(--cream);margin-top:2px;
+}
+.hero .sub{
+  text-align:center;color:var(--gold-soft);font-weight:700;
+  margin-top:14px;font-size:17px;letter-spacing:.3px;
+}
+
+/* trust pills in hero */
+.trust-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
+.trust-pills span{
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:12.5px;letter-spacing:1px;color:var(--purple-deep);
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  padding:7px 13px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);
+}
+
+/* ====================== SECTION HEADERS ====================== */
+.section-title{
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  text-align:center;font-size:clamp(28px,8vw,42px);color:var(--ink);
+  line-height:1;
+}
+.group-label{
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:1.5px;color:var(--purple);font-size:18px;text-align:center;
+  margin:24px 0 4px;
+}
+.group-label small{display:block;font-family:'Lato';font-weight:700;letter-spacing:0;
+  text-transform:none;color:#7a6f86;font-size:13px;margin-top:2px}
+
+/* ====================== BUNDLE CARDS ====================== */
+.grid{display:grid;gap:14px;margin-top:14px}
+.grid-3{grid-template-columns:1fr}
+.grid-2{grid-template-columns:1fr}
+@media(min-width:560px){
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+}
+
+.card{
+  position:relative;background:var(--cream-panel);
+  border:2px solid var(--gold);border-radius:var(--radius);
+  padding:18px 16px 16px;box-shadow:0 4px 12px rgba(60,30,110,.12);
+  display:flex;flex-direction:column;transition:transform .12s,box-shadow .12s;
+}
+.card .name{
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  color:var(--ink);font-size:20px;line-height:1.05;
+}
+.card .contents{color:#6a5f78;font-size:13.5px;margin:6px 0 12px;font-weight:700}
+.card .price{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:30px;color:var(--purple);
+  line-height:1;
+}
+.card .price .ship{display:block;font-family:'Lato';font-weight:700;font-size:12px;
+  color:#8a7f96;letter-spacing:.3px;margin-top:3px}
+
+/* ribbon badge */
+.ribbon{
+  position:absolute;top:-2px;right:-2px;
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:11px;letter-spacing:.6px;color:var(--purple-deep);
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  padding:6px 12px;border-radius:0 14px 0 14px;box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+.card.popular{border-color:var(--purple)}
+.card.popular .ribbon{background:linear-gradient(180deg,#8b3df0,var(--purple));color:#fff}
+
+/* qty + add row */
+.card-actions{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.qty{display:flex;align-items:center;justify-content:center;gap:0;
+  border:2px solid var(--gold);border-radius:10px;overflow:hidden;align-self:center;background:#fff}
+.qty button{
+  width:48px;height:46px;border:0;background:#fff;color:var(--purple);
+  font-size:26px;font-weight:900;cursor:pointer;line-height:1;font-family:'Oswald'
+}
+.qty button:active{background:var(--cream)}
+.qty .val{width:52px;height:46px;display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald';font-weight:700;font-size:22px;color:var(--ink);
+  border-left:2px solid var(--gold);border-right:2px solid var(--gold)}
+
+.btn{
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;border:0;border-radius:12px;cursor:pointer;
+  min-height:48px;font-size:16px;transition:transform .1s,filter .1s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-add{
+  background:linear-gradient(180deg,var(--purple-glow),var(--purple));
+  color:#fff;border:2px solid var(--gold);width:100%;
+  box-shadow:0 3px 8px rgba(76,29,149,.3);
+}
+.btn-add:hover{filter:brightness(1.06)}
+
+/* individual items (secondary, collapsible) */
+.singles{margin-top:10px;border:2px dashed var(--gold);border-radius:var(--radius);
+  background:rgba(255,255,255,.5);overflow:hidden}
+.singles summary{
+  list-style:none;cursor:pointer;padding:14px 16px;
+  font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  color:var(--purple);font-size:15px;display:flex;align-items:center;justify-content:space-between}
+.singles summary::-webkit-details-marker{display:none}
+.singles summary::after{content:"+";font-size:24px;font-weight:700}
+.singles[open] summary::after{content:"–"}
+.singles .singles-body{padding:0 14px 14px}
+.single-row{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 0;border-top:1px solid #e6ddcf}
+.single-row .s-name{font-weight:700;color:var(--ink)}
+.single-row .s-name small{display:block;font-weight:700;color:#8a7f96;font-size:12px}
+.single-row .s-price{font-family:'Oswald';font-weight:700;color:var(--purple);font-size:18px;white-space:nowrap}
+.single-row .btn-add{width:auto;min-width:96px;padding:0 14px;min-height:44px;font-size:14px}
+
+/* ====================== BEFORE/AFTER STRIP ====================== */
+.ba-strip{
+  margin:30px 0;border-radius:var(--radius);padding:22px 18px;text-align:center;
+  background:radial-gradient(120% 120% at 50% 0%,var(--purple-glow),var(--purple-deep));
+  border:3px solid var(--gold);box-shadow:var(--shadow);
+}
+.ba-strip h3{
+  font-family:'Oswald';font-weight:700;text-transform:uppercase;
+  font-size:clamp(20px,6vw,30px);line-height:1.05;
+}
+
+/* ====================== CART ====================== */
+.cart{
+  border:3px solid var(--purple);border-radius:18px;background:#fff;
+  box-shadow:var(--shadow);overflow:hidden;margin-top:8px;
+}
+.cart-head{
+  background:linear-gradient(180deg,var(--purple),var(--purple-deep));
+  color:#fff;padding:14px 18px;font-family:'Oswald';font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;font-size:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.cart-head .gem{color:var(--gold-bright)}
+.cart-body{padding:6px 16px 16px}
+.cart-empty{color:#8a7f96;text-align:center;padding:22px 6px;font-weight:700}
+.cart-item{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eee}
+.cart-item:last-child{border-bottom:0}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-weight:900;color:var(--ink);font-size:15px}
+.ci-sub{font-size:12.5px;color:#8a7f96;font-weight:700}
+.ci-qty{font-family:'Oswald';font-weight:700;color:var(--purple);white-space:nowrap}
+.ci-line{font-family:'Oswald';font-weight:700;color:var(--ink);white-space:nowrap;min-width:54px;text-align:right}
+.ci-remove{border:0;background:#f3eee5;color:#a33;width:34px;height:34px;border-radius:8px;
+  font-size:18px;font-weight:900;cursor:pointer;line-height:1}
+.cart-total{display:flex;align-items:baseline;justify-content:space-between;
+  margin-top:14px;padding-top:14px;border-top:3px solid var(--gold)}
+.cart-total .lbl{font-family:'Oswald';font-weight:700;text-transform:uppercase;color:var(--ink);font-size:18px}
+.cart-total .amt{font-family:'Oswald';font-weight:700;color:var(--purple);font-size:34px;line-height:1}
+.cart-total .amt small{display:block;font-family:'Lato';font-weight:700;font-size:12px;color:#8a7f96;text-align:right}
+
+/* ====================== PAYMENT ====================== */
+.block-label{font-family:'Oswald';font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  color:var(--ink);font-size:18px;margin:24px 0 10px;text-align:center}
+.pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.pay-btn{
+  font-family:'Oswald';font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  background:#fff;border:2px solid var(--gold);color:var(--ink);border-radius:12px;
+  min-height:56px;font-size:16px;cursor:pointer;transition:all .12s;display:flex;
+  align-items:center;justify-content:center;gap:8px;
+}
+.pay-btn:active{transform:translateY(1px)}
+.pay-btn.active{background:linear-gradient(180deg,var(--purple-glow),var(--purple));
+  color:#fff;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.35)}
+.pay-note{text-align:center;color:#8a7f96;font-size:12.5px;margin-top:8px;font-weight:700}
+
+/* ====================== FORM ====================== */
+.form{margin-top:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-family:'Oswald';font-weight:600;text-transform:uppercase;
+  letter-spacing:.6px;color:var(--purple);font-size:13px;margin-bottom:6px}
+.field input,.field textarea{
+  width:100%;border:2px solid var(--gold);border-radius:12px;padding:14px;
+  font-family:'Lato';font-size:16px;color:var(--ink);background:#fff;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--purple);
+  box-shadow:0 0 0 3px rgba(107,33,168,.18)}
+.field textarea{min-height:84px;resize:vertical}
+.hint{font-size:12px;color:#8a7f96;margin-top:5px;font-weight:700}
+
+.btn-order{
+  width:100%;margin-top:6px;min-height:62px;font-size:22px;letter-spacing:1px;
+  background:linear-gradient(180deg,var(--purple),var(--purple-deep));
+  color:var(--gold-bright);border:3px solid var(--gold);
+  box-shadow:0 6px 16px rgba(76,29,149,.4);
+}
+.btn-order:hover{filter:brightness(1.08)}
+.btn-order:disabled{filter:grayscale(.4) brightness(.9);cursor:not-allowed}
+
+.msg{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;display:none}
+.msg.show{display:block}
+.msg.err{background:#fdecec;border:2px solid #e0a3a3;color:#9a2a2a}
+.msg.err button{margin-top:10px;background:#9a2a2a;color:#fff;border:0;border-radius:8px;
+  padding:10px 14px;font-weight:700;cursor:pointer;font-family:'Oswald';text-transform:uppercase}
+
+/* ====================== SUCCESS ====================== */
+.success{display:none;text-align:center;border:3px solid var(--gold);border-radius:18px;
+  background:radial-gradient(120% 120% at 50% 0%,var(--purple-glow),var(--purple-deep));
+  color:#fff;padding:34px 22px;box-shadow:var(--shadow);margin-top:8px}
+.success.show{display:block;animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.success .check{font-size:60px;line-height:1}
+.success h2{font-family:'Oswald';font-weight:700;text-transform:uppercase;
+  font-size:30px;margin:8px 0 6px}
+.success .gold-line{color:var(--gold-soft);font-weight:700;margin-top:10px}
+.success .btn{margin-top:20px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:var(--purple-deep);border:0;padding:14px 22px}
+
+/* ====================== TRUST STRIP ====================== */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:34px 0 10px}
+.trust .t{background:var(--cream-panel);border:2px solid var(--gold);border-radius:var(--radius);
+  padding:18px 8px;text-align:center}
+.shield{width:46px;height:50px;margin:0 auto 8px;display:block}
+.trust .t h4{font-family:'Oswald';font-weight:700;text-transform:uppercase;color:var(--ink);font-size:18px}
+.trust .t p{font-size:11.5px;color:#7a6f86;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+/* ====================== FAQ ====================== */
+.faq{margin-top:18px}
+.faq details{background:var(--cream-panel);border:2px solid var(--gold);border-radius:12px;
+  margin-bottom:10px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:15px 16px;font-family:'Oswald';
+  font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--purple);font-size:15px;
+  display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 16px 16px;color:var(--body);font-size:14.5px}
+
+/* ====================== FOOTER ====================== */
+.footer{margin-top:34px;text-align:center}
+.footer .strip{
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  border-radius:12px;padding:14px;font-family:'Oswald';font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;color:var(--purple-deep);font-size:16px;
+}
+.footer .biz{margin-top:14px;color:#7a6f86;font-weight:700;font-size:13px}
+.footer .biz strong{color:var(--ink)}
+
+/* ====================== STICKY VIEW ORDER ====================== */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(120%);
+  transition:transform .25s ease;padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(76,29,149,0),rgba(76,29,149,.9) 40%);
+}
+.sticky.show{transform:translateY(0)}
+.sticky .btn{
+  width:100%;max-width:652px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:var(--purple-deep);border:2px solid #fff;min-height:56px;font-size:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-frame">
+    <div class="kicker">See What</div>
+    <h1 class="gold-text">Best Solution</h1>
+    <div class="restore">Can Restore!</div>
+    <div class="divider"><span class="gem">◆</span></div>
+    <div class="sub">Reorder Your Polish</div>
+    <div class="trust-pills">
+      <span>No Acid</span><span>No Ammonia</span><span>No Abrasives</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ BUNDLES ============ -->
+  <div class="divider"><span class="gem">◆</span></div>
+  <h2 class="section-title">Build Your Order</h2>
+
+  <div class="group-label">Large C5 (8oz) Combos
+    <small>32, 16, or 8 oz Best Solution + 8 oz C5 Lotion</small>
+  </div>
+  <div class="grid grid-3" id="grid-large"></div>
+
+  <div class="group-label">Small C5 (2oz) Combos
+    <small>32, 16, 8, or 2 oz Best Solution + 2 oz C5 Lotion</small>
+  </div>
+  <div class="grid grid-2" id="grid-small"></div>
+
+  <!-- individual items, secondary -->
+  <details class="singles">
+    <summary>Just need a single? Polish &amp; C5 on their own</summary>
+    <div class="singles-body" id="singles"></div>
+  </details>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <div class="ba-strip">
+    <h3 class="gold-text">Before &amp; After<br>Results in Seconds!</h3>
+  </div>
+
+  <!-- ============ CART ============ -->
+  <section class="cart" id="cart-section">
+    <div class="cart-head"><span class="gem">◆</span> Your Order</div>
+    <div class="cart-body">
+      <div id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty">No items yet. Tap <strong>Add to Order</strong> on a bundle above.</div>
+      <div class="cart-total" id="cart-total" style="display:none">
+        <span class="lbl">Total</span>
+        <span class="amt">$<span id="total-amt">0</span><small>+ shipping</small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAYMENT ============ -->
+  <div class="block-label">How would you like to pay?</div>
+  <div class="pay-grid" id="pay-grid">
+    <button class="pay-btn" data-pay="Square">Square</button>
+    <button class="pay-btn" data-pay="Venmo">Venmo</button>
+    <button class="pay-btn" data-pay="Zelle">Zelle</button>
+    <button class="pay-btn" data-pay="Cash App">Cash App</button>
+  </div>
+  <p class="pay-note">Just a preference. Froggy sends you a request to pay after he confirms shipping.</p>
+
+  <!-- ============ CUSTOMER FORM ============ -->
+  <form class="form" id="order-form" novalidate>
+    <div class="block-label">Your Info</div>
+
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="First &amp; last name">
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(414) 555-0123">
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com">
+      <div class="hint">Give a phone OR email so Froggy can reach you.</div>
+    </div>
+
+    <div class="field">
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" name="notes" placeholder="Anything we should know?"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-order" id="submit-btn">Place My Order</button>
+
+    <div class="msg err" id="err-msg"></div>
+  </form>
+
+  <!-- ============ SUCCESS ============ -->
+  <section class="success" id="success">
+    <div class="check">✓</div>
+    <h2 class="gold-text">Order Received!</h2>
+    <p>Thanks <span id="ok-name">friend</span>, your order is in.</p>
+    <p class="gold-line">Froggy will reach out to confirm shipping cost before collecting payment.</p>
+    <button type="button" class="btn" id="new-order-btn">Place Another Order</button>
+  </section>
+
+  <!-- ============ TRUST ============ -->
+  <div class="trust">
+    <div class="t">
+      <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#6B21A8" stroke="#D4A017" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Safe</h4><p>On Your Valuables</p>
+    </div>
+    <div class="t">
+      <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#6B21A8" stroke="#D4A017" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Effective</h4><p>Professional Strength</p>
+    </div>
+    <div class="t">
+      <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#6B21A8" stroke="#D4A017" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Trusted</h4><p>Used &amp; Loved Worldwide</p>
+    </div>
+  </div>
+
+  <!-- ============ FAQ ============ -->
+  <div class="divider"><span class="gem">◆</span></div>
+  <h2 class="section-title" style="font-size:clamp(24px,7vw,34px)">Good to Know</h2>
+  <div class="faq">
+    <details>
+      <summary>What is C5?</summary>
+      <div class="a">C5 is a <strong>fine metal restoration lotion</strong>. It brings back the shine on metals that polish alone can't reach. It is not a cloth or a wipe, it's a lotion you work in. Pairs perfectly with your Best Solution polish.</div>
+    </details>
+    <details>
+      <summary>What can Best Solution restore?</summary>
+      <div class="a"><strong>Jewelry</strong> (rings, necklaces, bracelets, earrings, watches), <strong>eyewear</strong>, <strong>watches</strong>, <strong>coins &amp; collectibles</strong>, <strong>home &amp; kitchen</strong> (faucets, sinks, silverware, serving trays), and <strong>auto &amp; hobby</strong> (chrome, motorcycle parts, tools). No acid, no ammonia, no abrasives.</div>
+    </details>
+    <details>
+      <summary>How does shipping work?</summary>
+      <div class="a">Prices are <strong>plus shipping</strong>. After your order comes in, Froggy reaches out personally to confirm the shipping cost before you pay. No surprise charges.</div>
+    </details>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="strip">No Acid ◆ No Ammonia ◆ No Abrasives</div>
+    <div class="biz">
+      <strong>Best Solution</strong> · Dot Dynasty LLC<br>
+      Before &amp; After Results in Seconds
+    </div>
+  </footer>
+
+</main>
+
+<!-- ============ STICKY VIEW ORDER ============ -->
+<div class="sticky" id="sticky">
+  <button class="btn" id="sticky-btn" type="button">View Order · $<span id="sticky-amt">0</span> + shipping</button>
+</div>
+
+<script>
+/* ============================================================
+   FORMSPREE: paste ONLY the id after /f/  (see top of file)
+============================================================ */
+const FORMSPREE_ID = "xykqyrnz";
+
+/* ---------- tiny safe DOM builder (no innerHTML, XSS-proof) ---------- */
+function el(tag, props){
+  const n = document.createElement(tag);
+  if(props){
+    for(const k in props){
+      const v = props[k];
+      if(v == null || v === false) continue;
+      if(k === 'class') n.className = v;
+      else if(k === 'text') n.textContent = v;
+      else if(k.slice(0,2) === 'on' && typeof v === 'function') n.addEventListener(k.slice(2).toLowerCase(), v);
+      else n.setAttribute(k, v);
+    }
+  }
+  for(let i=2;i<arguments.length;i++){
+    let c = arguments[i];
+    if(c == null || c === false) continue;
+    if(Array.isArray(c)){ c.forEach(x=>{ if(x!=null&&x!==false) n.append(x.nodeType?x:document.createTextNode(x)); }); }
+    else n.append(c.nodeType ? c : document.createTextNode(c));
+  }
+  return n;
+}
+
+/* ---------- product data ---------- */
+const BUNDLES_LARGE = [
+  {id:"b32L", name:"32oz + C5 Large", contents:"32oz Polish + 8oz C5 Lotion", price:55, badge:"Best Value"},
+  {id:"b16L", name:"16oz + C5 Large", contents:"16oz Polish + 8oz C5 Lotion", price:50, badge:"Most Popular", popular:true},
+  {id:"b8L",  name:"8oz + C5 Large",  contents:"8oz Polish + 8oz C5 Lotion",  price:45},
+];
+const BUNDLES_SMALL = [
+  {id:"b32S", name:"32oz + C5 Small", contents:"32oz Polish + 2oz C5 Lotion", price:45},
+  {id:"b16S", name:"16oz + C5 Small", contents:"16oz Polish + 2oz C5 Lotion", price:40},
+  {id:"b8S",  name:"8oz + C5 Small",  contents:"8oz Polish + 2oz C5 Lotion",  price:35},
+  {id:"b2S",  name:"2oz + C5 Small",  contents:"2oz Polish + 2oz C5 Lotion",  price:25, badge:"Gift / Starter Set"},
+];
+const SINGLES = [
+  {id:"p32", name:"32oz Polish",   sub:"Best Solution",          price:30},
+  {id:"p16", name:"16oz Polish",   sub:"Best Solution",          price:25},
+  {id:"p8",  name:"8oz Polish",    sub:"Best Solution",          price:20},
+  {id:"p2",  name:"2oz Polish",    sub:"Best Solution",          price:10},
+  {id:"c8",  name:"8oz C5 Lotion", sub:"Fine metal restoration", price:25},
+  {id:"c2",  name:"2oz C5 Lotion", sub:"Fine metal restoration", price:15},
+];
+const ALL = {};
+[...BUNDLES_LARGE,...BUNDLES_SMALL,...SINGLES].forEach(p=>ALL[p.id]=p);
+
+/* ---------- state ---------- */
+const cart = {};        // id -> qty
+const pickerQty = {};   // id -> chosen qty before add
+let payment = "";
+
+/* ---------- build a bundle card ---------- */
+function bundleCard(b){
+  const valSpan = el('span', {class:'val', id:'val-'+b.id, text:'1'});
+  const card = el('div', {class:'card' + (b.popular ? ' popular' : ''), 'data-card':b.id},
+    b.badge ? el('span', {class:'ribbon', text:b.badge}) : null,
+    el('div', {class:'name', text:b.name}),
+    el('div', {class:'contents', text:b.contents}),
+    el('div', {class:'price'}, '$'+b.price, el('span', {class:'ship', text:'+ shipping'})),
+    el('div', {class:'card-actions'},
+      el('div', {class:'qty'},
+        el('button', {type:'button', 'aria-label':'less', onClick:()=>stepPicker(b.id,-1,valSpan)}, '–'),
+        valSpan,
+        el('button', {type:'button', 'aria-label':'more', onClick:()=>stepPicker(b.id,1,valSpan)}, '+')
+      ),
+      el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(b.id)}, 'Add to Order')
+    )
+  );
+  return card;
+}
+function stepPicker(id, step, valSpan){
+  pickerQty[id] = Math.max(1, (pickerQty[id]||1) + step);
+  valSpan.textContent = pickerQty[id];
+}
+BUNDLES_LARGE.forEach(b=>document.getElementById('grid-large').append(bundleCard(b)));
+BUNDLES_SMALL.forEach(b=>document.getElementById('grid-small').append(bundleCard(b)));
+
+/* ---------- build singles rows ---------- */
+const singlesBox = document.getElementById('singles');
+SINGLES.forEach(s=>{
+  singlesBox.append(
+    el('div', {class:'single-row'},
+      el('div', {class:'s-name'}, s.name, el('small', {text:s.sub})),
+      el('div', {style:'display:flex;align-items:center;gap:10px'},
+        el('span', {class:'s-price'}, '$'+s.price, el('span', {style:'font-size:11px;color:#8a7f96', text:' +ship'})),
+        el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(s.id)}, 'Add')
+      )
+    )
+  );
+});
+
+/* ---------- add to order ---------- */
+function addToCart(id){
+  cart[id] = (cart[id]||0) + (pickerQty[id]||1);
+  renderCart();
+  document.getElementById('cart-section').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ---------- render cart ---------- */
+function renderCart(){
+  const items = Object.keys(cart).filter(id=>cart[id]>0);
+  const box = document.getElementById('cart-items');
+  const empty = document.getElementById('cart-empty');
+  const totalRow = document.getElementById('cart-total');
+  box.replaceChildren();
+  let total = 0;
+  if(!items.length){
+    empty.style.display='block'; totalRow.style.display='none';
+    updateSticky(0); return;
+  }
+  empty.style.display='none'; totalRow.style.display='flex';
+  items.forEach(id=>{
+    const p = ALL[id], line = p.price*cart[id]; total += line;
+    box.append(
+      el('div', {class:'cart-item'},
+        el('div', {class:'ci-info'},
+          el('div', {class:'ci-name', text:p.name}),
+          el('div', {class:'ci-sub', text:p.contents||p.sub||''})
+        ),
+        el('span', {class:'ci-qty', text:'×'+cart[id]}),
+        el('span', {class:'ci-line', text:'$'+line}),
+        el('button', {type:'button', class:'ci-remove', 'aria-label':'remove',
+          onClick:()=>{ delete cart[id]; renderCart(); }}, '×')
+      )
+    );
+  });
+  document.getElementById('total-amt').textContent = total;
+  updateSticky(total);
+}
+
+/* ---------- sticky bar ---------- */
+function updateSticky(total){
+  const s = document.getElementById('sticky');
+  document.getElementById('sticky-amt').textContent = total;
+  s.classList.toggle('show', total>0);
+}
+document.getElementById('sticky-btn').addEventListener('click',()=>{
+  document.getElementById('cart-section').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+/* ---------- payment selector ---------- */
+document.querySelectorAll('.pay-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); payment = btn.dataset.pay;
+  });
+});
+
+/* ---------- order helpers ---------- */
+function orderItemsText(){
+  return Object.keys(cart).filter(id=>cart[id]>0)
+    .map(id=>`${ALL[id].name} x${cart[id]}`).join(", ");
+}
+function orderTotal(){
+  return Object.keys(cart).reduce((t,id)=>t+ALL[id].price*cart[id],0);
+}
+
+/* ---------- error message (safe DOM) ---------- */
+const errBox = document.getElementById('err-msg');
+function showErrText(msg){
+  errBox.replaceChildren(document.createTextNode(msg));
+  errBox.classList.add('show');
+}
+function clearErr(){ errBox.replaceChildren(); errBox.classList.remove('show'); }
+
+/* ---------- submit ---------- */
+const form = document.getElementById('order-form');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault(); clearErr();
+  const name  = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const notes = document.getElementById('notes').value.trim();
+
+  if(orderTotal()===0){ showErrText("Your order is empty. Add a bundle first.");
+    document.getElementById('cart-section').scrollIntoView({behavior:'smooth'}); return; }
+  if(!name){ showErrText("Please add your name so Froggy knows who to thank."); return; }
+  if(!phone && !email){ showErrText("Add a phone OR email so Froggy can reach you about shipping."); return; }
+  if(!payment){ showErrText("Pick how you'd like to pay (Square, Venmo, Zelle, or Cash App)."); return; }
+
+  const contact = [phone && ("Phone: "+phone), email && ("Email: "+email)].filter(Boolean).join("  |  ");
+  const payload = {
+    customer_name: name,
+    customer_contact: contact,
+    order_items: orderItemsText(),
+    order_total: "$"+orderTotal()+".00 + shipping",
+    payment_method: payment,
+    notes: notes || "(none)",
+    timestamp: new Date().toLocaleString(),
+    _subject: `New Best Solution order: ${name} ($${orderTotal()} + shipping)`
+  };
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = "Sending...";
+
+  if(FORMSPREE_ID === "YOUR_FORM_ID"){
+    btn.disabled = false; btn.textContent = "Place My Order";
+    return failWithCopy(payload, "This order page isn't connected to Froggy's inbox yet.");
+  }
+
+  try{
+    const res = await fetch("https://formspree.io/f/"+FORMSPREE_ID,{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    if(res.ok){
+      showSuccess(name);
+    }else{
+      btn.disabled = false; btn.textContent = "Place My Order";
+      failWithCopy(payload, "Something went wrong sending your order.");
+    }
+  }catch(err){
+    btn.disabled = false; btn.textContent = "Place My Order";
+    failWithCopy(payload, "Couldn't reach the server (check your connection).");
+  }
+});
+
+/* ---------- error w/ copy fallback (safe DOM) ---------- */
+function failWithCopy(payload, lead){
+  const txt =
+`NEW BEST SOLUTION ORDER
+Name: ${payload.customer_name}
+Contact: ${payload.customer_contact}
+Items: ${payload.order_items}
+Total: ${payload.order_total}
+Pay: ${payload.payment_method}
+Notes: ${payload.notes}
+Time: ${payload.timestamp}`;
+  const copyBtn = el('button', {type:'button'}, 'Copy My Order');
+  copyBtn.addEventListener('click',()=>{
+    const done = ()=>{ copyBtn.textContent = "Copied! ✓"; };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, ()=>legacyCopy(txt, done));
+    } else { legacyCopy(txt, done); }
+  });
+  errBox.replaceChildren(
+    document.createTextNode(lead + " You can copy your order and text it to Froggy so nothing is lost."),
+    el('br'),
+    copyBtn
+  );
+  errBox.classList.add('show');
+}
+function legacyCopy(txt, done){
+  const ta = document.createElement('textarea');
+  ta.value = txt; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  ta.remove(); done();
+}
+
+/* ---------- success ---------- */
+function showSuccess(name){
+  document.getElementById('ok-name').textContent = (name.split(' ')[0] || "friend");
+  form.style.display = 'none';
+  const ok = document.getElementById('success');
+  ok.classList.add('show');
+  ok.scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('sticky').classList.remove('show');
+}
+document.getElementById('new-order-btn').addEventListener('click',()=>{
+  Object.keys(cart).forEach(k=>delete cart[k]);
+  Object.keys(pickerQty).forEach(k=>delete pickerQty[k]);
+  document.querySelectorAll('.val').forEach(v=>v.textContent="1");
+  document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('active'));
+  payment=""; form.reset(); clearErr();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled=false; btn.textContent="Place My Order";
+  document.getElementById('success').classList.remove('show');
+  form.style.display='block';
+  renderCart();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* ---------- init ---------- */
+renderCart();
+</script>
+</body>
+</html>
