@@ -1,0 +1,62 @@
+==========================================================
+  BEST SOLUTION SITE - HOW TO ADD / CHANGE PHOTOS YOURSELF
+==========================================================
+
+No coding needed. You just drop correctly-NAMED .jpg photos into
+THIS "images" folder. The website automatically shows them.
+
+----------------------------------------------------------
+THE RULES
+----------------------------------------------------------
+1. Photo must be a .jpg file (JPG). If yours is .png, open it in
+   Paint, "Save As" JPEG, done.
+2. Name the file EXACTLY as shown below (lowercase, no spaces).
+3. Drop it in this folder. If Windows asks to replace, say YES.
+4. Refresh the web page to see it. (To make it LIVE for customers,
+   the file also has to be uploaded to GitHub - ask Claude to push,
+   or upload on github.com. See bottom.)
+
+A photo only shows up if the name matches. Wrong name = nothing
+breaks, it just won't appear.
+
+----------------------------------------------------------
+PHOTO FOR EACH BUNDLE / SET  (shows at the top of that card)
+----------------------------------------------------------
+LARGE C5 (8oz) COMBOS:
+   32oz + C5 Large ........  b32L.jpg
+   16oz + C5 Large ........  b16L.jpg
+   8oz  + C5 Large ........  b8L.jpg
+
+SMALL C5 (2oz) COMBOS:
+   32oz + C5 Small ........  b32S.jpg
+   16oz + C5 Small ........  b16S.jpg
+   8oz  + C5 Small ........  b8S.jpg
+   2oz  + C5 Small ........  b2S.jpg
+
+Tip: if you only have a photo of the bottles by size, you can reuse
+the same picture for more than one set (just save copies with each
+name above).
+
+----------------------------------------------------------
+THE BIG BOTTLE PHOTO AT THE TOP (the showcase)
+----------------------------------------------------------
+   Replace this file ......  bottle-polish-32oz.jpg
+   (Save your better shot, rename it to that exact name, drop it
+    in here, replace. Refresh.)
+
+----------------------------------------------------------
+DO NOT RENAME / DELETE THESE (the site needs them):
+----------------------------------------------------------
+   masthead.png        (the gold BEST SOLUTION header)
+   link-preview.png    (the image shown when you text the link)
+
+----------------------------------------------------------
+TO MAKE CHANGES LIVE FOR CUSTOMERS
+----------------------------------------------------------
+Editing files here only changes YOUR computer's preview. To update
+the real site (jfgreco84-commits.github.io/bestsolution):
+  - Easiest: tell Claude "push the site live."
+  - Or do it yourself on github.com: open your "bestsolution" repo,
+    click "Add file" > "Upload files," drag in the changed photos,
+    then "Commit changes." It goes live in about a minute.
+==========================================================
