@@ -3,1123 +3,1417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Solution - Reorder Your Polish</title>
+<title>Best Solution&reg; &mdash; Jewelry, Metal &amp; Glass Polish | Trusted Since 1985</title>
 
 <!-- ============================================================
-     FROGGY: PASTE YOUR FORMSPREE FORM ID BELOW (one place only).
-     1. Go to formspree.io > Forms > New Form > recipient
-        bestsolutionpolish@gmail.com
-     2. Copy the endpoint, it looks like  https://formspree.io/f/abcdwxyz
-     3. Put ONLY the part after /f/  (abcdwxyz) inside the quotes
-        in the <script> at the bottom of this file:
-        const FORMSPREE_ID = "abcdwxyz";
-     Until then the order button shows a friendly error and lets the
-     customer copy their order so nothing is lost.
+     FROGGY: Formspree is already connected (FORMSPREE_ID below).
+     To change it: formspree.io > Forms > copy the id after /f/
+     and paste it into  const FORMSPREE_ID = "....";  near the
+     bottom of this file.
 ============================================================ -->
 
 <!-- Open Graph / link preview -->
-<meta property="og:title" content="Best Solution Polish - Reorder">
-<meta property="og:description" content="Professional Jewelry &amp; Glass Polish. No Acid. No Ammonia. No Abrasives. Since 1985.">
+<meta property="og:title" content="Best Solution&reg; Jewelry, Metal &amp; Glass Polish">
+<meta property="og:description" content="Professional Results &bull; Safe &bull; Trusted Since 1985. No Ammonia. No Acid. No Abrasives. Free shipping on every order.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jfgreco84-commits.github.io/bestsolution/">
-<meta property="og:image" content="https://jfgreco84-commits.github.io/bestsolution/link-preview.png">
+<meta property="og:url" content="https://bestsolutionpolish.com/">
+<meta property="og:image" content="https://bestsolutionpolish.com/link-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Best Solution Polish - Reorder">
-<meta name="twitter:description" content="Professional Jewelry &amp; Glass Polish. No Acid. No Ammonia. No Abrasives. Since 1985.">
-<meta name="twitter:image" content="https://jfgreco84-commits.github.io/bestsolution/link-preview.png">
-<meta name="theme-color" content="#8B1FE8">
+<meta name="twitter:title" content="Best Solution&reg; Jewelry, Metal &amp; Glass Polish">
+<meta name="twitter:description" content="Professional Results &bull; Safe &bull; Trusted Since 1985. No Ammonia. No Acid. No Abrasives.">
+<meta name="twitter:image" content="https://bestsolutionpolish.com/link-preview.png">
+<meta name="theme-color" content="#2A2273">
 
-<!-- Gold diamond favicon -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238B1FE8'/%3E%3Cpath d='M16 4 L28 16 L16 28 L4 16 Z' fill='%23FFE680' stroke='%23D98B00' stroke-width='1.5'/%3E%3C/svg%3E">
+<!-- Navy diamond favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232A2273'/%3E%3Cpath d='M16 5 L27 13 L16 27 L5 13 Z M5 13 h22 M16 5 l-5 8 5 14 5-14 -5-8' fill='none' stroke='%23FFFFFF' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
 
-<!-- Google Fonts: Cinzel Decorative (headline) + Cinzel (headings) + Montserrat (body) -->
+<!-- Montserrat: the bold, clean sans-serif of the Best Solution price sheet -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+/* ============================================================
+   BEST SOLUTION BRAND SYSTEM
+   Deep royal purple + navy, bright white cards, teal accents.
+   Matches the 2026 price sheet and product graphics.
+============================================================ */
 :root{
-  --violet-hi:#A642FF;
-  --violet:#8B1FE8;
-  --violet-dk:#4B007C;
-  --violet-deep:#3A0068;
-  --purple-text:#3B0878;
-  --gold:#F7C533;
-  --gold-hi:#FFE680;
-  --gold-edge:#D98B00;
-  --gold-deep:#9A5A00;
-  --gold-brown:#8A4B00;
-  --cream:#FFF7E8;
-  --cream-sh:#EEDDC0;
-  --ink:#3B0878;
-  --dark:#111111;
-  --red:#E31717;
-  --radius:14px;
-  --metal:linear-gradient(180deg,#FFF3C0 0%,var(--gold-hi) 22%,var(--gold) 50%,var(--gold-edge) 76%,var(--gold-deep) 100%);
-  --shadow:0 14px 34px rgba(58,0,104,.5);
+  --royal:#38309B;          /* primary purple: headings, badges, buttons  */
+  --royal-deep:#2A2273;     /* rich navy-purple                            */
+  --navy:#1C1655;           /* deepest navy: footer, gradient ends         */
+  --royal-soft:#4A3FB8;     /* gradient start                              */
+  --teal:#0E8C8C;           /* limited accent: best value / travel         */
+  --teal-deep:#0A6E6E;
+  --paper:#FFFFFF;
+  --mist:#F5F5FA;           /* very light gray section background          */
+  --line:#E3E1F2;           /* light lavender borders                      */
+  --ink:#232138;            /* body text (near-black navy)                 */
+  --muted:#5C5A78;
+  --ok:#1A9E4B;
+  --radius:16px;
+  --shadow:0 10px 28px rgba(28,22,85,.14);
+  --shadow-sm:0 4px 14px rgba(28,22,85,.10);
+  --grad-hero:linear-gradient(165deg,#4A3FB8 0%,#332B8F 48%,#201A66 100%);
+  --grad-band:linear-gradient(120deg,#3B32A0 0%,#2A2273 100%);
 }
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
 body{
   font-family:'Montserrat',system-ui,sans-serif;
-  color:var(--dark);
-  background-color:#6a12c0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='%23ffffff' fill-opacity='0.11'%3E%3Cpath d='M26 10 l2.4 8.4 8.4 2.4 -8.4 2.4 -2.4 8.4 -2.4 -8.4 -8.4 -2.4 8.4 -2.4 z'/%3E%3Cpath d='M82 58 l1.7 6 6 1.7 -6 1.7 -1.7 6 -1.7 -6 -6 -1.7 6 -1.7 z'/%3E%3Ccircle cx='68' cy='22' r='1.7'/%3E%3Ccircle cx='16' cy='72' r='1.4'/%3E%3Ccircle cx='96' cy='92' r='1.4'/%3E%3Ccircle cx='48' cy='52' r='1.1'/%3E%3C/g%3E%3C/svg%3E"),
-    radial-gradient(125% 85% at 50% -8%, var(--violet-hi) 0%, var(--violet) 34%, #6a12c0 60%, var(--violet-dk) 100%);
-  line-height:1.5;
-  overflow-x:hidden;
+  color:var(--ink);background:var(--paper);
+  line-height:1.55;overflow-x:hidden;
 }
 img{max-width:100%;display:block}
+a{color:var(--royal)}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
 
-/* ====================== ORNATE GOLD FRAME ====================== */
-.frame{
-  position:relative;max-width:680px;margin:18px auto;
-  padding:14px 14px 96px;
-  border:3px solid var(--gold);border-radius:18px;
-  box-shadow:
-    0 0 0 1px var(--gold-deep),
-    inset 0 0 0 1px var(--gold-hi),
-    inset 0 0 0 5px rgba(255,230,128,.22),
-    var(--shadow);
+/* ====================== HEADER / NAV ====================== */
+.topbar{
+  background:var(--navy);color:#fff;text-align:center;
+  font-weight:700;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;
+  padding:8px 14px;
 }
-.corner{position:absolute;width:clamp(40px,11vw,66px);height:auto;
-  filter:drop-shadow(0 1px 1px rgba(58,0,104,.55));z-index:3}
-.corner.tl{top:5px;left:5px}
-.corner.tr{top:5px;right:5px;transform:rotate(90deg)}
-.corner.br{bottom:5px;right:5px;transform:rotate(180deg)}
-.corner.bl{bottom:5px;left:5px;transform:rotate(270deg)}
-
-.wrap{padding:0 4px}
-
-/* ---------- Beveled gold text ---------- */
-.gold-text{
-  background:linear-gradient(180deg,#FFF6D0 0%,var(--gold-hi) 20%,var(--gold) 48%,var(--gold-edge) 74%,var(--gold-deep) 100%);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:var(--gold);
-  text-shadow:0 1px 0 rgba(58,0,104,.35),0 2px 6px rgba(20,0,40,.45);
+.topbar .dot{color:#8F86E8;padding:0 4px}
+.header{
+  position:sticky;top:0;z-index:90;
+  background:var(--grad-band);
+  box-shadow:0 4px 18px rgba(28,22,85,.35);
 }
-
-/* ---------- Ornate divider ---------- */
-.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:26px 0 20px}
-.divider::before,.divider::after{content:"";height:2px;flex:1;max-width:130px;
-  background:linear-gradient(90deg,transparent,var(--gold))}
-.divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
-.divider .gem{color:var(--gold-hi);font-size:15px;letter-spacing:7px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-
-/* ====================== HERO / MASTHEAD ====================== */
-.hero{position:relative;text-align:center;padding:12px 6px 4px}
-.hero::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(70% 55% at 50% 30%,rgba(255,230,128,.16),transparent 70%);pointer-events:none}
-.masthead{position:relative;display:block;width:100%;height:auto;margin:0 auto;border-radius:10px}
-.hero-sub{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:#fff;font-size:clamp(12px,3.4vw,16px);margin:13px 0 0;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.hero-pills{display:inline-block;margin:11px auto 0;background:var(--metal);color:var(--purple-text);
-  font-family:'Cinzel',serif;font-weight:800;text-transform:uppercase;letter-spacing:.4px;
-  font-size:clamp(11px,3vw,14px);padding:7px 18px;border-radius:999px;border:2px solid var(--gold-hi);
-  box-shadow:0 4px 12px rgba(20,0,40,.45)}
-.hero-tag{color:var(--gold-hi);font-weight:700;font-size:12.5px;margin:11px 0 2px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.since{
-  position:relative;display:inline-block;margin-bottom:14px;
-  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:3.5px;
-  font-size:15px;color:var(--gold-hi);background:rgba(58,0,104,.55);
-  border:2px solid var(--gold);border-radius:999px;padding:8px 22px;
-  box-shadow:0 0 0 1px var(--gold-deep), 0 5px 16px rgba(20,0,40,.5), 0 0 18px rgba(255,214,90,.4);
-  text-shadow:0 1px 2px rgba(20,0,40,.6);
+.nav{
+  display:flex;align-items:center;gap:14px;
+  max-width:1120px;margin:0 auto;padding:10px 20px;
 }
-.wordmark{
-  position:relative;font-family:'Cinzel Decorative',serif;font-weight:900;text-transform:uppercase;
-  line-height:.9;margin:2px 0 6px;font-size:clamp(40px,12.5vw,76px);letter-spacing:.5px;
-  background:linear-gradient(180deg,#FFF7D6 0%,#FFE680 22%,#F7C533 50%,#D98B00 78%,#9A5A00 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#F7C533;
-  text-shadow:
-    0 1px 0 #b9780a,
-    0 2px 0 #9A5A00,
-    0 3px 0 #804a00,
-    0 4px 1px rgba(58,0,104,.5),
-    0 8px 12px rgba(20,0,40,.55);
-  filter:drop-shadow(0 2px 3px rgba(58,0,104,.4));
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;min-width:0}
+.brand svg{width:52px;height:52px;flex:none}
+.brand .bt{line-height:1.05;min-width:0}
+.brand .bt b{
+  display:block;font-weight:900;font-size:clamp(17px,2.6vw,22px);
+  letter-spacing:1.5px;white-space:nowrap;
 }
-.ribbon-sub{
-  position:relative;font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:2px;
-  font-size:clamp(11px,3.3vw,17px);color:#FFFFFF;padding:9px 4px;margin:2px auto;max-width:560px;
-  text-shadow:0 1px 3px rgba(20,0,40,.7);
-  border-top:1.5px solid rgba(247,197,51,.7);border-bottom:1.5px solid rgba(247,197,51,.7);
+.brand .bt small{
+  display:block;font-weight:700;font-size:clamp(8px,1.3vw,10.5px);
+  letter-spacing:1.6px;text-transform:uppercase;color:#C9C4F2;white-space:nowrap;
 }
-.no-pill{
-  position:relative;display:block;margin:16px auto 0;max-width:500px;
-  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;
-  font-size:clamp(12px,3.4vw,16px);color:var(--purple-text);text-align:center;
-  background:var(--metal);border-radius:999px;padding:10px 14px;
-  box-shadow:0 4px 10px rgba(20,0,40,.4),inset 0 1px 0 rgba(255,255,255,.5);
+.brand{flex:none}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links a{
+  color:#EDEBFB;text-decoration:none;font-weight:700;font-size:12.5px;
+  letter-spacing:.3px;padding:9px 9px;border-radius:8px;white-space:nowrap;
 }
-.hero-tag{position:relative;color:var(--gold-hi);font-weight:700;margin-top:14px;font-size:14.5px;letter-spacing:.3px}
-
-/* ====================== GOLD RIBBON BANNERS ====================== */
-.banner{display:flex;justify-content:center;margin:42px 0 20px}
-.banner-inner{
-  position:relative;text-align:center;
-  font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;
-  font-size:clamp(17px,4.6vw,26px);color:var(--purple-text);
-  background:var(--metal);
-  padding:13px 38px;
-  clip-path:polygon(0 50%,17px 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,17px 100%);
-  box-shadow:0 7px 16px rgba(20,0,40,.5),inset 0 1px 0 rgba(255,255,255,.5);
+.nav-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-links a.btn-shopnow{color:var(--royal-deep);background:#fff}
+.btn-shopnow{
+  margin-left:8px;background:#fff;color:var(--royal-deep);
+  font-weight:800;font-size:13px;letter-spacing:.6px;text-transform:uppercase;
+  padding:11px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
 }
-.banner-inner::after{
-  content:"";position:absolute;inset:3px;
-  clip-path:polygon(0 50%,15px 0,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,15px 100%);
-  border:1.5px solid rgba(59,8,120,.4);pointer-events:none;
+.btn-shopnow:hover{filter:brightness(.96)}
+.nav-toggle{
+  display:none;margin-left:auto;background:none;border:2px solid rgba(255,255,255,.5);
+  border-radius:10px;color:#fff;width:46px;height:44px;font-size:20px;cursor:pointer;line-height:1;
+}
+@media(max-width:1100px){
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--royal-deep);padding:8px 16px 16px;
+    box-shadow:0 14px 24px rgba(28,22,85,.4);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 10px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .btn-shopnow{margin:12px 0 0;text-align:center;justify-content:center;display:flex}
+  .nav-toggle{display:block}
 }
 
-/* ====================== GROUP + BLOCK LABELS ====================== */
-.group-label{
-  font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:var(--gold-hi);font-size:clamp(15px,4vw,19px);text-align:center;margin:26px 0 2px;
-  text-shadow:0 1px 3px rgba(20,0,40,.6);
+/* ====================== HERO ====================== */
+.hero{
+  background:var(--grad-hero);color:#fff;
+  padding:44px 0 54px;position:relative;overflow:hidden;
 }
-.group-label small{display:block;font-family:'Montserrat';font-weight:700;letter-spacing:.2px;
-  text-transform:none;color:#F0E6CF;font-size:13px;margin-top:3px}
-.block-label{
-  font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
-  color:var(--gold-hi);font-size:clamp(17px,4.4vw,21px);margin:30px 0 12px;
-  display:flex;align-items:center;justify-content:center;gap:12px;text-shadow:0 1px 3px rgba(20,0,40,.6);
+.hero::after{ /* subtle diamond sparkle texture */
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 12 l2.6 9 9 2.6 -9 2.6 -2.6 9 -2.6 -9 -9 -2.6 9 -2.6 z'/%3E%3Cpath d='M104 78 l1.8 6.4 6.4 1.8 -6.4 1.8 -1.8 6.4 -1.8 -6.4 -6.4 -1.8 6.4 -1.8 z'/%3E%3Ccircle cx='86' cy='28' r='1.8'/%3E%3Ccircle cx='22' cy='96' r='1.5'/%3E%3Ccircle cx='124' cy='120' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
 }
-.block-label::before,.block-label::after{content:"";height:2px;width:34px;
-  background:linear-gradient(90deg,transparent,var(--gold))}
-.block-label::after{background:linear-gradient(90deg,var(--gold),transparent)}
-
-/* ====================== BUNDLE CARDS ====================== */
-.grid{display:grid;gap:14px;margin-top:14px}
-.grid-3{grid-template-columns:1fr}
-.grid-2{grid-template-columns:1fr}
-@media(min-width:560px){
-  .grid-3{grid-template-columns:repeat(3,1fr)}
-  .grid-2{grid-template-columns:repeat(2,1fr)}
+.hero-grid{
+  position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;
+  gap:38px;align-items:center;max-width:1120px;margin:0 auto;padding:0 20px;
 }
-
-.card{
-  position:relative;background:linear-gradient(180deg,#FFFDF7,var(--cream) 60%,var(--cream-sh));
-  border:2px solid var(--gold);border-radius:var(--radius);
-  padding:18px 16px 16px;
-  box-shadow:0 8px 18px rgba(20,0,40,.32),inset 0 0 0 1px rgba(255,255,255,.7);
-  display:flex;flex-direction:column;transition:transform .12s,box-shadow .12s;
+.hero-badge{
+  display:inline-block;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);
+  color:#fff;font-weight:800;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+  padding:7px 16px;border-radius:999px;margin-bottom:16px;
 }
-.card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(20,0,40,.42)}
-.card-img{display:block;width:100%;height:160px;object-fit:contain;margin:0 auto 12px;
-  background:#fff;border:1px solid var(--gold);border-radius:10px;padding:6px}
-.card .name{
-  font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;
-  color:var(--purple-text);font-size:18px;line-height:1.1;
+.hero h1{
+  font-weight:900;text-transform:uppercase;line-height:1.04;
+  font-size:clamp(30px,5vw,52px);letter-spacing:.5px;
 }
-.card .contents{color:#6c5a86;font-size:13.5px;margin:6px 0 12px;font-weight:700}
-.card .price{
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:30px;color:var(--violet);line-height:1;
+.hero h1 .reg{font-size:.45em;vertical-align:super}
+.hero .h-sub{
+  font-weight:800;text-transform:uppercase;letter-spacing:1.4px;
+  font-size:clamp(13px,1.8vw,17px);color:#C9C4F2;margin-top:12px;
 }
-.card .price .ship{display:block;font-family:'Montserrat';font-weight:700;font-size:12px;
-  color:#9385a8;letter-spacing:.3px;margin-top:3px}
-.card .save{display:inline-block;margin-top:8px;background:#e7f8ee;border:1.5px solid #1a9e4b;
-  color:#137a39;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;
-  padding:4px 10px;border-radius:999px}
-
-/* ribbon badge */
-.ribbon{
-  position:absolute;top:-2px;right:-2px;
-  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:11px;letter-spacing:.6px;color:var(--purple-text);
-  background:var(--metal);
-  padding:6px 12px;border-radius:0 12px 0 14px;box-shadow:0 2px 6px rgba(20,0,40,.35);
+.hero .h-shine{
+  font-weight:700;font-size:clamp(16px,2.2vw,21px);color:#fff;margin-top:8px;
 }
-.card.popular{border-color:var(--violet);box-shadow:0 8px 20px rgba(139,31,232,.4),inset 0 0 0 1px rgba(255,255,255,.7)}
-.card.popular .ribbon{background:linear-gradient(180deg,var(--violet-hi),var(--violet));color:#fff}
-
-/* qty + add row */
-.card-actions{margin-top:14px;display:flex;flex-direction:column;gap:10px}
-.qty{display:flex;align-items:center;justify-content:center;gap:0;
-  border:2px solid var(--gold);border-radius:10px;overflow:hidden;align-self:center;background:#fff}
-.qty button{
-  width:48px;height:46px;border:0;background:#fff;color:var(--violet);
-  font-size:26px;font-weight:900;cursor:pointer;line-height:1;font-family:'Montserrat'
+.hero .h-pills{
+  margin-top:16px;font-weight:800;font-size:clamp(11px,1.6vw,13.5px);
+  letter-spacing:1.2px;text-transform:uppercase;color:#B9E8E8;
 }
-.qty button:active{background:var(--cream)}
-.qty .val{width:52px;height:46px;display:flex;align-items:center;justify-content:center;
-  font-family:'Montserrat';font-weight:800;font-size:22px;color:var(--purple-text);
-  border-left:2px solid var(--gold);border-right:2px solid var(--gold)}
-
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .btn{
   font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;
   letter-spacing:.8px;border:0;border-radius:12px;cursor:pointer;
-  min-height:48px;font-size:16px;transition:transform .1s,filter .1s;
+  min-height:50px;font-size:15px;transition:transform .1s,filter .12s;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  text-decoration:none;padding:0 22px;
 }
 .btn:active{transform:translateY(1px)}
-.btn-add{
-  background:linear-gradient(180deg,var(--violet-hi),var(--violet));
-  color:#fff;border:2px solid var(--gold);width:100%;
-  box-shadow:0 3px 8px rgba(75,0,124,.4);
+.btn-primary{background:#fff;color:var(--royal-deep);box-shadow:0 5px 16px rgba(0,0,0,.3)}
+.btn-primary:hover{filter:brightness(.95)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.65)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-photo{
+  background:#fff;border-radius:20px;padding:20px 16px 8px;
+  box-shadow:0 18px 44px rgba(10,7,40,.45);
 }
-.btn-add:hover{filter:brightness(1.07)}
-
-/* individual items (secondary, collapsible) */
-.singles{margin-top:18px;border:3px solid var(--gold);border-radius:var(--radius);
-  background:linear-gradient(180deg,rgba(255,253,247,.96),rgba(238,221,192,.96));
-  overflow:hidden;box-shadow:0 10px 26px rgba(58,0,104,.45)}
-.singles summary{
-  list-style:none;cursor:pointer;padding:17px 18px;
-  font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;letter-spacing:.7px;
-  color:var(--purple-text);font-size:16.5px;display:flex;align-items:center;justify-content:space-between;
-  background:var(--metal);text-shadow:0 1px 0 rgba(255,255,255,.5)}
-.singles summary::-webkit-details-marker{display:none}
-.singles summary::after{content:"+";font-size:24px;font-weight:700}
-.singles[open] summary::after{content:"\2013"}
-.singles .singles-body{padding:0 14px 14px}
-.single-row{display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:11px 0;border-top:1px solid #e6d6bb}
-.single-row .s-name{font-weight:800;color:var(--purple-text)}
-.single-row .s-name small{display:block;font-weight:700;color:#9385a8;font-size:12px}
-.single-row .s-price{font-family:'Montserrat';font-weight:800;color:var(--violet);font-size:18px;white-space:nowrap}
-.single-row .btn-add{width:auto;min-width:96px;padding:0 14px;min-height:44px;font-size:14px}
-
-/* ====================== BEFORE/AFTER STRIP ====================== */
-.ba-strip{
-  position:relative;margin:32px 0;border-radius:var(--radius);padding:28px 20px;text-align:center;
-  background:radial-gradient(120% 120% at 50% 0%,var(--violet-hi),var(--violet-dk));
-  border:3px solid var(--gold);box-shadow:var(--shadow),inset 0 0 38px rgba(20,0,40,.3);
+.hero-photo img{margin:0 auto}
+.hero-photo figcaption{
+  text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--royal-deep);font-size:12px;padding:10px 0 12px;
 }
-.ba-strip h3{
-  font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;
-  font-size:clamp(20px,5.6vw,30px);line-height:1.12;
-  color:#FFDE3A;
-  -webkit-text-fill-color:#FFDE3A;
-  background:none;
-  text-shadow:0 2px 4px rgba(20,0,55,.55), 0 0 14px rgba(255,222,58,.5), 0 1px 0 rgba(120,60,0,.4);
+/* two-product explainer chips */
+.duo{
+  position:relative;z-index:1;max-width:1120px;margin:34px auto 0;padding:0 20px;
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
 }
-.ba-photo{position:relative;max-width:560px;margin:18px auto 0;border-radius:12px;overflow:hidden;
-  border:3px solid var(--gold-hi);box-shadow:0 10px 24px rgba(20,0,40,.45)}
-.ba-photo img{display:block;width:100%}
-.ba-photo .tag{position:absolute;top:10px;font-family:'Cinzel',serif;font-weight:700;
-  font-size:12px;letter-spacing:1px;color:var(--purple-text);background:var(--gold-hi);
-  padding:4px 11px;border-radius:20px;box-shadow:0 2px 6px rgba(20,0,40,.45)}
-.ba-photo .tag.a{left:12px}.ba-photo .tag.b{right:12px}
-.ba-cap{margin:14px 0 0;color:var(--gold-hi);font-weight:700;font-size:13.5px;
-  text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 0}
-.ba-item{margin:0;border-radius:12px;overflow:hidden;border:3px solid var(--gold-hi);
-  box-shadow:0 8px 20px rgba(20,0,40,.45);background:#fff}
-.ba-item img{display:block;width:100%;height:170px;object-fit:cover}
-.ba-item figcaption{font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.4px;
-  color:var(--purple-text);background:var(--gold-hi);padding:6px 4px;text-align:center}
-@media(max-width:560px){.ba-grid{grid-template-columns:repeat(2,1fr);gap:9px}.ba-item img{height:140px}}
-
-/* ====================== CART ====================== */
-.cart{
-  position:relative;border:3px solid var(--gold);border-radius:16px;background:#FFFDF7;
-  box-shadow:var(--shadow);overflow:hidden;margin-top:8px;
+.duo .d{
+  background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);
+  border-radius:var(--radius);padding:18px 20px;
 }
-.cart-head{
-  background:linear-gradient(180deg,var(--violet),var(--violet-dk));
-  color:#fff;padding:14px 18px;font-family:'Cinzel',serif;font-weight:700;
-  text-transform:uppercase;letter-spacing:1px;font-size:19px;
-  display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--gold);
+.duo .d b{
+  display:block;font-weight:900;text-transform:uppercase;letter-spacing:1px;
+  font-size:14.5px;margin-bottom:5px;
 }
-.cart-head .gem{color:var(--gold-hi)}
-.cart-body{padding:6px 16px 16px}
-.cart-empty{color:#9385a8;text-align:center;padding:22px 6px;font-weight:700}
-.cart-item{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #efe5d3}
-.cart-item:last-child{border-bottom:0}
-.ci-info{flex:1;min-width:0}
-.ci-name{font-weight:800;color:var(--purple-text);font-size:15px}
-.ci-sub{font-size:12.5px;color:#9385a8;font-weight:700}
-.ci-qty{font-family:'Montserrat';font-weight:800;color:var(--violet);white-space:nowrap}
-.ci-line{font-family:'Montserrat';font-weight:800;color:var(--purple-text);white-space:nowrap;min-width:54px;text-align:right}
-.ci-remove{border:0;background:#f3eadb;color:#a33;width:34px;height:34px;border-radius:8px;
-  font-size:18px;font-weight:900;cursor:pointer;line-height:1}
-.cart-total{display:flex;flex-direction:column;gap:8px;
-  margin-top:14px;padding-top:14px;border-top:3px solid var(--gold)}
-.ct-row{display:flex;align-items:center;justify-content:space-between;
-  font-family:'Montserrat',sans-serif;font-weight:700;color:#6c5a86;font-size:14px}
-.ct-grand{align-items:baseline;border-top:2px solid #e6d6bb;padding-top:10px;margin-top:2px}
-.cart-total .lbl{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;color:var(--purple-text);font-size:17px}
-.cart-total .amt{font-family:'Montserrat';font-weight:900;color:var(--violet);font-size:34px;line-height:1}
-
-/* ====================== PAYMENT ====================== */
-.pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.pay-btn{
-  font-family:'Montserrat';font-weight:800;text-transform:uppercase;letter-spacing:.5px;
-  background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);color:var(--purple-text);
-  border-radius:12px;min-height:56px;font-size:16px;cursor:pointer;transition:all .12s;display:flex;
-  align-items:center;justify-content:center;gap:8px;
+.duo .d.polish b{color:#fff}
+.duo .d.c5 b{color:#B9E8E8}
+.duo .d p{font-weight:600;font-size:13.5px;color:#E4E1F8}
+@media(max-width:840px){
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .duo{grid-template-columns:1fr}
+  .hero{padding:34px 0 42px}
 }
-.pay-btn:active{transform:translateY(1px)}
-.pay-btn.active{background:linear-gradient(180deg,var(--violet-hi),var(--violet));
-  color:#fff;border-color:var(--gold-hi);box-shadow:0 0 0 3px rgba(247,197,51,.4)}
-.pay-note{text-align:center;color:#EBDDC2;font-size:12.5px;margin-top:10px;font-weight:700}
-
-/* ====================== FORM ====================== */
-.form{margin-top:18px}
-.field{margin-bottom:14px}
-.field label{display:block;font-family:'Montserrat';font-weight:700;text-transform:uppercase;
-  letter-spacing:.6px;color:var(--gold-hi);font-size:13px;margin-bottom:6px;text-shadow:0 1px 2px rgba(20,0,40,.5)}
-.field input,.field textarea{
-  width:100%;border:2px solid var(--gold);border-radius:12px;padding:14px;
-  font-family:'Montserrat';font-size:16px;color:var(--purple-text);background:#fff;
-}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--violet-hi);
-  box-shadow:0 0 0 3px rgba(166,66,255,.3)}
-.field textarea{min-height:84px;resize:vertical}
-.hint{font-size:12px;color:#EBDDC2;margin-top:5px;font-weight:700}
-
-.btn-order{
-  width:100%;margin-top:6px;min-height:64px;font-size:clamp(18px,5vw,22px);letter-spacing:1px;
-  font-family:'Cinzel',serif;font-weight:900;
-  background:linear-gradient(180deg,#34d36b,#159a45);
-  color:#fff;border:3px solid var(--gold-hi);border-radius:14px;
-  text-shadow:0 1px 2px rgba(0,45,18,.45);
-  box-shadow:0 0 0 2px var(--gold-deep), 0 8px 22px rgba(20,0,40,.5), 0 0 22px rgba(46,210,107,.55);
-}
-.btn-order:hover{filter:brightness(1.08)}
-.btn-order:disabled{filter:grayscale(.4) brightness(.9);cursor:not-allowed}
-.guarantee{display:flex;align-items:center;justify-content:center;gap:10px;margin:4px 0 12px;
-  background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);
-  border-radius:14px;padding:10px 16px;box-shadow:0 4px 12px rgba(20,0,40,.3)}
-.guarantee svg{width:24px;height:26px;flex:none}
-.guarantee b{display:block;font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;color:var(--purple-text);font-size:14px;letter-spacing:.4px}
-.guarantee small{display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#6c5a86;font-size:11.5px}
-.grid-special{grid-template-columns:1fr;max-width:470px;margin:0 auto 6px}
-.card.special{border-color:var(--gold-hi);box-shadow:0 0 0 2px var(--gold-deep), 0 0 28px rgba(255,214,90,.55), 0 12px 26px rgba(20,0,40,.5)}
-
-.msg{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;display:none}
-.msg.show{display:block}
-.msg.err{background:#fdecec;border:2px solid #e0a3a3;color:#9a2a2a}
-.msg.err button{margin-top:10px;background:#9a2a2a;color:#fff;border:0;border-radius:8px;
-  padding:10px 14px;font-weight:700;cursor:pointer;font-family:'Montserrat';text-transform:uppercase}
-
-/* ====================== SUCCESS ====================== */
-.success{display:none;position:relative;text-align:center;border:3px solid var(--gold);border-radius:18px;
-  background:radial-gradient(120% 120% at 50% 0%,var(--violet-hi),var(--violet-dk));
-  color:#fff;padding:34px 22px;box-shadow:var(--shadow);margin-top:8px}
-.success.show{display:block;animation:pop .35s ease}
-@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
-.success .check{font-size:60px;line-height:1;color:var(--gold-hi)}
-.success h2{font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;font-size:28px;margin:8px 0 6px}
-.success .gold-line{color:var(--gold-hi);font-weight:700;margin-top:10px}
-.success .btn{margin-top:20px;background:var(--metal);
-  color:var(--purple-text);border:0;padding:14px 22px}
 
 /* ====================== TRUST STRIP ====================== */
-.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:36px 0 10px}
-.trust .t{position:relative;background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);
-  border-radius:var(--radius);padding:16px 8px;text-align:center;box-shadow:0 8px 18px rgba(20,0,40,.32)}
-.trust .stars{color:var(--gold-edge);font-size:11px;letter-spacing:3px;margin-bottom:5px}
-.shield{width:44px;height:48px;margin:0 auto 8px;display:block}
-.trust .t h4{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;color:var(--purple-text);font-size:16px}
-.trust .t p{font-size:10.5px;color:#7a6a92;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:3px}
-
-/* ====================== FAQ ====================== */
-.faq{margin-top:18px}
-.faq details{background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);border-radius:12px;
-  margin-bottom:10px;overflow:hidden}
-.faq summary{list-style:none;cursor:pointer;padding:15px 16px;font-family:'Cinzel',serif;
-  font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--violet);font-size:14.5px;
-  display:flex;justify-content:space-between;align-items:center}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:22px;font-weight:700}
-.faq details[open] summary::after{content:"\2013"}
-.faq .a{padding:0 16px 16px;color:#333;font-size:14.5px}
-.faq .a strong{color:var(--purple-text)}
-.faq .a .badge-q{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:800;
-  font-size:10px;letter-spacing:.8px;color:#fff;background:var(--red);
-  padding:3px 9px;border-radius:20px;margin:0 0 9px;text-transform:uppercase}
-
-/* ====================== FOOTER ====================== */
-.footer{margin-top:38px;text-align:center}
-.footer .strip{
-  background:var(--metal);
-  border-radius:12px;padding:13px;font-family:'Cinzel',serif;font-weight:900;
-  text-transform:uppercase;letter-spacing:1px;color:var(--purple-text);font-size:clamp(13px,3.6vw,16px);
-  box-shadow:0 6px 14px rgba(20,0,40,.4),inset 0 1px 0 rgba(255,255,255,.5);
+.trust-strip{background:var(--paper);border-bottom:1px solid var(--line);padding:26px 0}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:8px;
+  max-width:1120px;margin:0 auto;padding:0 20px;
 }
-.seal{width:66px;height:66px;margin:18px auto 8px;display:block;filter:drop-shadow(0 2px 3px rgba(20,0,40,.5))}
-.footer .biz{margin-top:4px;color:#F0E6CF;font-weight:700;font-size:13px;line-height:1.7}
-.footer .biz strong{color:var(--gold-hi);font-family:'Cinzel',serif}
-.footer .biz a{color:var(--gold-hi);text-decoration:none;font-weight:900}
-
-/* ====================== PRODUCT SHOWCASE ====================== */
-.showcase2{margin:20px 0 6px}
-.lineup-card{position:relative;background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));
-  border:3px solid var(--gold);border-radius:var(--radius);padding:16px;text-align:center;
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 10px 22px rgba(20,0,40,.38)}
-.lineup-card img{display:block;width:auto;max-width:90%;max-height:230px;margin:2px auto 12px;
-  filter:drop-shadow(0 10px 16px rgba(20,0,40,.35))}
-.lineup-card h3{font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;color:var(--purple-text);font-size:clamp(19px,5vw,24px);letter-spacing:.5px}
-.lineup-card p{color:#6c5a86;font-weight:700;font-size:13px;margin-top:4px}
-.prod2{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-@media(min-width:620px){.prod2{grid-template-columns:1fr 1fr}}
-.prod-card{background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:3px solid var(--gold);
-  border-radius:var(--radius);padding:16px 16px 18px;box-shadow:0 8px 18px rgba(20,0,40,.32);text-align:center}
-.pc-head{display:inline-block;font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;
-  font-size:clamp(16px,4.4vw,19px);letter-spacing:.6px;color:var(--purple-text);background:var(--metal);
-  border:2px solid var(--gold-hi);border-radius:999px;padding:7px 20px;
-  box-shadow:0 0 0 1px var(--gold-deep), 0 4px 11px rgba(20,0,40,.4);text-shadow:0 1px 0 rgba(255,255,255,.5)}
-.pc-sub{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:.6px;
-  text-transform:uppercase;color:#8a76a8;margin:9px 0 0}
-.ilist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin:14px 0 2px;text-align:left}
-.ilist li{display:flex;align-items:baseline;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;
-  font-size:12.5px;color:#3a2d4d;padding:3px 1px}
-.ilist li::before{content:"\25C6";color:var(--gold-edge);font-size:8px;flex:none;position:relative;top:-1px}
-.ilist li.x{color:#9385a8;font-style:italic}
-.ilist li.x::before{color:#c9b48a}
-.wow{margin:16px 0 6px;text-align:center;background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));
-  border:3px solid var(--gold);border-radius:var(--radius);padding:14px;
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 10px 22px rgba(20,0,40,.38)}
-.wow-img{display:block;width:100%;border-radius:12px;border:3px solid var(--gold-hi);
-  box-shadow:0 8px 20px rgba(20,0,40,.4)}
-.wow-cap{color:#3a2d4d;font-weight:700;font-size:13.5px;margin-top:11px}
-.wow-cap b{color:var(--purple-text)}
-
-/* ====================== INFO: 2-STEP ====================== */
-.steps{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
-@media(min-width:560px){.steps{grid-template-columns:1fr 1fr}}
-.step{position:relative;background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);
-  border-radius:var(--radius);padding:16px 18px 18px 58px;box-shadow:0 6px 14px rgba(20,0,40,.28)}
-.step-body{min-width:0}
-.step-prod{font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gold-edge);font-size:10.5px}
-.step-body p + p{margin-top:8px}
-.step .num{position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;
-  background:linear-gradient(180deg,var(--violet-hi),var(--violet));color:#fff;border:2px solid var(--gold);
-  font-family:'Cinzel',serif;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center}
-.step h3{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;color:var(--purple-text);font-size:16px;margin-bottom:4px}
-.step p{color:#3a2d4d;font-weight:600;font-size:13.5px}
-.step .hot{color:var(--red);font-weight:900;text-transform:uppercase}
-
-/* ====================== INFO: RESTORE CATEGORIES ====================== */
-.info-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
-@media(min-width:560px){.info-grid{grid-template-columns:1fr 1fr}}
-.info-card{background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:2px solid var(--gold);
-  border-radius:var(--radius);padding:14px 16px;box-shadow:0 6px 14px rgba(20,0,40,.28)}
-.info-card h3{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;color:var(--purple-text);font-size:16px;margin-bottom:8px}
-.info-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:5px 14px}
-.info-card li{position:relative;padding-left:15px;font-weight:700;color:#3a2d4d;font-size:13px}
-.info-card li::before{content:"\2666";position:absolute;left:0;color:var(--gold-edge)}
-
-/* ====================== INFO: NOT JUST FOR JEWELRY ====================== */
-.uses-sub{text-align:center;color:var(--gold-hi);font-weight:700;font-size:13px;
-  margin:-4px 0 4px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.uses{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
-@media(min-width:560px){.uses{grid-template-columns:repeat(4,1fr)}}
-.use{text-align:center;background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));
-  border:3px solid var(--gold);border-radius:14px;padding:14px 8px 12px;
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 8px 18px rgba(20,0,40,.4)}
-.use .ic{width:60px;height:60px;margin:2px auto 10px;border-radius:50%;
-  background:radial-gradient(125% 125% at 50% 0%,#B362FF,var(--violet),var(--violet-dk));
-  border:3px solid var(--gold-hi);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 0 1px var(--gold-deep), 0 5px 12px rgba(20,0,40,.45), 0 0 14px rgba(255,214,90,.55)}
-.use .ic svg{width:34px;height:34px;display:block;filter:drop-shadow(0 1px 2px rgba(20,0,40,.5))}
-.use .ic svg *{stroke-width:2.4px}
-.use b{display:block;font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;color:var(--purple-text);font-size:13px;letter-spacing:.3px}
-.use small{display:block;color:#8a76a8;font-size:10.5px;font-weight:700;margin-top:3px}
-
-/* ====================== STICKY VIEW ORDER ====================== */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(120%);
-  transition:transform .25s ease;padding:12px 14px calc(12px + env(safe-area-inset-bottom));
-  background:linear-gradient(180deg,rgba(58,0,104,0),rgba(58,0,104,.94) 40%);
+.trust-grid .t{text-align:center;padding:6px 2px}
+.trust-grid .t svg{width:34px;height:34px;margin:0 auto 7px;display:block;color:var(--royal)}
+.trust-grid .t b{
+  display:block;font-weight:800;text-transform:uppercase;color:var(--royal-deep);
+  font-size:11px;letter-spacing:.5px;line-height:1.3;
 }
-.sticky.show{transform:translateY(0)}
-.sticky .btn{
-  width:100%;max-width:652px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--metal);
-  color:var(--purple-text);border:2px solid #fff;min-height:56px;font-size:18px;
-  box-shadow:0 6px 18px rgba(20,0,40,.45);
+.trust-grid .t.hl{background:#EAF6F6;border-radius:12px;padding:10px 4px 8px}
+.trust-grid .t.hl svg{color:var(--teal)}
+.trust-grid .t.hl b{color:var(--teal-deep)}
+@media(max-width:840px){.trust-grid{grid-template-columns:repeat(4,1fr);gap:10px}}
+@media(max-width:520px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ====================== SECTION SCAFFOLDING ====================== */
+.section{padding:54px 0}
+.section.alt{background:var(--mist)}
+.sec-head{text-align:center;margin-bottom:8px}
+.sec-head h2{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  font-weight:900;text-transform:uppercase;color:var(--royal-deep);
+  font-size:clamp(21px,3.4vw,30px);letter-spacing:1.2px;
 }
-/* ---------- booth gallery ---------- */
-.booth-sub{text-align:center;color:var(--gold-hi);font-weight:700;font-size:14px;
-  margin:-4px 0 18px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.booths{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 8px}
-.booth{position:relative;border-radius:var(--radius);overflow:hidden;
-  border:3px solid var(--gold);background:var(--cream);
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 8px 20px rgba(58,0,104,.4)}
-.booth img{display:block;width:100%;height:100%;aspect-ratio:1/1;object-fit:cover}
-@media(max-width:560px){.booths{grid-template-columns:repeat(2,1fr);gap:9px}}
-/* ---------- stacked collages (happy customers + ring before/after) ---------- */
-.collage-stack{display:flex;flex-direction:column;gap:14px;margin:18px 0 4px}
-.collage-shot{margin:0;border-radius:14px;overflow:hidden;
-  border:3px solid var(--gold-hi);background:#2a0d4e;
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 10px 24px rgba(20,0,40,.45)}
-.collage-shot img{display:block;width:100%;height:auto}
-/* ---------- testimonials ---------- */
-.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:6px 0 8px}
-.review{background:linear-gradient(180deg,#FFFDF7,var(--cream-sh));border:3px solid var(--gold);
-  border-radius:14px;padding:16px 16px 14px;
-  box-shadow:0 0 0 1px var(--gold-deep), inset 0 0 0 1px var(--gold-hi), 0 8px 20px rgba(58,0,104,.38)}
-.review .rs{color:#F7C533;font-size:15px;letter-spacing:3px;margin-bottom:8px}
-.review p{margin:0;color:#3a2b52;font-size:14px;line-height:1.5;font-style:italic}
-.review p b{color:var(--purple-text);font-style:normal}
-.review .who{margin-top:11px;font-family:'Cinzel',serif;font-weight:700;color:var(--purple-text);font-size:13px}
-.review .who small{display:block;font-family:'Montserrat',sans-serif;font-weight:600;color:#9385a8;
-  font-size:11.5px;font-style:normal;letter-spacing:.3px;margin-top:2px}
-@media(max-width:560px){.reviews{grid-template-columns:1fr}}
-/* ---------- show more / less ---------- */
+.sec-head h2::before,.sec-head h2::after{
+  content:"";height:2.5px;width:min(120px,14vw);border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--royal));
+}
+.sec-head h2::after{background:linear-gradient(90deg,var(--royal),transparent)}
+.sec-head .sub{
+  font-weight:600;color:var(--muted);font-size:15px;max-width:640px;margin:10px auto 0;
+}
+.sec-head .kicker{
+  display:inline-block;font-weight:800;font-size:11.5px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--teal);margin-bottom:8px;
+}
+.sec-body{margin-top:30px}
+
+/* ====================== SET CARDS (SETS - BEST VALUE) ====================== */
+.setband{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:var(--grad-band);color:#fff;border-radius:var(--radius);
+  padding:16px 22px;margin-bottom:16px;box-shadow:var(--shadow-sm);
+}
+.setband svg{width:30px;height:30px;color:#fff;flex:none}
+.setband b{font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:17px}
+.setband small{display:block;font-weight:600;font-size:12.5px;color:#C9C4F2;letter-spacing:.3px}
+.setband .tag{
+  margin-left:auto;background:#fff;color:var(--royal-deep);font-weight:900;
+  text-transform:uppercase;font-size:11px;letter-spacing:1px;padding:6px 14px;border-radius:999px;
+}
+.setband.teal{background:linear-gradient(120deg,#11807F,#0A5A5A)}
+.setband.teal small{color:#BFE8E8}
+.setband.teal .tag{color:var(--teal-deep)}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:920px){.grid-3{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid-3,.grid-4{grid-template-columns:1fr}}
+.pcard{
+  position:relative;background:var(--paper);border:1.5px solid var(--line);
+  border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;
+  box-shadow:var(--shadow-sm);transition:transform .14s,box-shadow .14s;
+}
+.pcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.pcard .ribbon{
+  position:absolute;top:14px;right:-1px;background:var(--royal);color:#fff;
+  font-weight:800;text-transform:uppercase;font-size:10.5px;letter-spacing:.8px;
+  padding:6px 12px;border-radius:8px 0 0 8px;box-shadow:0 2px 8px rgba(28,22,85,.25);
+}
+.pcard.teal-card{border-color:#BFE0E0}
+.pcard.teal-card .ribbon{background:var(--teal)}
+.pcard .imgbox{
+  height:200px;display:flex;align-items:flex-end;justify-content:center;
+  background:#fff;border-radius:12px;margin-bottom:14px;padding:6px 6px 0;
+}
+.pcard .imgbox img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:bottom}
+.pcard h3{
+  font-weight:900;text-transform:uppercase;color:var(--royal-deep);
+  font-size:17px;line-height:1.2;letter-spacing:.3px;
+}
+.pcard .sizes{font-weight:700;color:var(--muted);font-size:12.5px;margin-top:3px}
+.pcard .uses{list-style:none;margin:12px 0 4px;display:grid;gap:7px}
+.pcard .uses li{display:flex;align-items:center;gap:9px;font-weight:600;font-size:13px;color:var(--ink)}
+.pcard .uses svg{width:20px;height:20px;flex:none;color:var(--royal)}
+.pcard .tagline{
+  margin-top:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+  font-size:10.5px;color:var(--teal);
+}
+.pcard .buyrow{
+  margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.pcard .price{
+  background:var(--royal);color:#fff;font-weight:900;font-size:22px;line-height:1;
+  border-radius:12px;padding:11px 16px;box-shadow:0 3px 10px rgba(56,48,155,.3);white-space:nowrap;
+}
+.pcard.teal-card .price{background:var(--teal)}
+.pcard .ship{font-weight:700;font-size:11px;color:var(--ok);text-transform:uppercase;letter-spacing:.4px}
+.card-actions{display:flex;gap:10px;margin-top:12px}
+.qty{
+  display:flex;align-items:center;border:2px solid var(--line);border-radius:12px;
+  overflow:hidden;background:#fff;flex:none;
+}
+.qty button{
+  width:42px;height:48px;border:0;background:#fff;color:var(--royal);
+  font-size:22px;font-weight:900;cursor:pointer;line-height:1;font-family:'Montserrat',sans-serif;
+}
+.qty button:active{background:var(--mist)}
+.qty .val{
+  width:40px;height:48px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:17px;color:var(--royal-deep);
+  border-left:2px solid var(--line);border-right:2px solid var(--line);
+}
+.btn-add{
+  flex:1;background:var(--royal);color:#fff;min-height:48px;font-size:13.5px;border-radius:12px;
+  box-shadow:0 3px 10px rgba(56,48,155,.28);padding:0 10px;white-space:nowrap;
+}
+.btn-add:hover{filter:brightness(1.1)}
+@media(min-width:561px){
+  .grid-4 .btn-add{font-size:11.5px;letter-spacing:.4px}
+  .grid-4 .qty button{width:34px}
+  .grid-4 .qty .val{width:32px;font-size:15px}
+}
+.pcard.teal-card .btn-add{background:var(--teal)}
+.quickpicks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
+@media(max-width:640px){.quickpicks{grid-template-columns:repeat(2,1fr)}}
+.qp{
+  cursor:pointer;background:#fff;color:var(--royal-deep);border:2px solid var(--line);
+  border-radius:12px;padding:13px 8px;font-family:'Montserrat',sans-serif;font-weight:800;
+  text-transform:uppercase;font-size:12.5px;letter-spacing:.3px;min-height:48px;
+  box-shadow:var(--shadow-sm);
+}
+.qp:hover{border-color:var(--royal);color:var(--royal)}
+
+/* ====================== ORDER / CART ====================== */
+.freeship-banner{
+  display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;
+  background:#E9F8EF;border:1.5px solid #BEE7CD;color:#137A39;
+  font-weight:800;text-transform:uppercase;letter-spacing:.6px;font-size:13.5px;
+  padding:11px 16px;border-radius:12px;margin:0 0 22px;
+}
+.order-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+@media(max-width:840px){.order-grid{grid-template-columns:1fr}}
+.panel{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);overflow:hidden;
+}
+.panel-head{
+  background:var(--grad-band);color:#fff;padding:15px 20px;
+  font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.panel-head svg{width:22px;height:22px}
+.panel-body{padding:16px 20px 20px}
+.cart-sticky{position:sticky;top:96px}
+.cart-empty{color:var(--muted);text-align:center;padding:24px 6px;font-weight:600;font-size:14px}
+.cart-item{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-item:last-child{border-bottom:0}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-weight:800;color:var(--royal-deep);font-size:14.5px}
+.ci-sub{font-size:12px;color:var(--muted);font-weight:600}
+.ci-qty{font-weight:800;color:var(--royal);white-space:nowrap;font-size:14px}
+.ci-line{font-weight:800;color:var(--ink);white-space:nowrap;min-width:56px;text-align:right;font-size:15px}
+.ci-remove{
+  border:0;background:var(--mist);color:#B4372F;width:36px;height:36px;border-radius:9px;
+  font-size:17px;font-weight:900;cursor:pointer;line-height:1;
+}
+.ci-remove:hover{background:#F6E4E2}
+.cart-total{margin-top:12px;padding-top:12px;border-top:2px solid var(--line);display:flex;flex-direction:column;gap:7px}
+.ct-row{display:flex;align-items:center;justify-content:space-between;font-weight:700;color:var(--muted);font-size:14px}
+.ct-row .freeship{color:var(--ok);font-weight:900;text-transform:uppercase;font-size:13px}
+.ct-grand{border-top:1.5px solid var(--line);padding-top:11px;margin-top:3px;align-items:baseline}
+.ct-grand .lbl{font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:16px;letter-spacing:.5px}
+.ct-grand .amt{font-weight:900;color:var(--royal);font-size:32px;line-height:1}
+/* payment picker */
+.pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+.pay-btn{
+  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+  background:#fff;border:2px solid var(--line);color:var(--royal-deep);
+  border-radius:12px;min-height:54px;font-size:14.5px;cursor:pointer;transition:all .12s;
+}
+.pay-btn:hover{border-color:var(--royal)}
+.pay-btn.active{background:var(--royal);color:#fff;border-color:var(--royal);box-shadow:0 3px 12px rgba(56,48,155,.35)}
+.pay-note{color:var(--muted);font-size:12.5px;margin-top:12px;font-weight:600;text-align:center}
+.pay-note b{color:var(--royal-deep)}
+/* form */
+.field{margin-bottom:14px}
+.field label{
+  display:block;font-weight:800;text-transform:uppercase;letter-spacing:.7px;
+  color:var(--royal-deep);font-size:12px;margin-bottom:6px;
+}
+.field input,.field textarea{
+  width:100%;border:2px solid var(--line);border-radius:12px;padding:13px 14px;
+  font-family:'Montserrat',sans-serif;font-size:16px;color:var(--ink);background:#fff;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--royal);box-shadow:0 0 0 3px rgba(56,48,155,.15)}
+.field textarea{min-height:80px;resize:vertical}
+.hint{font-size:12px;color:var(--muted);margin-top:5px;font-weight:600}
+.guarantee{
+  display:flex;align-items:center;gap:12px;margin:16px 0 14px;
+  background:#EAF6F6;border:1.5px solid #BFE0E0;border-radius:12px;padding:12px 16px;
+}
+.guarantee svg{width:30px;height:30px;flex:none;color:var(--teal)}
+.guarantee b{display:block;font-weight:900;text-transform:uppercase;color:var(--teal-deep);font-size:13.5px;letter-spacing:.4px}
+.guarantee small{display:block;font-weight:600;color:#2E6B6B;font-size:12px}
+.btn-order{
+  width:100%;min-height:60px;font-size:clamp(16px,4vw,19px);letter-spacing:1px;
+  background:var(--royal);color:#fff;border-radius:14px;
+  box-shadow:0 8px 22px rgba(56,48,155,.35);
+}
+.btn-order:hover{filter:brightness(1.1)}
+.btn-order:disabled{filter:grayscale(.4) brightness(.9);cursor:not-allowed}
+.msg{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;display:none;font-size:14px}
+.msg.show{display:block}
+.msg.err{background:#FDEEEC;border:2px solid #E8B4AE;color:#9A2A2A}
+.msg.err button{
+  margin-top:10px;background:#9A2A2A;color:#fff;border:0;border-radius:9px;
+  padding:10px 14px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;text-transform:uppercase;
+}
+/* success */
+.success{
+  display:none;text-align:center;border-radius:var(--radius);
+  background:var(--grad-hero);color:#fff;padding:36px 24px;box-shadow:var(--shadow);margin-top:8px;
+}
+.success.show{display:block;animation:pop .35s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.success .check{
+  width:64px;height:64px;margin:0 auto 10px;border-radius:50%;background:#fff;color:var(--royal);
+  display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;
+}
+.success h2{font-weight:900;text-transform:uppercase;font-size:26px;margin:6px 0 8px;letter-spacing:1px}
+.success p{font-weight:600;color:#E4E1F8}
+.success .note-line{color:#B9E8E8;font-weight:700;margin-top:10px;font-size:13.5px}
+.success .btn{margin-top:18px;background:#fff;color:var(--royal-deep)}
+
+/* ====================== HOW IT WORKS (2 STEPS) ====================== */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow-sm);display:flex;gap:18px;align-items:flex-start;
+}
+.step .bottle{flex:none;width:86px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px}
+.step .num{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--royal);color:#fff;font-weight:900;font-size:11px;letter-spacing:1.2px;
+  text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:8px;
+}
+.step.two .num{background:var(--teal)}
+.step h3{font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:16.5px;letter-spacing:.4px}
+.step p{color:var(--ink);font-weight:600;font-size:13.5px;margin-top:7px}
+.step p b{color:var(--royal-deep)}
+.step .hot{color:#B4372F;font-weight:900;text-transform:uppercase}
+.step-divider{
+  text-align:center;margin:18px auto 0;max-width:720px;
+  background:var(--grad-band);color:#fff;border-radius:12px;padding:13px 20px;
+  font-weight:800;font-size:14px;letter-spacing:.3px;
+}
+.step-divider b{color:#B9E8E8;text-transform:uppercase}
+
+/* ====================== GALLERIES ====================== */
+.ba-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:840px){.ba-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.ba-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.ba-item{
+  margin:0;border-radius:14px;overflow:hidden;background:#fff;
+  border:1.5px solid var(--line);box-shadow:var(--shadow-sm);cursor:zoom-in;
+}
+.ba-item img{width:100%;height:170px;object-fit:cover}
+@media(max-width:560px){.ba-item img{height:140px}}
+.ba-item figcaption{
+  font-weight:800;font-size:12px;letter-spacing:.4px;text-transform:uppercase;
+  color:var(--royal-deep);background:var(--mist);padding:8px 6px;text-align:center;
+}
+.collage-stack{display:flex;flex-direction:column;gap:16px}
+.collage-shot{
+  margin:0;border-radius:var(--radius);overflow:hidden;background:#fff;
+  border:1.5px solid var(--line);box-shadow:var(--shadow-sm);cursor:zoom-in;
+}
+.collage-shot img{width:100%;height:auto}
+.booths{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:840px){.booths{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.booths{grid-template-columns:repeat(2,1fr);gap:10px}}
+.booth{
+  border-radius:14px;overflow:hidden;border:1.5px solid var(--line);
+  background:#fff;box-shadow:var(--shadow-sm);cursor:zoom-in;
+}
+.booth img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover}
 .ba-item.more,.booth.more,.review.more,.collage-shot.more{display:none}
 .ba-grid.expanded .ba-item.more{display:block}
 .booths.expanded .booth.more{display:block}
 .reviews.expanded .review.more{display:block}
 .collage-stack.expanded .collage-shot.more{display:block}
-.more-btn{display:block;margin:16px auto 0;cursor:pointer;
-  background:var(--metal);color:var(--purple-text);font-family:'Cinzel',serif;font-weight:800;
-  text-transform:uppercase;letter-spacing:.5px;font-size:13.5px;padding:12px 26px;border-radius:30px;
-  border:2px solid var(--gold-hi);box-shadow:0 6px 16px rgba(20,0,40,.4)}
-.more-btn:hover{filter:brightness(1.05)}
-/* ---------- "the original" badge ---------- */
-.orig-badge{display:block;width:max-content;max-width:94%;margin:0 auto 12px;
-  font-family:'Cinzel',serif;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;
-  font-size:clamp(10.5px,2.7vw,13px);color:var(--purple-text);text-align:center;
-  background:var(--metal);border:2px solid var(--gold-hi);border-radius:999px;padding:6px 16px;
-  box-shadow:0 0 0 1px var(--gold-deep), 0 4px 12px rgba(20,0,40,.45);
-  text-shadow:0 1px 0 rgba(255,255,255,.5)}
-.orig-badge .star{color:#7a3d00}
-/* ---------- reorder-machine layout ---------- */
-.reorder-head{text-align:center;font-family:'Cinzel',serif;font-weight:900;text-transform:uppercase;
-  color:var(--gold-hi);font-size:clamp(15px,4.2vw,20px);margin:14px 0 12px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.nextshows{margin:14px auto;max-width:640px;background:rgba(58,0,104,.5);border:2px solid var(--gold);
-  border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(20,0,40,.4)}
-.ns-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;
-  background:linear-gradient(180deg,var(--violet-hi),var(--violet));color:#fff;border:0;
-  font-family:'Cinzel',serif;font-weight:700;letter-spacing:.6px;font-size:15px;padding:11px 14px;
-  text-transform:uppercase}
+.more-btn{
+  display:block;margin:22px auto 0;cursor:pointer;background:#fff;color:var(--royal);
+  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+  font-size:13px;padding:13px 28px;border-radius:999px;border:2px solid var(--royal);
+}
+.more-btn:hover{background:var(--royal);color:#fff}
+.gal-cap{text-align:center;color:var(--muted);font-weight:600;font-size:13.5px;margin-top:16px}
+.gal-cap b{color:var(--royal-deep)}
+/* lightbox */
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:200;background:rgba(16,12,50,.92);
+  align-items:center;justify-content:center;padding:22px;cursor:zoom-out;
+}
+.lightbox.show{display:flex}
+.lightbox img{max-width:min(96vw,1000px);max-height:82vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lightbox .lb-cap{
+  position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff;
+  font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:13px;
+}
+.lightbox .lb-x{
+  position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;
+  background:#fff;color:var(--royal-deep);border:0;font-size:20px;font-weight:900;cursor:pointer;
+}
+
+/* ====================== SAFE ON EVERY STONE ====================== */
+.lists2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.lists2{grid-template-columns:1fr}}
+.listcard{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;box-shadow:var(--shadow-sm);
+}
+.listcard .lc-head{
+  display:flex;align-items:center;gap:10px;margin-bottom:4px;
+}
+.listcard .lc-head svg{width:26px;height:26px;color:var(--royal)}
+.listcard h3{font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:16.5px;letter-spacing:.4px}
+.listcard .lc-sub{font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:11px;color:var(--teal);margin-bottom:12px}
+.ilist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.ilist li{display:flex;align-items:baseline;gap:8px;font-weight:600;font-size:12.5px;color:var(--ink);padding:2px 0}
+.ilist li::before{content:"\25C6";color:var(--royal);font-size:7px;flex:none;position:relative;top:-2px}
+.ilist li.x{color:var(--muted);font-style:italic}
+.opal-callout{
+  margin-top:18px;display:flex;gap:14px;align-items:center;
+  background:linear-gradient(120deg,#11807F,#0A5A5A);color:#fff;
+  border-radius:var(--radius);padding:18px 22px;box-shadow:var(--shadow-sm);
+}
+.opal-callout svg{width:38px;height:38px;flex:none}
+.opal-callout b{display:block;font-weight:900;text-transform:uppercase;letter-spacing:.8px;font-size:15.5px}
+.opal-callout p{font-weight:600;font-size:13.5px;color:#D7F0F0;margin-top:3px}
+
+/* ====================== NOT JUST FOR JEWELRY ====================== */
+.uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:840px){.uses-grid{grid-template-columns:repeat(2,1fr)}}
+.use{
+  text-align:center;background:var(--paper);border:1.5px solid var(--line);
+  border-radius:14px;padding:18px 10px 16px;box-shadow:var(--shadow-sm);
+}
+.use .ic{
+  width:56px;height:56px;margin:0 auto 10px;border-radius:50%;
+  background:var(--mist);display:flex;align-items:center;justify-content:center;color:var(--royal);
+}
+.use .ic svg{width:30px;height:30px}
+.use b{display:block;font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:13px;letter-spacing:.3px}
+.use small{display:block;color:var(--muted);font-size:11px;font-weight:600;margin-top:3px}
+
+/* ====================== REVIEWS ====================== */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:920px){.reviews{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.reviews{grid-template-columns:1fr}}
+.review{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:18px 18px 16px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+}
+.review .rs{color:#E8A413;font-size:15px;letter-spacing:3px;margin-bottom:9px}
+.review p{color:var(--ink);font-size:13.5px;line-height:1.55;font-weight:500;font-style:italic}
+.review p b{color:var(--royal-deep);font-style:normal}
+.review .who{margin-top:auto;padding-top:12px;font-weight:800;color:var(--royal-deep);font-size:13px}
+.review .who small{display:block;font-weight:600;color:var(--muted);font-size:11.5px;letter-spacing:.3px;margin-top:2px}
+
+/* ====================== FAQ ====================== */
+.faq{max-width:820px;margin:0 auto}
+.faq details{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:14px;
+  margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.faq summary{
+  list-style:none;cursor:pointer;padding:16px 18px;font-weight:800;
+  color:var(--royal-deep);font-size:15px;display:flex;justify-content:space-between;
+  align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;font-weight:700;color:var(--royal);flex:none}
+.faq details[open] summary::after{content:"\2013"}
+.faq .a{padding:0 18px 18px;color:var(--ink);font-size:14.5px;font-weight:500}
+.faq .a strong{color:var(--royal-deep)}
+.faq .a .badge-q{
+  display:inline-block;font-weight:800;font-size:10px;letter-spacing:.8px;color:#fff;
+  background:var(--teal);padding:4px 10px;border-radius:20px;margin:0 0 9px;text-transform:uppercase;
+}
+
+/* ====================== SHOWS ====================== */
+.nextshows{
+  max-width:720px;margin:0 auto 28px;background:var(--paper);border:1.5px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+}
+.ns-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+  background:var(--grad-band);color:#fff;border:0;font-family:'Montserrat',sans-serif;font-weight:800;
+  letter-spacing:.6px;font-size:15px;padding:14px;text-transform:uppercase;
+}
 .ns-chev{font-size:11px;transition:transform .2s}
 .nextshows:not(.open) .ns-chev{transform:rotate(180deg)}
-.ns-list{padding:4px 12px 8px}
+.ns-list{padding:6px 18px 10px}
 .nextshows:not(.open) .ns-list{display:none}
-.ns-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:1px 10px;
-  padding:9px 4px;border-bottom:1px solid rgba(255,222,58,.22)}
-.ns-row:last-child{border-bottom:0}
-.ns-name{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:13.5px}
-.ns-meta{color:var(--gold-hi);font-weight:700;font-size:12.5px}
-.ns-foot{text-align:center;color:var(--gold-hi);font-weight:700;font-size:12px;padding:7px 0 3px}
-.quickpicks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:4px 0 16px}
-@media(min-width:560px){.quickpicks{grid-template-columns:repeat(4,1fr)}}
-.qp{cursor:pointer;background:var(--metal);color:var(--purple-text);border:2px solid var(--gold-hi);
-  border-radius:12px;padding:13px 8px;font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:12.5px;letter-spacing:.3px;min-height:48px;box-shadow:0 4px 11px rgba(20,0,40,.4)}
-.qp:active{filter:brightness(1.07)}
-.pay-trust{text-align:center;color:var(--gold-hi);font-weight:700;font-size:12.5px;margin:9px 0 0}
-@media(min-width:760px){.sticky{display:none!important}}
-.freeship{color:#1a9e4b;font-weight:900}
-.freeship-banner{display:block;text-align:center;margin:0 0 10px;background:linear-gradient(180deg,#2bbd5e,#1a9e4b);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.5px;font-size:14px;padding:9px 14px;border-radius:999px;border:2px solid var(--gold-hi);box-shadow:0 5px 14px rgba(20,0,40,.4)}
-/* warm note + share button (refer-a-friend) */
-.warm-note{text-align:center;color:var(--gold-hi);font-weight:700;font-size:12.5px;margin:0 0 14px;text-shadow:0 1px 3px rgba(20,0,40,.6)}
-.btn-share{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
-  background:rgba(255,255,255,.12);color:var(--gold-hi);border:2px solid var(--gold);
-  font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.4px;
-  border-radius:999px;padding:11px 22px;min-height:46px}
-.btn-share:hover{background:rgba(255,255,255,.2)}
-.share-wrap{text-align:center;margin:4px 0 18px}
+.ns-row{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 12px;
+  padding:12px 2px;border-bottom:1px solid var(--line);
+}
+.ns-row:last-of-type{border-bottom:0}
+.ns-name{font-weight:800;color:var(--royal-deep);font-size:14.5px}
+.ns-meta{color:var(--muted);font-weight:700;font-size:13px}
+.ns-foot{text-align:center;color:var(--teal);font-weight:700;font-size:12.5px;padding:9px 0 5px}
+
+/* ====================== SHARE ====================== */
+.share-wrap{text-align:center;margin:26px 0 0}
+.btn-share{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+  background:#fff;color:var(--royal);border:2px solid var(--royal);
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;text-transform:uppercase;
+  letter-spacing:.4px;border-radius:999px;padding:12px 24px;min-height:46px;
+}
+.btn-share:hover{background:var(--royal);color:#fff}
+
+/* ====================== CONTACT / FOOTER ====================== */
+.contact-card{
+  max-width:720px;margin:0 auto;background:var(--paper);border:1.5px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:28px;text-align:center;
+}
+.contact-card h3{font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:19px;letter-spacing:.6px}
+.contact-card .role{font-weight:700;color:var(--muted);font-size:13.5px;margin-top:3px}
+.contact-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+@media(max-width:640px){.contact-rows{grid-template-columns:1fr}}
+.contact-rows a{
+  display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;
+  background:var(--mist);border-radius:12px;padding:16px 10px;color:var(--royal-deep);
+  font-weight:800;font-size:13.5px;
+}
+.contact-rows a small{font-weight:600;color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.8px}
+.contact-rows a:hover{background:#ECEAF8}
+.footer{background:var(--navy);color:#C9C4F2;padding:40px 0 30px;margin-top:0}
+.footer-inner{max-width:1120px;margin:0 auto;padding:0 20px;text-align:center}
+.footer .motto{
+  font-weight:900;text-transform:uppercase;color:#fff;letter-spacing:1.6px;
+  font-size:clamp(14px,2.6vw,18px);
+}
+.footer .motto small{display:block;font-weight:700;font-size:11.5px;color:#8F86E8;letter-spacing:2px;margin-top:5px}
+.footer-badges{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin:24px 0;
+  font-weight:700;font-size:11.5px;letter-spacing:.8px;text-transform:uppercase;
+}
+.footer-badges span{display:inline-flex;align-items:center;gap:8px}
+.footer-badges svg{width:20px;height:20px;color:#8F86E8}
+.footer .biz{font-weight:600;font-size:13px;line-height:1.8;color:#A9A3DC}
+.footer .biz strong{color:#fff;font-weight:800}
+.footer .biz a{color:#fff;text-decoration:none;font-weight:800}
+.footer .fineprint{margin-top:16px;font-size:11px;color:#6F68A8;font-weight:600}
+
+/* ====================== STICKY VIEW ORDER (MOBILE) ====================== */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;transform:translateY(120%);
+  transition:transform .25s ease;padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(28,22,85,0),rgba(28,22,85,.96) 42%);
+}
+.sticky.show{transform:translateY(0)}
+.sticky .btn{
+  width:100%;max-width:680px;margin:0 auto;display:flex;
+  background:#fff;color:var(--royal-deep);min-height:54px;font-size:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+@media(min-width:761px){.sticky{display:none!important}}
 </style>
 </head>
 <body>
 
-<!-- ============ SVG SYMBOLS (corner scrollwork) ============ -->
+<!-- ============ SVG ICON LIBRARY (clean line icons) ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="corner" viewBox="0 0 80 80">
-    <g fill="none" stroke="#F7C533" stroke-width="3" stroke-linecap="round">
-      <path d="M10 40 Q10 10 40 10"/>
-      <path d="M22 40 Q22 22 40 22"/>
-      <path d="M10 40 Q10 54 20 54"/>
-      <path d="M40 10 Q54 10 54 20"/>
-    </g>
-    <circle cx="40" cy="10" r="3" fill="#FFE680"/>
-    <circle cx="10" cy="40" r="3" fill="#FFE680"/>
-    <circle cx="40" cy="22" r="2" fill="#F7C533"/>
-    <circle cx="22" cy="40" r="2" fill="#F7C533"/>
+  <symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M7 4l3 5 2 11 2-11 3-5"/>
+  </symbol>
+  <symbol id="i-glasses" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="6.5" cy="14.5" r="3.4"/><circle cx="17.5" cy="14.5" r="3.4"/>
+    <path d="M9.9 13.6c1.2-1 3-1 4.2 0M3.2 11.5 5 8.6M20.8 11.5 19 8.6"/>
+  </symbol>
+  <symbol id="i-mirror" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <ellipse cx="12" cy="9.5" rx="6" ry="7"/><path d="M9 19.5h6M12 16.5v3"/>
+  </symbol>
+  <symbol id="i-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>
+  </symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M10.5 13.5 3 11l1.5-2 6.5 1 5-6 2 .8-3 6.7 5 1.5-1.2 1.8-5.3-.3-2.5 4.5-1.8-.5.3-4.5z"/>
+  </symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M12 9v11M4 13h16M12 9c-4 0-5-1.5-5-3a2 2 0 0 1 4-.7L12 9c0-4 1-5.7 3-5.7a2 2 0 0 1 2 2.7c0 1.5-1 3-5 3z"/>
+  </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/>
+  </symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="5.2"/><path d="M12 9.5V12l2 1.4M9.5 6.8 10 3h4l.5 3.8M9.5 17.2 10 21h4l.5-3.8"/>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>
+  </symbol>
+  <symbol id="i-chain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M9.5 14.5 6 18a3.2 3.2 0 0 1-4.5-4.5L5 10a3.2 3.2 0 0 1 4.5 0"/>
+    <path d="M14.5 9.5 18 6a3.2 3.2 0 0 1 4.5 4.5L19 14a3.2 3.2 0 0 1-4.5 0" transform="translate(-2.5 2.5)"/>
+    <path d="M9 15l6-6"/>
+  </symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 8a8.5 8.5 0 1 0 1 5"/><path d="M21 3v5h-5"/>
+  </symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <circle cx="12" cy="14.5" r="6"/><path d="M9.5 5.5 12 2.5l2.5 3-2.5 3z"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 2.5 20 6v6c0 5.5-3.8 8.6-8 9.5C7.8 20.6 4 17.5 4 12V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M5 19C5 9 11 4 20 4c0 10-5 15-13 15z"/><path d="M5 19c2-4 6-8 10-10"/>
+  </symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M5 21V4"/><path d="M5 4h13l-2.5 4L18 12H5"/>
+  </symbol>
+  <symbol id="i-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="12" cy="9" r="5.5"/><path d="M9.5 13.8 8 21l4-2 4 2-1.5-7.2M10 9l1.5 1.5L15 7"/>
+  </symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/>
+  </symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M3 4h2.5l2.2 11h11l2.3-8H7"/><circle cx="9.5" cy="19.5" r="1.6"/><circle cx="17" cy="19.5" r="1.6"/>
+  </symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M4 16v-3l2-5h12l2 5v3"/><path d="M2.5 16h19"/><circle cx="8" cy="17.5" r="1.7"/><circle cx="16" cy="17.5" r="1.7"/>
+  </symbol>
+  <symbol id="i-fan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="1.8"/><path d="M12 10.2V3.5M12 13.8v6.7M10.2 12H3.5M13.8 12h6.7"/>
+  </symbol>
+  <symbol id="i-goggles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <rect x="3.5" y="8" width="7" height="7" rx="2"/><rect x="13.5" y="8" width="7" height="7" rx="2"/><path d="M10.5 11h3M2 11.5l1.5-.5M22 11.5l-1.5-.5"/>
+  </symbol>
+  <symbol id="i-shower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <rect x="4.5" y="3" width="15" height="18" rx="1"/><path d="M12 3v18M8 9.5v5"/>
+  </symbol>
+  <symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="3.5" y="4" width="17" height="16" rx="1"/><path d="M12 4v16M3.5 12h17"/>
+  </symbol>
+  <symbol id="i-screen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/>
+  </symbol>
+  <!-- Best Solution circular logo mark (line art) -->
+  <symbol id="bs-logo" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+    <circle cx="50" cy="50" r="46" stroke-width="4"/>
+    <text x="50" y="42" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="21" fill="currentColor" stroke="none" letter-spacing="1">BEST</text>
+    <text x="50" y="56" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="11" fill="currentColor" stroke="none" letter-spacing="1.5">SOLUTION&#174;</text>
+    <path d="M35 66h30l-15 18z M35 66l7-7h16l7 7 M42 59l3 7 5 11 5-11 3-7 M35 66h30" stroke-width="2" stroke-linejoin="round"/>
   </symbol>
 </svg>
 
-<div class="frame">
-  <svg class="corner tl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-  <svg class="corner tr" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-  <svg class="corner br" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-  <svg class="corner bl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-
-  <!-- ============ HERO / MASTHEAD (image, matches the flyer) ============ -->
-  <header class="hero">
-    <div class="orig-badge"><span class="star">&#10022;</span> The Original &middot; Since 1985 <span class="star">&#10022;</span></div>
-    <img class="masthead" src="images/header-restore.jpg" width="1402" height="398"
-         alt="See What Best Solution Can Restore - Professional Jewelry &amp; Glass Polish since 1985">
-    <p class="hero-sub">Professional Jewelry &amp; Glass Polish</p>
-    <div class="hero-pills">&#9670; No Acid &nbsp;&#9670;&nbsp; No Ammonia &nbsp;&#9670;&nbsp; No Abrasives &#9670;</div>
-    <p class="hero-tag">Makes your jewelry &amp; glasses sparkle like new &mdash; in seconds</p>
-  </header>
-
-  <main class="wrap">
-
-    <!-- ============ TOP: reorder headline + lineup + show teaser ============ -->
-    <p class="reorder-head">You already love it. Reorder in 30 seconds.</p>
-    <p style="text-align:center;color:var(--gold-hi);font-weight:700;font-size:12.5px;margin:-6px 0 6px;text-shadow:0 1px 3px rgba(20,0,40,.6)">First time, or ordering for a friend? Scroll down for before-and-afters, real reviews, and every answer.</p>
-    <div class="showcase2">
-      <div class="lineup-card">
-        <img src="images/full-lineup.jpg" alt="Best Solution Professional Jewelry &amp; Glass Polish and C5 Restoring lotion, full bottle lineup">
-        <h3>The Full Lineup</h3>
-        <p>Polish &amp; C5 &middot; every size, 2oz to 32oz</p>
-      </div>
-    </div>
-    <div class="share-wrap"><button type="button" class="btn-share" onclick="shareSite(this)">&#128241; Send This to a Friend</button></div>
-
-    <!-- ============ BUNDLES ============ -->
-    <div class="divider"><span class="gem">&#10022; &#9670; &#10022;</span></div>
-    <div class="banner"><div class="banner-inner">&#9670; Build Your Order &#9670;</div></div>
-
-    <p class="freeship-banner">&#128666; Free Shipping on Every Order</p>
-    <p class="warm-note">From our family to yours &mdash; stock up between shows and we'll ship it free, right to your door. &#128156;</p>
-    <div class="quickpicks" id="order-top">
-      <button type="button" class="qp" onclick="quickPick('b32L')">32oz Combo</button>
-      <button type="button" class="qp" onclick="quickPick('b16L')">16oz Combo</button>
-      <button type="button" class="qp" onclick="quickPick('polish')">Just the Polish</button>
-      <button type="button" class="qp" onclick="quickPick('c5')">Just C5</button>
-    </div>
-
-    <div class="group-label">&#11088; Show Special
-      <small>Our best deal &middot; the whole lineup at one low price</small>
-    </div>
-    <div class="grid grid-special" id="grid-special"></div>
-
-    <div class="group-label">Large C5 (8oz) Combos
-      <small>32, 16, or 8 oz Best Solution + 8 oz C5 Lotion</small>
-    </div>
-    <div class="grid grid-3" id="grid-large"></div>
-
-    <div class="group-label">Small C5 (2oz) Combos
-      <small>32, 16, 8, or 2 oz Best Solution + 2 oz C5 Lotion</small>
-    </div>
-    <div class="grid grid-2" id="grid-small"></div>
-
-    <!-- individual items, secondary -->
-    <details class="singles">
-      <summary>Just need a single? Polish &amp; C5 on their own</summary>
-      <div class="singles-body" id="singles"></div>
-    </details>
-
-    <!-- ============ CART ============ -->
-    <section class="cart" id="cart-section">
-      <div class="cart-head"><span class="gem">&#9670;</span> Your Order</div>
-      <div class="cart-body">
-        <div id="cart-items"></div>
-        <div class="cart-empty" id="cart-empty">No items yet. Tap <strong>Add to Order</strong> on a bundle above.</div>
-        <div class="cart-total" id="cart-total" style="display:none">
-          <div class="ct-row"><span>Subtotal</span><span>$<span id="subtotal-amt">0</span></span></div>
-          <div class="ct-row"><span>Shipping</span><span class="freeship">FREE</span></div>
-          <div class="ct-row ct-grand"><span class="lbl">Total</span><span class="amt">$<span id="total-amt">0</span></span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PAYMENT ============ -->
-    <div class="block-label">How would you like to pay?</div>
-    <div class="pay-grid" id="pay-grid">
-      <button class="pay-btn" data-pay="Square">Square</button>
-      <button class="pay-btn" data-pay="Venmo">Venmo</button>
-      <button class="pay-btn" data-pay="Zelle">Zelle</button>
-      <button class="pay-btn" data-pay="Cash App">Cash App</button>
-    </div>
-    <p class="pay-note">Pick one &mdash; you'll finish paying right after you submit. <strong>Free shipping</strong> on every order.</p>
-    <p class="pay-trust">No card info is entered on this page &mdash; you pay in your own app or on a secure page.</p>
-
-    <!-- ============ CUSTOMER FORM ============ -->
-    <form class="form" id="order-form" novalidate>
-      <div class="block-label">Your Info</div>
-
-      <div class="field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" autocomplete="name" placeholder="First &amp; last name">
-      </div>
-
-      <div class="field">
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(414) 555-0123">
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com">
-        <div class="hint">Give a phone OR email so Justin can reach you.</div>
-      </div>
-
-      <div class="field">
-        <label for="address">Shipping Address</label>
-        <textarea id="address" name="address" autocomplete="street-address" placeholder="Street, City, State, ZIP"></textarea>
-        <div class="hint">Where should we mail your order?</div>
-      </div>
-
-      <div class="field">
-        <label for="notes">Notes (optional)</label>
-        <textarea id="notes" name="notes" placeholder="Anything we should know?"></textarea>
-      </div>
-
-      <div class="guarantee">
-        <svg viewBox="0 0 46 50" aria-hidden="true"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#8B1FE8" stroke="#D98B00" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFE680" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span><b>100% Money-Back Guarantee</b><small>Love it or your money back</small></span>
-      </div>
-      <button type="submit" class="btn btn-order" id="submit-btn">Place My Order</button>
-
-      <div class="msg err" id="err-msg"></div>
-    </form>
-
-    <!-- ============ SUCCESS ============ -->
-    <section class="success" id="success">
-      <div class="check">&#10003;</div>
-      <h2 class="gold-text">Order Received!</h2>
-      <p>Thanks <span id="ok-name">friend</span>, your order is in. Justin will mail it out with <strong>free shipping</strong>.</p>
-      <div id="pay-cta" style="margin:16px 0 4px"></div>
-      <p style="color:var(--gold-hi);font-weight:700;font-size:13px;margin:14px 0 8px">Love it? Tell a friend!</p>
-      <div class="share-wrap" style="margin:0 0 6px"><button type="button" class="btn-share" onclick="shareSite(this)">&#128241; Share With a Friend</button></div>
-      <button type="button" class="btn" id="new-order-btn">Place Another Order</button>
-    </section>
-
-    <!-- ============ BEFORE / AFTER (bonus visual proof) ============ -->
-    <div class="ba-strip">
-      <svg class="corner tl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner tr" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner br" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner bl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <h3 class="gold-text">Before &amp; After<br>Results in Seconds!</h3>
-      <div class="ba-grid" id="ba-grid">
-        <figure class="ba-item"><img src="images/ba-tray.jpg" alt="Silver tray, half tarnished and half mirror-bright after Best Solution" loading="lazy"><figcaption>Silver Tray</figcaption></figure>
-        <figure class="ba-item"><img src="images/ba-necklace.jpg" alt="Gold chain, one half dull and one half brilliant" loading="lazy"><figcaption>Gold Chain</figcaption></figure>
-        <figure class="ba-item"><img src="images/ba-harley.jpg" alt="Harley-Davidson engine cover, half tarnished and half mirror chrome" loading="lazy"><figcaption>Motorcycle</figcaption></figure>
-        <figure class="ba-item"><img src="images/ba-rims.jpg" alt="Chrome wheel, half filthy and half polished bright" loading="lazy"><figcaption>Chrome Rim</figcaption></figure>
-        <figure class="ba-item"><img src="images/ba-tiffany.jpg" alt="Tiffany bracelet, half cleaned and half tarnished" loading="lazy"><figcaption>Tiffany Bracelet</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-trophy.jpg" alt="Trophy cup, half tarnished and half gleaming gold" loading="lazy"><figcaption>Trophy</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-faucet.jpg" alt="Bathroom faucet, half corroded and half bright chrome" loading="lazy"><figcaption>Sink Faucet</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-teapot.jpg" alt="Silver teapot, one side polished and one side tarnished" loading="lazy"><figcaption>Silver Teapot</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-trumpet.jpg" alt="Brass trumpet, half tarnished and half gleaming" loading="lazy"><figcaption>Trumpet</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-pocketwatch.jpg" alt="Pocket watch, half tarnished and half ornate silver" loading="lazy"><figcaption>Pocket Watch</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-vase.jpg" alt="Silver vase, half tarnished and half brilliant" loading="lazy"><figcaption>Silver Vase</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-bracelet.jpg" alt="Silver cuff bracelet, half tarnished and half bright" loading="lazy"><figcaption>Silver Cuff</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-rolex.jpg" alt="Stainless watch, half grimy and half clean" loading="lazy"><figcaption>Watch</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-pot.jpg" alt="Stainless stock pot, half burnt and half shining" loading="lazy"><figcaption>Stock Pot</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-lamp.jpg" alt="Brass lamp, half bright and half tarnished" loading="lazy"><figcaption>Brass Lamp</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-ornament.jpg" alt="Christmas ornament, half dull and half mirror gold" loading="lazy"><figcaption>Ornament</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-fridge.jpg" alt="Stainless refrigerator, half grimy and half clean" loading="lazy"><figcaption>Refrigerator</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-candles.jpg" alt="Silver candlesticks, one polished and one tarnished" loading="lazy"><figcaption>Candlesticks</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-dishwasher.jpg" alt="Stainless dishwasher, half grimy and half polished" loading="lazy"><figcaption>Dishwasher</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-handle.jpg" alt="Door handle, half tarnished and half chrome" loading="lazy"><figcaption>Door Handle</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-teaset.jpg" alt="Silver tea set, half tarnished and half brilliant" loading="lazy"><figcaption>Silver Tea Set</figcaption></figure>
-        <figure class="ba-item"><img src="images/ba-earrings.jpg" alt="Diamond stud earrings, one dull and one sparkling clean" loading="lazy"><figcaption>Diamond Studs</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-ring.jpg" alt="Ornate silver ring, half tarnished and half bright" loading="lazy"><figcaption>Silver Ring</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-boatrails.jpg" alt="Boat rail, half corroded and half polished chrome" loading="lazy"><figcaption>Boat Rails</figcaption></figure>
-        <figure class="ba-item more"><img src="images/ba-silverware.jpg" alt="Silverware set, tarnished pieces next to freshly cleaned ones" loading="lazy"><figcaption>Silverware</figcaption></figure>
-      </div>
-      <button class="more-btn" type="button" data-more="&#9660; Show More Before &amp; Afters" data-less="&#9650; Show Fewer" onclick="toggleGallery('ba-grid',this)">&#9660; Show More Before &amp; Afters</button>
-      <p class="ba-cap">Real customer pieces &mdash; one half cleaned with Best Solution, the other left untouched. <b>Same item, seconds apart.</b></p>
-    </div>
-
-    <!-- ============ RINGS &amp; STONES BEFORE/AFTER ============ -->
-    <div class="ba-strip">
-      <svg class="corner tl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner tr" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner br" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <svg class="corner bl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
-      <h3 class="gold-text">Brilliant on<br>Every Stone</h3>
-      <p class="ba-cap" style="margin:12px 0 2px">Diamonds, opals, pearls, sapphires, emeralds, amethyst, turquoise, garnet &mdash; our polish brings the fire and sparkle right back. <b>Safe on every stone &mdash; no ammonia, no acid.</b></p>
-      <div class="collage-stack" id="rings-grid">
-        <figure class="collage-shot"><img src="images/rings-ba1.jpg" alt="Before and after rings with diamonds, opals, pearls, sapphires and more, dull before and brilliant after Best Solution polish" loading="lazy"></figure>
-        <figure class="collage-shot more"><img src="images/rings-ba2.jpg" alt="More before and after rings: solitaires, eternity bands, class rings, emerald studs and gemstone pendants restored with Best Solution polish" loading="lazy"></figure>
-      </div>
-      <button class="more-btn" type="button" data-more="&#9660; Show More Rings &amp; Stones" data-less="&#9650; Show Fewer" onclick="toggleGallery('rings-grid',this)">&#9660; Show More Rings &amp; Stones</button>
-    </div>
-
-    <!-- ============ TESTIMONIALS ============ -->
-    <div class="divider"><span class="gem">&#10022; &#9670; &#10022;</span></div>
-    <div class="banner"><div class="banner-inner">&#9670; What Customers Say &#9670;</div></div>
-    <div class="reviews" id="reviews-grid">
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Justin cleaned one of my diamond earrings right at the table and left the other so I could compare. The difference was night and day. I've used it on all my jewelry since."</p>
-        <div class="who">Karen M.<small>Waukesha, WI</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Isaiah did a demo on my wedding ring at the Kane County Fair. It honestly looked new again. Bought two bottles and I'm glad I did."</p>
-        <div class="who">Megan D.<small>Kane County Fair, IL</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Adam showed me how it works on my grandmother's silver. I was skeptical, but it came out beautiful. Been using it for months now."</p>
-        <div class="who">Brittany K.<small>North Aurora, IL</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Bought it from TJ at the Florida show. He sprayed my glasses right there, no fog and no smudges, and called it 'lasik in a bottle.' Honestly he wasn't far off. I use it on my sunglasses now too."</p>
-        <div class="who">Marcus T.<small>Orlando, FL</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Justin runs a real family business, and his daughter Alivia even helps out at the booth. Sweet girl, friendly people, and the product does exactly what they say."</p>
-        <div class="who">Theresa B.<small>Milwaukee, WI</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Andre ran the demo and clearly knew what he was doing. My tarnished trophy came out looking brand new. Very impressed with the results."</p>
-        <div class="who">Carol M.<small>Sheboygan, WI</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Justin's daughter Alivia did the demo on my wedding ring and walked me through every step. Such a sweet, polite girl. My ring came out gorgeous and I happily bought two bottles."</p>
-        <div class="who">Donna K.<small>Waukesha, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Alivia helped me at the booth and knew the product better than most grown-ups. She cleaned my necklace right there and it looked brand new. Great kid, great family."</p>
-        <div class="who">Sharon L.<small>Franklin, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"My granddaughter loved watching Alivia do a little demo on my bracelet. You can tell she's proud of the family business. The polish worked just like she showed us."</p>
-        <div class="who">Patty G.<small>Oconomowoc, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Bought from Justin and his daughter Alivia at the fair. She's a natural and so sweet with everyone who stopped by. The stuff really works, been using it ever since."</p>
-        <div class="who">Rick D.<small>McHenry, IL</small></div></div>
-
-      <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Anthony took the time to show my mom how to use it on her rings. Polite young man, and the product works great. We've reordered twice."</p>
-        <div class="who">Patricia L.<small>Carol Stream, IL</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Watched Les do a demo at the Washington County Fair and ended up buying the large combo. No regrets, a little goes a long way."</p>
-        <div class="who">Doug R.<small>Washington County Fair, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Michele helped me at the fair and even remembered me from last year. The polish brought my old necklace right back to life."</p>
-        <div class="who">Sandra P.<small>Durham County, NC</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"This crew jokes around the whole time, had us laughing. Ronny told me to never clean my jewelry with my own toothbrush, then actually showed me the right way. Fun booth and the stuff really works."</p>
-        <div class="who">Kevin S.<small>Milwaukee, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"I was nervous about cleaning my mom's pearls, but they explained there's no acid or ammonia so it's safe. They came out beautiful."</p>
-        <div class="who">Linda S.<small>Brookfield, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"First bought this at a show in Delaware years ago and I still reorder. Easily the best metal polish I've used."</p>
-        <div class="who">Robert H.<small>Wilmington, DE</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Isaiah talked me into trying it on my engagement ring. Glad I did, it sparkles like the day I got it. Ordering more soon."</p>
-        <div class="who">Hannah W.<small>Portland, OR</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Picked it up at a fair and now I keep it on hand. Shipped quickly out to Montana and it lasts a long time."</p>
-        <div class="who">Dale F.<small>Billings, MT</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Adam cleaned half of a filthy chrome rim and left the other half dirty so you could compare. That sold me. Works just like he showed."</p>
-        <div class="who">Nicole R.<small>Chicago, IL</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"I figured it was a gimmick, then Les let me clean my own wedding ring. Came out better than I expected. Glad I bought it."</p>
-        <div class="who">Mike P.<small>Madison, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"My grandmother's silver tea set was badly tarnished. About twenty minutes with this and it looked like new. Really impressed."</p>
-        <div class="who">Dan R.<small>Green Bay, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Bought the gift set for the family and we use it on everything. Easy to use, and the results speak for themselves."</p>
-        <div class="who">Rachel T.<small>Oshkosh, WI</small></div></div>
-
-      <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Justin followed up personally about my order. Good service and a product that works. Hard to beat that combination."</p>
-        <div class="who">Greg H.<small>Appleton, WI</small></div></div>
-    </div>
-    <button class="more-btn" type="button" data-more="&#9660; Read More Reviews" data-less="&#9650; Show Fewer" onclick="toggleGallery('reviews-grid',this)">&#9660; Read More Reviews</button>
-
-    <!-- ============ FAQ ============ -->
-    <div class="divider"><span class="gem">&#10022; &#9670; &#10022;</span></div>
-    <div class="banner"><div class="banner-inner">Good to Know</div></div>
-    <div class="faq">
-      <details>
-        <summary>100% Money-Back Guarantee</summary>
-        <div class="a">We do <strong>live demos</strong> at every show so you can see exactly how it works <em>before</em> you ever buy. We stand behind our product <strong>100%</strong>. If it doesn't work for you, <strong>call me directly</strong> and I'll do whatever it takes to put a smile on your face. I pride myself on <strong>top-notch customer service</strong> &mdash; that's a promise.<br><br>&mdash; Justin, <a href="tel:+14142130084" style="color:var(--purple-text);font-weight:800">414-213-0084</a></div>
-      </details>
-      <details>
-        <summary>What is C5?</summary>
-        <div class="a">C5 is our <strong>fine metal restoration lotion</strong> &mdash; the deep-restore partner to your polish. Where Best Solution polish brings back everyday sparkle, C5 goes after the tough stuff: heavy tarnish, oxidation, cloudiness, and dullness on <strong>gold, silver, platinum, palladium, brass, copper, chrome, stainless steel, pewter, and nickel</strong>. It isn't a cloth or a wipe &mdash; it's a rich lotion you <strong>work into the metal</strong> by hand or with a cloth until the original luster comes back. Use the polish for the overall shine and reach for C5 on the spots polish alone can't bring back.</div>
-      </details>
-      <details>
-        <summary>What can Best Solution restore?</summary>
-        <div class="a">Just about anything with shine. <strong>Jewelry</strong> of every kind (rings, necklaces, bracelets, earrings, watches, pendants, charms), <strong>all types of stones</strong> &mdash; from hard gems like diamonds, rubies, emeralds, and sapphires to delicate <strong>opals &amp; pearls</strong> &mdash; plus <strong>eyewear</strong>, <strong>coins &amp; collectibles</strong>, <strong>home &amp; kitchen</strong> (faucets, sinks, silverware, serving trays, tea sets, candlesticks), <strong>glass &amp; mirrors</strong>, and <strong>auto &amp; hobby</strong> (chrome, rims, motorcycle parts, tools). Works beautifully on both <strong>fine and costume jewelry</strong>. And because there's <strong>no acid, no ammonia, and no abrasives</strong>, it cleans without scratching, etching, or harming your pieces.</div>
-      </details>
-      <details>
-        <summary>Does it really work on glasses?</summary>
-        <div class="a">It sure does, and it's one of our favorites. Remember, this is a <strong>glass polish</strong> too &mdash; it's right there in the name. Spray it on your <strong>eyeglasses, prescription or sunglasses</strong> and you get <strong>no fog and no smudges</strong>. Folks at the booth call it <strong>"lasik in a bottle."</strong> It works just as well on mirrors, phone and TV screens, and the inside of your windshield.</div>
-      </details>
-      <details class="feature">
-        <summary>Why is it safe for opals &amp; pearls?</summary>
-        <div class="a"><span class="badge-q">Most Asked</span><br>
-        Opals and pearls are <strong>soft, porous gems</strong>. Unlike a diamond, they actually hold natural water inside them and have a delicate surface that harsh chemicals can ruin <em>permanently</em>. Most jewelry cleaners rely on <strong>acid or ammonia</strong> &mdash; and those strip the moisture right out of these stones, leaving opals <strong>cracked, crazed, or cloudy</strong> and pearls <strong>dull, pitted, or discolored</strong>. That damage doesn't come back.<br><br>
-        Best Solution has <strong>no acid, no ammonia, and no abrasives</strong> &mdash; so there is simply nothing in it to dry out, etch, or eat away at a porous stone. It gently lifts away dirt and oils and restores the shine the way fragile gems actually need. That's why it's safe to use on <strong>opals, pearls, turquoise, coral, amber, and other soft or porous stones</strong> that you'd never dare put a typical cleaner near.</div>
-      </details>
-      <details>
-        <summary>Will it keep my white gold from turning yellow?</summary>
-        <div class="a">Here's something most people don't realize: <strong>white gold is really yellow gold</strong> &mdash; it just gets its bright, silvery look from a thin plating of <strong>rhodium</strong>. That rhodium layer is the only thing making it "white." As the piece is worn, a film of <strong>oxidation, oils, and tarnish</strong> builds up and that finish goes dull, letting the warm yellow gold underneath start to show through.<br><br>
-        C5 is built to <strong>lift that oxidation and buildup right off</strong>. Clean your white gold with C5 regularly and you keep the finish bright and <strong>white instead of yellow</strong> &mdash; so your ring keeps looking like the day you got it, far longer. And with <strong>no acid or ammonia</strong>, it does it gently, without attacking the rhodium plating.</div>
-      </details>
-      <details>
-        <summary>What should I wipe it on with?</summary>
-        <div class="a">A little tip from us: we use <strong>Bounty brand paper towels</strong> because they're actually made from a <strong>cotton fiber</strong> instead of the cheap paper fiber. That cotton is what helps <strong>pull the oxidation and tarnish off</strong> the metal. You don't have to use Bounty though &mdash; an <strong>old t-shirt</strong>, a <strong>microfiber cloth</strong>, or any soft cotton rag works great too. And a <strong>Q-tip</strong> is perfect for getting into hard-to-reach spots and intricate, detailed pieces.</div>
-      </details>
-      <details>
-        <summary>How does shipping work?</summary>
-        <div class="a"><strong>Shipping is FREE</strong> on every order, big or small. Your total is exactly what you see, no surprises. When your order comes in, Justin sends you a quick, <strong>secure payment request</strong> for that total (Square, Venmo, Zelle, or Cash App). Nothing is auto-charged on this page.</div>
-      </details>
-    </div>
-
-    <!-- ============ EASY 2-STEP PROCESS (how to use) ============ -->
-    <div class="banner"><div class="banner-inner">&#9670; Easy 2-Step Process &#9670;</div></div>
-    <div class="steps">
-      <div class="step"><span class="num">1</span>
-        <div class="step-body">
-          <div class="step-prod">C5 Lotion</div>
-          <h3>Shake &amp; Rub</h3>
-          <p>Shake it well first &mdash; <strong>C5</strong> settles like orange juice (it never dries out or goes bad).</p>
-          <p>Dab a little on a paper towel, old t-shirt, or microfiber cloth and rub the metal <span class="hot">hard</span>. Lifts oxidation, tarnish, light scratches, and light rust &mdash; shine's back in seconds.</p>
-        </div>
-      </div>
-      <div class="step"><span class="num">2</span>
-        <div class="step-body">
-          <div class="step-prod">The Polish</div>
-          <h3>Soak or Spray</h3>
-          <p>Two ways to use it. <strong>Soak</strong> dirty pieces a few hours or overnight, then rinse. (Never soak old <strong>opals or pearls</strong>.)</p>
-          <p>Or <strong>spray</strong> it on, get it wet, and scrub with a <strong>soft toothbrush</strong> &mdash; get behind the stones. Safe on every stone, no ammonia or acid. Rinse and done.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ============ STONES &amp; METALS LISTS ============ -->
-    <div class="showcase2">
-      <div class="prod2">
-        <div class="prod-card">
-          <div class="pc-head">C5 Lotion</div>
-          <div class="pc-sub">Fine Metal Restoration</div>
-          <ul class="ilist">
-            <li>Gold</li><li>White Gold</li><li>Rose Gold</li><li>Silver</li><li>Sterling Silver</li><li>Platinum</li><li>Palladium</li><li>Rhodium</li><li>Titanium</li><li>Tungsten</li><li>Brass</li><li>Bronze</li><li>Copper</li><li>Stainless Steel</li><li>Steel</li><li>Chrome</li><li>Nickel</li><li>Aluminum</li><li>Pewter</li><li>Gold Plate</li><li>Silver Plate</li><li>Vermeil</li><li>German Silver</li><li>Gunmetal</li><li>Coins</li><li>Flatware</li><li>Trophies</li><li>Belt Buckles</li><li>Watch Cases</li><li>Hardware</li><li>Antiques</li><li>Candlesticks</li><li>Cookware</li><li>Faucets</li><li>Door Hardware</li><li>Light Fixtures</li><li class="x">&amp; more</li>
-          </ul>
-        </div>
-        <div class="prod-card">
-          <div class="pc-head">The Polish</div>
-          <div class="pc-sub">Stones, Gems &amp; Glass</div>
-          <ul class="ilist">
-            <li>Diamonds</li><li>Rubies</li><li>Emeralds</li><li>Sapphires</li><li>Amethyst</li><li>Topaz</li><li>Garnet</li><li>Citrine</li><li>Aquamarine</li><li>Peridot</li><li>Tanzanite</li><li>Onyx</li><li>Jade</li><li>Turquoise</li><li>Moonstone</li><li>Tiger's Eye</li><li>Opals</li><li>Pearls</li><li>Cubic Zirconia</li><li>Crystal</li><li>Glass</li><li>Coral</li><li>Amber</li><li>Costume &amp; Fine Jewelry</li><li>Tourmaline</li><li>Spinel</li><li>Morganite</li><li>Lapis Lazuli</li><li>Mother of Pearl</li><li>Malachite</li><li>Marcasite</li><li>Hematite</li><li>Mirrors</li><li>Eyeglasses</li><li>Watch Crystals</li><li class="x">&amp; more</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- ============ NOT JUST FOR JEWELRY ============ -->
-    <div class="banner"><div class="banner-inner">&#9670; Not Just for Jewelry &#9670;</div></div>
-    <p class="uses-sub">Bonus uses you'll love</p>
-    <div class="uses">
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2"><circle cx="6.5" cy="14" r="3.3"/><circle cx="17.5" cy="14" r="3.3"/><path d="M10 13c1-.8 3-.8 4 0M3.5 11l1.8-2.6M20.5 11l-1.8-2.6" stroke-linecap="round"/></svg></span><b>Glasses</b><small>No fog or smudge</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2"><ellipse cx="12" cy="9.5" rx="6" ry="7"/><path d="M9 18.5h6M12 16.5V21" stroke-linecap="round"/></svg></span><b>Mirrors</b><small>No fogging</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20" stroke-linecap="round"/></svg></span><b>Screens</b><small>All devices</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2" stroke-linejoin="round"><path d="M4 16v-3l2-5h12l2 5v3"/><path d="M2.5 16h19"/><circle cx="8" cy="17.5" r="1.7"/><circle cx="16" cy="17.5" r="1.7"/></svg></span><b>Cars</b><small>Rims &amp; trim</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="1.8"/><path d="M12 10.2V3.5M12 13.8V20.5M10.2 12H3.5M13.8 12H20.5"/></svg></span><b>Fans</b><small>Dust-free</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2"><rect x="3.5" y="8" width="7" height="7" rx="2"/><rect x="13.5" y="8" width="7" height="7" rx="2"/><path d="M10.5 11h3M2 11.5l1.5-.5M22 11.5l-1.5-.5" stroke-linecap="round"/></svg></span><b>Goggles</b><small>Anti-fog</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2" stroke-linecap="round"><rect x="4.5" y="3" width="15" height="18" rx="1"/><path d="M12 3v18M8 9.5v5"/></svg></span><b>Shower Doors</b><small>Streak-free</small></div>
-      <div class="use"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFE680" stroke-width="2" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="1"/><path d="M12 4v16M3.5 12h17"/></svg></span><b>Windows &amp; Doors</b><small>No nose or finger smudges</small></div>
-    </div>
-
-    <!-- ============ CATCH US AT A SHOW (BOOTH GALLERY) ============ -->
-    <div class="divider"><span class="gem">&#10022; &#9670; &#10022;</span></div>
-    <div class="banner"><div class="banner-inner">&#9670; Catch Us at a Show &#9670;</div></div>
-    <p class="booth-sub">Free demos at markets &amp; shows &mdash; come see it sparkle in person!</p>
-    <div class="nextshows open" id="nextshows">
-      <button class="ns-btn" type="button" aria-expanded="true" onclick="toggleShows(this)"><span>&#128197; Where We'll Be Next</span><span class="ns-chev">&#9650;</span></button>
-      <div class="ns-list">
-        <div class="ns-row"><span class="ns-name">Waukesha County Fair</span><span class="ns-meta">Jul 15&ndash;19 &middot; Waukesha, WI</span></div>
-        <div class="ns-row"><span class="ns-name">McHenry County Fair</span><span class="ns-meta">Aug 4&ndash;9 &middot; McHenry County, IL</span></div>
-        <div class="ns-row"><span class="ns-name">Cranberry Fest</span><span class="ns-meta">Sep 25&ndash;27 &middot; Warrens, WI</span></div>
-        <div class="ns-foot">Come say hi &mdash; free demos all weekend! &#10022;</div>
-      </div>
-    </div>
-    <div class="booths" id="booth-grid">
-      <div class="booth"><img src="images/booth2.jpg" alt="Best Solution booth at an outdoor market" loading="lazy"></div>
-      <div class="booth"><img src="images/booth6.jpg" alt="Best Solution booth with the team at a summer market" loading="lazy"></div>
-      <div class="booth"><img src="images/booth3.jpg" alt="Best Solution booth with Free Demo sign" loading="lazy"></div>
-      <div class="booth"><img src="images/booth4.jpg" alt="Best Solution tent at a flea market" loading="lazy"></div>
-      <div class="booth"><img src="images/booth8.jpg" alt="Best Solution owner at the booth" loading="lazy"></div>
-      <div class="booth"><img src="images/booth1.jpg" alt="Best Solution holiday show booth with Santa" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth10.jpg" alt="Best Solution booth on a fall market day" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth7.jpg" alt="Best Solution booth at an indoor show" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth13.jpg" alt="Best Solution table display with free candy" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth11.jpg" alt="Best Solution booth at a brick venue" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth12.jpg" alt="Best Solution tent in a market parking lot" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth9.jpg" alt="Best Solution display table full of product" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth5.jpg" alt="Best Solution booth under a tent with free candy" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth14.jpg" alt="Best Solution evening tent booth lit with string lights" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth15.jpg" alt="Best Solution at a large indoor show with Distributors Wanted banner" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth16.jpg" alt="Best Solution product display table" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth17.jpg" alt="Best Solution booth with customers at an indoor show" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth18.jpg" alt="Best Solution booth at the San Antonio event center" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth19.jpg" alt="Customers gathered at the Best Solution booth" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth20.jpg" alt="Best Solution evening market tent" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth21.jpg" alt="Customers at the Best Solution booth at an indoor show" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth22.jpg" alt="Best Solution owner at a sunny outdoor market" loading="lazy"></div>
-      <div class="booth more"><img src="images/booth23.jpg" alt="Crowd at the Best Solution booth with C5 metal restorer signs" loading="lazy"></div>
-    </div>
-    <button class="more-btn" type="button" data-more="&#9660; See More From Our Shows" data-less="&#9650; Show Fewer" onclick="toggleGallery('booth-grid',this)">&#9660; See More From Our Shows</button>
-
-    <!-- ============ REAL CUSTOMERS, REAL SMILES ============ -->
-    <div class="banner"><div class="banner-inner">&#9670; Real Customers, Real Smiles &#9670;</div></div>
-    <p class="booth-sub">We ask our customers to take a picture with their new shiny jewelry &mdash; these are real customers with real smiles on their faces.</p>
-    <div class="collage-stack" id="cust-grid">
-      <figure class="collage-shot"><img src="images/customers1.jpg" alt="Happy Best Solution customers smiling at the booth with their freshly polished jewelry" loading="lazy"></figure>
-      <figure class="collage-shot"><img src="images/customers2.jpg" alt="Delighted Best Solution customers showing off their sparkling rings at a show" loading="lazy"></figure>
-      <figure class="collage-shot more"><img src="images/customers3.jpg" alt="More happy Best Solution customers reacting to their cleaned jewelry" loading="lazy"></figure>
-      <figure class="collage-shot more"><img src="images/customers4.jpg" alt="Customers admiring their freshly shined rings and necklaces at the Best Solution booth" loading="lazy"></figure>
-      <figure class="collage-shot more"><img src="images/customers5.jpg" alt="Excited Best Solution customers holding up their polished jewelry" loading="lazy"></figure>
-      <figure class="collage-shot more"><img src="images/customers6.jpg" alt="Even more smiling Best Solution customers with their sparkling jewelry at a market" loading="lazy"></figure>
-    </div>
-    <button class="more-btn" type="button" data-more="&#9660; See More Happy Customers" data-less="&#9650; Show Fewer" onclick="toggleGallery('cust-grid',this)">&#9660; See More Happy Customers</button>
-
-    <!-- ============ TRUST ============ -->
-    <div class="trust">
-      <div class="t">
-        <div class="stars">&#9733; &#9733; &#9733;</div>
-        <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#8B1FE8" stroke="#D98B00" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFE680" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h4>Since 1985</h4><p>Family-Run &amp; Trusted</p>
-      </div>
-      <div class="t">
-        <div class="stars">&#9733; &#9733; &#9733;</div>
-        <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#8B1FE8" stroke="#D98B00" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFE680" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h4>Free Demos</h4><p>See It Work at Every Show</p>
-      </div>
-      <div class="t">
-        <div class="stars">&#9733; &#9733; &#9733;</div>
-        <svg class="shield" viewBox="0 0 46 50"><path d="M23 2 41 9v16c0 13-9 20-18 23C14 45 5 38 5 25V9z" fill="#8B1FE8" stroke="#D98B00" stroke-width="2"/><path d="M15 25l6 6 11-12" fill="none" stroke="#FFE680" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h4>Money-Back</h4><p>100% Guarantee</p>
-      </div>
-    </div>
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-      <div class="strip">No Acid &#9670; No Ammonia &#9670; No Abrasives</div>
-      <svg class="seal" viewBox="0 0 80 80" aria-hidden="true">
-        <circle cx="40" cy="40" r="37" fill="none" stroke="#D98B00" stroke-width="3"/>
-        <circle cx="40" cy="40" r="30" fill="none" stroke="#FFE680" stroke-width="1.5"/>
-        <path d="M40 19 L57 40 L40 61 L23 40 Z" fill="#8B1FE8" stroke="#FFE680" stroke-width="2"/>
-        <path d="M31 40 l6 6 13 -14" fill="none" stroke="#FFE680" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="biz">
-        <strong>Justin Greco &middot; Best Solution</strong><br>
-        Dot Dynasty LLC &middot; Professional Jewelry &amp; Glass Polish<br>
-        <a href="tel:+14142130084">&#128222; Call</a> &middot; <a href="sms:+14142130084">&#128172; Text</a> &middot; <a href="mailto:BestSolutionPolish@gmail.com">&#9993; Email</a><br>
-        414-213-0084 &middot; BestSolutionPolish@gmail.com<br>
-        <a href="https://bestsolutionpolish.com">&#127760; bestsolutionpolish.com</a>
-      </div>
-    </footer>
-
-  </main>
+<!-- ============ HEADER ============ -->
+<div class="topbar">
+  Professional Results <span class="dot">&bull;</span> Safe <span class="dot">&bull;</span> Trusted Since 1985 <span class="dot">&bull;</span> No Ammonia <span class="dot">&bull;</span> No Acid <span class="dot">&bull;</span> No Abrasives <span class="dot">&bull;</span> 100% Money-Back Guarantee
 </div>
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Best Solution home">
+      <svg aria-hidden="true"><use href="#bs-logo"/></svg>
+      <span class="bt">
+        <b>BEST SOLUTION&reg;</b>
+        <small>Jewelry, Metal &amp; Glass Polish</small>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleNav(this)">&#9776;</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#before-after">Before &amp; After</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#shows">Upcoming Shows</a>
+      <a href="#contact">Contact</a>
+      <a class="btn-shopnow" href="#shop">Build Your Order</a>
+    </div>
+  </nav>
+</header>
 
-<!-- ============ STICKY VIEW ORDER ============ -->
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge">&#10022; The Original &middot; Since 1985 &#10022;</span>
+        <h1>The Original<br>Best Solution<span class="reg">&reg;</span></h1>
+        <p class="h-sub">Professional Jewelry, Metal &amp; Glass Polish</p>
+        <p class="h-shine">Bring back the shine in seconds.</p>
+        <p class="h-pills">No Ammonia &bull; No Acid &bull; No Abrasives &bull; Trusted Since 1985</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#shop">Shop Best Solution</a>
+          <a class="btn btn-ghost" href="#before-after">See Before &amp; After Results</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="images/full-lineup.jpg" width="1200" height="800"
+             alt="The full Best Solution lineup: 32oz, 16oz, 8oz and 2oz purple polish bottles plus 8oz and 2oz white C5 restoration lotion bottles">
+        <figcaption>The Full Lineup &middot; Polish &amp; C5 &middot; 2oz to 32oz</figcaption>
+      </figure>
+    </div>
+    <div class="duo">
+      <div class="d polish">
+        <b>Best Solution &middot; Purple Polish</b>
+        <p>For jewelry, gemstones, eyeglasses, mirrors, glass, and everyday shine.</p>
+      </div>
+      <div class="d c5">
+        <b>C5 &middot; White Restoration Lotion</b>
+        <p>For heavy tarnish, oxidation, dullness, and deeper metal restoration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <div class="trust-strip">
+    <div class="trust-grid">
+      <div class="t"><svg><use href="#i-diamond"/></svg><b>Safe on Metals &amp; Gemstones</b></div>
+      <div class="t hl"><svg><use href="#i-ring"/></svg><b>Safe for Opals &amp; Pearls</b></div>
+      <div class="t"><svg><use href="#i-leaf"/></svg><b>No Ammonia</b></div>
+      <div class="t"><svg><use href="#i-leaf"/></svg><b>No Acid &middot; No Abrasives</b></div>
+      <div class="t"><svg><use href="#i-medal"/></svg><b>100% Money-Back Guarantee</b></div>
+      <div class="t"><svg><use href="#i-flag"/></svg><b>Made in the USA</b></div>
+      <div class="t"><svg><use href="#i-shield"/></svg><b>Trusted Since 1985</b></div>
+    </div>
+  </div>
+
+  <!-- ============ SETS - BEST VALUE ============ -->
+  <section class="section alt" id="shop">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker">Free Shipping on Every Order</span>
+        <h2>Sets &ndash; Best Value</h2>
+        <p class="sub">Pair your polish with C5 restoration lotion and get the full two-step system. From our family to yours, we ship every order free, right to your door.</p>
+      </div>
+      <div class="sec-body">
+        <div class="quickpicks" id="order-top">
+          <button type="button" class="qp" onclick="quickPick('b32L')">32oz Set + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('b16L')">16oz Set + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('polish')">Just the Polish</button>
+          <button type="button" class="qp" onclick="quickPick('c5')">Just C5</button>
+        </div>
+
+        <div class="setband">
+          <svg><use href="#i-diamond"/></svg>
+          <span><b>Large Sets</b><small>Includes Large C5 (8oz)</small></span>
+          <span class="tag">Best Value!</span>
+        </div>
+        <div class="grid grid-3" id="grid-large"></div>
+
+        <div class="setband" style="margin-top:26px">
+          <svg><use href="#i-ring"/></svg>
+          <span><b>Small Sets</b><small>Includes Small C5 (2oz)</small></span>
+          <span class="tag">Great Value!</span>
+        </div>
+        <div class="grid grid-3" id="grid-small"></div>
+
+        <div class="setband teal" style="margin-top:26px">
+          <svg><use href="#i-plane"/></svg>
+          <span><b>Travel / Starter Size</b><small>Perfect for first-time users or on the go!</small></span>
+          <span class="tag">$20</span>
+        </div>
+        <div class="grid grid-3" id="grid-travel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INDIVIDUAL BOTTLES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Shop the Full Lineup</h2>
+        <p class="sub">Every size of Best Solution purple polish, plus C5 metal restoration lotion on its own. All bottles ship free.</p>
+      </div>
+      <div class="sec-body">
+        <div class="grid grid-4" id="grid-polish"></div>
+        <div class="setband" style="margin-top:26px">
+          <svg><use href="#i-refresh"/></svg>
+          <span><b>C5 Metal Restoration Lotion</b><small>Restore the metal, then bring the shine</small></span>
+        </div>
+        <div class="grid grid-3" id="grid-c5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUILD YOUR ORDER ============ -->
+  <section class="section alt" id="order">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Build Your Order</h2>
+        <p class="sub">Add products above, pick how you'd like to pay, and tell us where to ship. It takes about 30 seconds.</p>
+      </div>
+      <div class="sec-body">
+        <p class="freeship-banner"><svg width="22" height="22" style="color:#137A39"><use href="#i-truck"/></svg> Free Shipping on Every Order</p>
+        <div class="order-grid">
+
+          <!-- LEFT: payment + customer info -->
+          <div>
+            <div class="panel">
+              <div class="panel-head"><svg><use href="#i-cart"/></svg> How would you like to pay?</div>
+              <div class="panel-body">
+                <div class="pay-grid" id="pay-grid">
+                  <button class="pay-btn" data-pay="Square">Square</button>
+                  <button class="pay-btn" data-pay="Venmo">Venmo</button>
+                  <button class="pay-btn" data-pay="Zelle">Zelle</button>
+                  <button class="pay-btn" data-pay="Cash App">Cash App</button>
+                </div>
+                <p class="pay-note"><b>No card information is entered on this page.</b> Payment is completed through your selected secure payment method after submitting your order.</p>
+              </div>
+            </div>
+
+            <form class="panel" id="order-form" novalidate style="margin-top:20px">
+              <div class="panel-head"><svg><use href="#i-shield"/></svg> Your Info</div>
+              <div class="panel-body">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="First &amp; last name">
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(414) 555-0123">
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com">
+                  <div class="hint">Give a phone OR email so Justin can reach you.</div>
+                </div>
+                <div class="field">
+                  <label for="address">Shipping Address</label>
+                  <textarea id="address" name="address" autocomplete="street-address" placeholder="Street, City, State, ZIP"></textarea>
+                  <div class="hint">Where should we mail your order?</div>
+                </div>
+                <div class="field">
+                  <label for="notes">Notes (optional)</label>
+                  <textarea id="notes" name="notes" placeholder="Anything we should know?"></textarea>
+                </div>
+                <div class="guarantee">
+                  <svg><use href="#i-medal"/></svg>
+                  <span><b>100% Money-Back Guarantee</b><small>Love it or your money back. That's a promise.</small></span>
+                </div>
+                <button type="submit" class="btn btn-order" id="submit-btn">Place My Order</button>
+                <div class="msg err" id="err-msg"></div>
+              </div>
+            </form>
+
+            <!-- SUCCESS -->
+            <section class="success" id="success">
+              <div class="check">&#10003;</div>
+              <h2>Order Received!</h2>
+              <p>Thanks <span id="ok-name">friend</span>, your order is in. Justin will mail it out with <strong>free shipping</strong>.</p>
+              <div id="pay-cta" style="margin:16px 0 4px"></div>
+              <p class="note-line">Love it? Tell a friend!</p>
+              <div class="share-wrap" style="margin:8px 0 0"><button type="button" class="btn-share" style="background:#fff;border-color:#fff" onclick="shareSite(this)">&#128241; Share With a Friend</button></div>
+              <button type="button" class="btn" id="new-order-btn">Place Another Order</button>
+            </section>
+          </div>
+
+          <!-- RIGHT: order summary (sticky on desktop) -->
+          <div class="cart-sticky">
+            <section class="panel" id="cart-section">
+              <div class="panel-head"><svg><use href="#i-diamond"/></svg> Your Order</div>
+              <div class="panel-body">
+                <div id="cart-items"></div>
+                <div class="cart-empty" id="cart-empty">No items yet. Tap <strong>Add to Order</strong> on any product or set above.</div>
+                <div class="cart-total" id="cart-total" style="display:none">
+                  <div class="ct-row"><span>Subtotal</span><span>$<span id="subtotal-amt">0</span></span></div>
+                  <div class="ct-row"><span>Shipping</span><span class="freeship">Free</span></div>
+                  <div class="ct-row ct-grand"><span class="lbl">Total</span><span class="amt">$<span id="total-amt">0</span></span></div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Easy Two-Step Process</h2>
+        <p class="sub">Two products, endless shine. Restore the metal, then bring the shine.</p>
+      </div>
+      <div class="sec-body">
+        <div class="steps">
+          <div class="step">
+            <img class="bottle" src="images/step-c5.png" alt="C5 metal restoration lotion, white 8oz bottle" loading="lazy">
+            <div>
+              <span class="num">Step 1 &middot; C5 Restoration Lotion</span>
+              <h3>Shake &amp; Rub</h3>
+              <p>Shake it well first. <b>C5</b> settles like orange juice (it never dries out or goes bad).</p>
+              <p>Dab a little on a paper towel, old t-shirt, or microfiber cloth and rub the metal <span class="hot">hard</span>. It removes heavy tarnish, oxidation, cloudiness, and dullness from metal. The shine is back in seconds.</p>
+            </div>
+          </div>
+          <div class="step two">
+            <img class="bottle" src="images/step-polish.png" alt="Best Solution purple polish, 8oz spray bottle" loading="lazy">
+            <div>
+              <span class="num">Step 2 &middot; Best Solution Polish</span>
+              <h3>Spray, Brush, Wipe, or Soak</h3>
+              <p><b>Soak</b> dirty pieces a few hours or overnight, then rinse. (Never soak old <b>opals or pearls</b>.)</p>
+              <p>Or <b>spray</b> it on, get it wet, and scrub with a <b>soft toothbrush</b>, getting behind the stones. Safe on every stone, no ammonia or acid. Rinse and done, brilliance restored.</p>
+            </div>
+          </div>
+        </div>
+        <p class="step-divider"><b>C5 restores the metal.</b> &nbsp;Best Solution cleans, polishes, and brings back the final shine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE & AFTER ============ -->
+  <section class="section alt" id="before-after">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Before &amp; After</h2>
+        <p class="sub">Real customer pieces. One half cleaned with Best Solution, the other left untouched. Same item, seconds apart. Tap any photo to enlarge.</p>
+      </div>
+      <div class="sec-body">
+        <div class="ba-grid" id="ba-grid">
+          <figure class="ba-item"><img src="images/ba-tray.jpg" alt="Silver tray, half tarnished and half mirror-bright after Best Solution" loading="lazy"><figcaption>Silver Tray</figcaption></figure>
+          <figure class="ba-item"><img src="images/ba-necklace.jpg" alt="Gold chain, one half dull and one half brilliant" loading="lazy"><figcaption>Gold Chain</figcaption></figure>
+          <figure class="ba-item"><img src="images/ba-harley.jpg" alt="Harley-Davidson engine cover, half tarnished and half mirror chrome" loading="lazy"><figcaption>Motorcycle</figcaption></figure>
+          <figure class="ba-item"><img src="images/ba-rims.jpg" alt="Chrome wheel, half filthy and half polished bright" loading="lazy"><figcaption>Chrome Rim</figcaption></figure>
+          <figure class="ba-item"><img src="images/ba-tiffany.jpg" alt="Tiffany bracelet, half cleaned and half tarnished" loading="lazy"><figcaption>Tiffany Bracelet</figcaption></figure>
+          <figure class="ba-item"><img src="images/ba-earrings.jpg" alt="Diamond stud earrings, one dull and one sparkling clean" loading="lazy"><figcaption>Diamond Studs</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-trophy.jpg" alt="Trophy cup, half tarnished and half gleaming gold" loading="lazy"><figcaption>Trophy</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-faucet.jpg" alt="Bathroom faucet, half corroded and half bright chrome" loading="lazy"><figcaption>Sink Faucet</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-teapot.jpg" alt="Silver teapot, one side polished and one side tarnished" loading="lazy"><figcaption>Silver Teapot</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-trumpet.jpg" alt="Brass trumpet, half tarnished and half gleaming" loading="lazy"><figcaption>Trumpet</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-pocketwatch.jpg" alt="Pocket watch, half tarnished and half ornate silver" loading="lazy"><figcaption>Pocket Watch</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-vase.jpg" alt="Silver vase, half tarnished and half brilliant" loading="lazy"><figcaption>Silver Vase</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-bracelet.jpg" alt="Silver cuff bracelet, half tarnished and half bright" loading="lazy"><figcaption>Silver Cuff</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-rolex.jpg" alt="Stainless watch, half grimy and half clean" loading="lazy"><figcaption>Watch</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-pot.jpg" alt="Stainless stock pot, half burnt and half shining" loading="lazy"><figcaption>Stock Pot</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-lamp.jpg" alt="Brass lamp, half bright and half tarnished" loading="lazy"><figcaption>Brass Lamp</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-ornament.jpg" alt="Christmas ornament, half dull and half mirror gold" loading="lazy"><figcaption>Ornament</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-fridge.jpg" alt="Stainless refrigerator, half grimy and half clean" loading="lazy"><figcaption>Refrigerator</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-candles.jpg" alt="Silver candlesticks, one polished and one tarnished" loading="lazy"><figcaption>Candlesticks</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-dishwasher.jpg" alt="Stainless dishwasher, half grimy and half polished" loading="lazy"><figcaption>Dishwasher</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-handle.jpg" alt="Door handle, half tarnished and half chrome" loading="lazy"><figcaption>Door Handle</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-teaset.jpg" alt="Silver tea set, half tarnished and half brilliant" loading="lazy"><figcaption>Silver Tea Set</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-ring.jpg" alt="Ornate silver ring, half tarnished and half bright" loading="lazy"><figcaption>Silver Ring</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-boatrails.jpg" alt="Boat rail, half corroded and half polished chrome" loading="lazy"><figcaption>Boat Rails</figcaption></figure>
+          <figure class="ba-item more"><img src="images/ba-silverware.jpg" alt="Silverware set, tarnished pieces next to freshly cleaned ones" loading="lazy"><figcaption>Silverware</figcaption></figure>
+        </div>
+        <button class="more-btn" type="button" data-more="&#9660; Show More Before &amp; Afters" data-less="&#9650; Show Fewer" onclick="toggleGallery('ba-grid',this)">&#9660; Show More Before &amp; Afters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAFE ON EVERY STONE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Safe on Every Stone</h2>
+        <p class="sub">Diamonds, opals, pearls, sapphires, emeralds, amethyst, turquoise, garnet. Our polish brings the fire and sparkle right back. Safe on every stone, no ammonia, no acid.</p>
+      </div>
+      <div class="sec-body">
+        <div class="collage-stack" id="rings-grid">
+          <figure class="collage-shot"><img src="images/rings-ba1.jpg" alt="Before and after rings with diamonds, opals, pearls, sapphires and more, dull before and brilliant after Best Solution polish" loading="lazy"></figure>
+          <figure class="collage-shot more"><img src="images/rings-ba2.jpg" alt="More before and after rings: solitaires, eternity bands, class rings, emerald studs and gemstone pendants restored with Best Solution polish" loading="lazy"></figure>
+        </div>
+        <button class="more-btn" type="button" data-more="&#9660; Show More Rings &amp; Stones" data-less="&#9650; Show Fewer" onclick="toggleGallery('rings-grid',this)">&#9660; Show More Rings &amp; Stones</button>
+
+        <div class="opal-callout">
+          <svg><use href="#i-ring"/></svg>
+          <span>
+            <b>Safe for Opals &amp; Pearls</b>
+            <p>No acid and no ammonia means nothing to dry out, etch, or damage soft, porous stones. Safe where typical jewelry cleaners are not.</p>
+          </span>
+        </div>
+
+        <div class="lists2" style="margin-top:18px">
+          <div class="listcard">
+            <div class="lc-head"><svg><use href="#i-refresh"/></svg><h3>C5 Lotion</h3></div>
+            <div class="lc-sub">Fine Metal Restoration</div>
+            <ul class="ilist">
+              <li>Gold</li><li>White Gold</li><li>Rose Gold</li><li>Silver</li><li>Sterling Silver</li><li>Platinum</li><li>Palladium</li><li>Rhodium</li><li>Titanium</li><li>Tungsten</li><li>Brass</li><li>Bronze</li><li>Copper</li><li>Stainless Steel</li><li>Steel</li><li>Chrome</li><li>Nickel</li><li>Aluminum</li><li>Pewter</li><li>Gold Plate</li><li>Silver Plate</li><li>Vermeil</li><li>German Silver</li><li>Gunmetal</li><li>Coins</li><li>Flatware</li><li>Trophies</li><li>Belt Buckles</li><li>Watch Cases</li><li>Hardware</li><li>Antiques</li><li>Candlesticks</li><li>Cookware</li><li>Faucets</li><li>Door Hardware</li><li>Light Fixtures</li><li class="x">&amp; more</li>
+            </ul>
+          </div>
+          <div class="listcard">
+            <div class="lc-head"><svg><use href="#i-diamond"/></svg><h3>The Polish</h3></div>
+            <div class="lc-sub">Stones, Gems &amp; Glass</div>
+            <ul class="ilist">
+              <li>Diamonds</li><li>Rubies</li><li>Emeralds</li><li>Sapphires</li><li>Amethyst</li><li>Topaz</li><li>Garnet</li><li>Citrine</li><li>Aquamarine</li><li>Peridot</li><li>Tanzanite</li><li>Onyx</li><li>Jade</li><li>Turquoise</li><li>Moonstone</li><li>Tiger's Eye</li><li>Opals</li><li>Pearls</li><li>Cubic Zirconia</li><li>Crystal</li><li>Glass</li><li>Coral</li><li>Amber</li><li>Costume &amp; Fine Jewelry</li><li>Tourmaline</li><li>Spinel</li><li>Morganite</li><li>Lapis Lazuli</li><li>Mother of Pearl</li><li>Malachite</li><li>Marcasite</li><li>Hematite</li><li>Mirrors</li><li>Eyeglasses</li><li>Watch Crystals</li><li class="x">&amp; more</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOT JUST FOR JEWELRY ============ -->
+  <section class="section alt">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Not Just for Jewelry</h2>
+        <p class="sub">Bonus uses you'll love, all around the house.</p>
+      </div>
+      <div class="sec-body">
+        <div class="uses-grid">
+          <div class="use"><span class="ic"><svg><use href="#i-glasses"/></svg></span><b>Glasses</b><small>No fog or smudge</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-mirror"/></svg></span><b>Mirrors</b><small>No fogging</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-screen"/></svg></span><b>Screens</b><small>All devices</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-car"/></svg></span><b>Cars</b><small>Rims &amp; trim</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-fan"/></svg></span><b>Fans</b><small>Dust-free</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-goggles"/></svg></span><b>Goggles</b><small>Anti-fog</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-shower"/></svg></span><b>Shower Doors</b><small>Streak-free</small></div>
+          <div class="use"><span class="ic"><svg><use href="#i-window"/></svg></span><b>Windows &amp; Doors</b><small>No nose or finger smudges</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="sec-head">
+        <h2>What Customers Say</h2>
+        <p class="sub">Real customers from real shows. We do free live demos at every booth so you can see it work before you ever buy.</p>
+      </div>
+      <div class="sec-body">
+        <div class="reviews" id="reviews-grid">
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Justin cleaned one of my diamond earrings right at the table and left the other so I could compare. The difference was night and day. I've used it on all my jewelry since."</p>
+            <div class="who">Karen M.<small>Waukesha, WI</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Isaiah did a demo on my wedding ring at the Kane County Fair. It honestly looked new again. Bought two bottles and I'm glad I did."</p>
+            <div class="who">Megan D.<small>Kane County Fair, IL</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Adam showed me how it works on my grandmother's silver. I was skeptical, but it came out beautiful. Been using it for months now."</p>
+            <div class="who">Brittany K.<small>North Aurora, IL</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Bought it from TJ at the Florida show. He sprayed my glasses right there, no fog and no smudges, and called it 'lasik in a bottle.' Honestly he wasn't far off. I use it on my sunglasses now too."</p>
+            <div class="who">Marcus T.<small>Orlando, FL</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Justin runs a real family business, and his daughter Alivia even helps out at the booth. Sweet girl, friendly people, and the product does exactly what they say."</p>
+            <div class="who">Theresa B.<small>Milwaukee, WI</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Andre ran the demo and clearly knew what he was doing. My tarnished trophy came out looking brand new. Very impressed with the results."</p>
+            <div class="who">Carol M.<small>Sheboygan, WI</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Justin's daughter Alivia did the demo on my wedding ring and walked me through every step. Such a sweet, polite girl. My ring came out gorgeous and I happily bought two bottles."</p>
+            <div class="who">Donna K.<small>Waukesha, WI</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Anthony took the time to show my mom how to use it on her rings. Polite young man, and the product works great. We've reordered twice."</p>
+            <div class="who">Patricia L.<small>Carol Stream, IL</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"My grandmother's silver tea set was badly tarnished. About twenty minutes with this and it looked like new. Really impressed."</p>
+            <div class="who">Dan R.<small>Green Bay, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Alivia helped me at the booth and knew the product better than most grown-ups. She cleaned my necklace right there and it looked brand new. Great kid, great family."</p>
+            <div class="who">Sharon L.<small>Franklin, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"My granddaughter loved watching Alivia do a little demo on my bracelet. You can tell she's proud of the family business. The polish worked just like she showed us."</p>
+            <div class="who">Patty G.<small>Oconomowoc, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Bought from Justin and his daughter Alivia at the fair. She's a natural and so sweet with everyone who stopped by. The stuff really works, been using it ever since."</p>
+            <div class="who">Rick D.<small>McHenry, IL</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Watched Les do a demo at the Washington County Fair and ended up buying the large combo. No regrets, a little goes a long way."</p>
+            <div class="who">Doug R.<small>Washington County Fair, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Michele helped me at the fair and even remembered me from last year. The polish brought my old necklace right back to life."</p>
+            <div class="who">Sandra P.<small>Durham County, NC</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"This crew jokes around the whole time, had us laughing. Ronny told me to never clean my jewelry with my own toothbrush, then actually showed me the right way. Fun booth and the stuff really works."</p>
+            <div class="who">Kevin S.<small>Milwaukee, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"I was nervous about cleaning my mom's pearls, but they explained there's no acid or ammonia so it's safe. They came out beautiful."</p>
+            <div class="who">Linda S.<small>Brookfield, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"First bought this at a show in Delaware years ago and I still reorder. Easily the best metal polish I've used."</p>
+            <div class="who">Robert H.<small>Wilmington, DE</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Isaiah talked me into trying it on my engagement ring. Glad I did, it sparkles like the day I got it. Ordering more soon."</p>
+            <div class="who">Hannah W.<small>Portland, OR</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Picked it up at a fair and now I keep it on hand. Shipped quickly out to Montana and it lasts a long time."</p>
+            <div class="who">Dale F.<small>Billings, MT</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Adam cleaned half of a filthy chrome rim and left the other half dirty so you could compare. That sold me. Works just like he showed."</p>
+            <div class="who">Nicole R.<small>Chicago, IL</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"I figured it was a gimmick, then Les let me clean my own wedding ring. Came out better than I expected. Glad I bought it."</p>
+            <div class="who">Mike P.<small>Madison, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Bought the gift set for the family and we use it on everything. Easy to use, and the results speak for themselves."</p>
+            <div class="who">Rachel T.<small>Oshkosh, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Justin followed up personally about my order. Good service and a product that works. Hard to beat that combination."</p>
+            <div class="who">Greg H.<small>Appleton, WI</small></div></div>
+        </div>
+        <button class="more-btn" type="button" data-more="&#9660; Read More Reviews" data-less="&#9650; Show Fewer" onclick="toggleGallery('reviews-grid',this)">&#9660; Read More Reviews</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section alt" id="faqs">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Good to Know</h2>
+        <p class="sub">Straight answers to the questions we hear most at the booth.</p>
+      </div>
+      <div class="sec-body">
+        <div class="faq">
+          <details>
+            <summary>100% Money-Back Guarantee</summary>
+            <div class="a">We do <strong>live demos</strong> at every show so you can see exactly how it works <em>before</em> you ever buy. We stand behind our product <strong>100%</strong>. If it doesn't work for you, <strong>call me directly</strong> and I'll do whatever it takes to put a smile on your face. I pride myself on <strong>top-notch customer service</strong> &mdash; that's a promise.<br><br>&mdash; Justin, <a href="tel:+14142130084" style="font-weight:800">414-213-0084</a></div>
+          </details>
+          <details>
+            <summary>What is C5?</summary>
+            <div class="a">C5 is our <strong>fine metal restoration lotion</strong> &mdash; the deep-restore partner to your polish. Where Best Solution polish brings back everyday sparkle, C5 goes after the tough stuff: heavy tarnish, oxidation, cloudiness, and dullness on <strong>gold, silver, platinum, palladium, brass, copper, chrome, stainless steel, pewter, and nickel</strong>. It isn't a cloth or a wipe &mdash; it's a rich lotion you <strong>work into the metal</strong> by hand or with a cloth until the original luster comes back. Use the polish for the overall shine and reach for C5 on the spots polish alone can't bring back.</div>
+          </details>
+          <details>
+            <summary>What can Best Solution restore?</summary>
+            <div class="a">Just about anything with shine. <strong>Jewelry</strong> of every kind (rings, necklaces, bracelets, earrings, watches, pendants, charms), <strong>all types of stones</strong> &mdash; from hard gems like diamonds, rubies, emeralds, and sapphires to delicate <strong>opals &amp; pearls</strong> &mdash; plus <strong>eyewear</strong>, <strong>coins &amp; collectibles</strong>, <strong>home &amp; kitchen</strong> (faucets, sinks, silverware, serving trays, tea sets, candlesticks), <strong>glass &amp; mirrors</strong>, and <strong>auto &amp; hobby</strong> (chrome, rims, motorcycle parts, tools). Works beautifully on both <strong>fine and costume jewelry</strong>. And because there's <strong>no acid, no ammonia, and no abrasives</strong>, it cleans without scratching, etching, or harming your pieces.</div>
+          </details>
+          <details>
+            <summary>Does it really work on glasses?</summary>
+            <div class="a">It sure does, and it's one of our favorites. Remember, this is a <strong>glass polish</strong> too &mdash; it's right there in the name. Spray it on your <strong>eyeglasses, prescription or sunglasses</strong> and you get <strong>no fog and no smudges</strong>. Folks at the booth call it <strong>"lasik in a bottle."</strong> It works just as well on mirrors, phone and TV screens, and the inside of your windshield.</div>
+          </details>
+          <details class="feature">
+            <summary>Why is it safe for opals &amp; pearls?</summary>
+            <div class="a"><span class="badge-q">Most Asked</span><br>
+            Opals and pearls are <strong>soft, porous gems</strong>. Unlike a diamond, they actually hold natural water inside them and have a delicate surface that harsh chemicals can ruin <em>permanently</em>. Most jewelry cleaners rely on <strong>acid or ammonia</strong> &mdash; and those strip the moisture right out of these stones, leaving opals <strong>cracked, crazed, or cloudy</strong> and pearls <strong>dull, pitted, or discolored</strong>. That damage doesn't come back.<br><br>
+            Best Solution has <strong>no acid, no ammonia, and no abrasives</strong> &mdash; so there is simply nothing in it to dry out, etch, or eat away at a porous stone. It gently lifts away dirt and oils and restores the shine the way fragile gems actually need. That's why it's safe to use on <strong>opals, pearls, turquoise, coral, amber, and other soft or porous stones</strong> that you'd never dare put a typical cleaner near.</div>
+          </details>
+          <details>
+            <summary>Will it keep my white gold from turning yellow?</summary>
+            <div class="a">Here's something most people don't realize: <strong>white gold is really yellow gold</strong> &mdash; it just gets its bright, silvery look from a thin plating of <strong>rhodium</strong>. That rhodium layer is the only thing making it "white." As the piece is worn, a film of <strong>oxidation, oils, and tarnish</strong> builds up and that finish goes dull, letting the warm yellow gold underneath start to show through.<br><br>
+            C5 is built to <strong>lift that oxidation and buildup right off</strong>. Clean your white gold with C5 regularly and you keep the finish bright and <strong>white instead of yellow</strong> &mdash; so your ring keeps looking like the day you got it, far longer. And with <strong>no acid or ammonia</strong>, it does it gently, without attacking the rhodium plating.</div>
+          </details>
+          <details>
+            <summary>What should I wipe it on with?</summary>
+            <div class="a">A little tip from us: we use <strong>Bounty brand paper towels</strong> because they're actually made from a <strong>cotton fiber</strong> instead of the cheap paper fiber. That cotton is what helps <strong>pull the oxidation and tarnish off</strong> the metal. You don't have to use Bounty though &mdash; an <strong>old t-shirt</strong>, a <strong>microfiber cloth</strong>, or any soft cotton rag works great too. And a <strong>Q-tip</strong> is perfect for getting into hard-to-reach spots and intricate, detailed pieces.</div>
+          </details>
+          <details>
+            <summary>How does shipping work?</summary>
+            <div class="a"><strong>Shipping is FREE</strong> on every order, big or small. Your total is exactly what you see, no surprises. When your order comes in, Justin sends you a quick, <strong>secure payment request</strong> for that total (Square, Venmo, Zelle, or Cash App). Nothing is auto-charged on this page.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATCH US AT A SHOW ============ -->
+  <section class="section" id="shows">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Catch Us at a Show</h2>
+        <p class="sub">Free demos at markets &amp; shows. Come see it sparkle in person!</p>
+      </div>
+      <div class="sec-body">
+        <div class="nextshows open" id="nextshows">
+          <button class="ns-btn" type="button" aria-expanded="true" onclick="toggleShows(this)"><span>&#128197; Where We'll Be Next</span><span class="ns-chev">&#9650;</span></button>
+          <div class="ns-list">
+            <div class="ns-row"><span class="ns-name">Waukesha County Fair</span><span class="ns-meta">Jul 15&ndash;19 &middot; Waukesha, WI</span></div>
+            <div class="ns-row"><span class="ns-name">McHenry County Fair</span><span class="ns-meta">Aug 4&ndash;9 &middot; McHenry County, IL</span></div>
+            <div class="ns-row"><span class="ns-name">Cranberry Fest</span><span class="ns-meta">Sep 25&ndash;27 &middot; Warrens, WI</span></div>
+            <div class="ns-foot">Come say hi &mdash; free demos all weekend! &#10022;</div>
+          </div>
+        </div>
+        <div class="booths" id="booth-grid">
+          <div class="booth"><img src="images/booth2.jpg" alt="Best Solution booth at an outdoor market" loading="lazy"></div>
+          <div class="booth"><img src="images/booth6.jpg" alt="Best Solution booth with the team at a summer market" loading="lazy"></div>
+          <div class="booth"><img src="images/booth3.jpg" alt="Best Solution booth with Free Demo sign" loading="lazy"></div>
+          <div class="booth"><img src="images/booth4.jpg" alt="Best Solution tent at a flea market" loading="lazy"></div>
+          <div class="booth"><img src="images/booth8.jpg" alt="Best Solution owner at the booth" loading="lazy"></div>
+          <div class="booth"><img src="images/booth1.jpg" alt="Best Solution holiday show booth with Santa" loading="lazy"></div>
+          <div class="booth"><img src="images/booth7.jpg" alt="Best Solution booth at an indoor show" loading="lazy"></div>
+          <div class="booth"><img src="images/booth10.jpg" alt="Best Solution booth on a fall market day" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth13.jpg" alt="Best Solution table display with free candy" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth11.jpg" alt="Best Solution booth at a brick venue" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth12.jpg" alt="Best Solution tent in a market parking lot" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth9.jpg" alt="Best Solution display table full of product" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth5.jpg" alt="Best Solution booth under a tent with free candy" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth14.jpg" alt="Best Solution evening tent booth lit with string lights" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth15.jpg" alt="Best Solution at a large indoor show with Distributors Wanted banner" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth16.jpg" alt="Best Solution product display table" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth17.jpg" alt="Best Solution booth with customers at an indoor show" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth18.jpg" alt="Best Solution booth at the San Antonio event center" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth19.jpg" alt="Customers gathered at the Best Solution booth" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth20.jpg" alt="Best Solution evening market tent" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth21.jpg" alt="Customers at the Best Solution booth at an indoor show" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth22.jpg" alt="Best Solution owner at a sunny outdoor market" loading="lazy"></div>
+          <div class="booth more"><img src="images/booth23.jpg" alt="Crowd at the Best Solution booth with C5 metal restorer signs" loading="lazy"></div>
+        </div>
+        <button class="more-btn" type="button" data-more="&#9660; See More From Our Shows" data-less="&#9650; Show Fewer" onclick="toggleGallery('booth-grid',this)">&#9660; See More From Our Shows</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REAL CUSTOMERS, REAL RESULTS ============ -->
+  <section class="section alt">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Real Customers, Real Results</h2>
+        <p class="sub">We ask our customers to take a picture with their new shiny jewelry. These are real customers with real smiles on their faces.</p>
+      </div>
+      <div class="sec-body">
+        <div class="collage-stack" id="cust-grid">
+          <figure class="collage-shot"><img src="images/customers1.jpg" alt="Happy Best Solution customers smiling at the booth with their freshly polished jewelry" loading="lazy"></figure>
+          <figure class="collage-shot"><img src="images/customers2.jpg" alt="Delighted Best Solution customers showing off their sparkling rings at a show" loading="lazy"></figure>
+          <figure class="collage-shot more"><img src="images/customers3.jpg" alt="More happy Best Solution customers reacting to their cleaned jewelry" loading="lazy"></figure>
+          <figure class="collage-shot more"><img src="images/customers4.jpg" alt="Customers admiring their freshly shined rings and necklaces at the Best Solution booth" loading="lazy"></figure>
+          <figure class="collage-shot more"><img src="images/customers5.jpg" alt="Excited Best Solution customers holding up their polished jewelry" loading="lazy"></figure>
+          <figure class="collage-shot more"><img src="images/customers6.jpg" alt="Even more smiling Best Solution customers with their sparkling jewelry at a market" loading="lazy"></figure>
+        </div>
+        <button class="more-btn" type="button" data-more="&#9660; See More Happy Customers" data-less="&#9650; Show Fewer" onclick="toggleGallery('cust-grid',this)">&#9660; See More Happy Customers</button>
+        <div class="share-wrap"><button type="button" class="btn-share" onclick="shareSite(this)">&#128241; Send This to a Friend</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <p class="sub">Questions, reorders, or wholesale? Reach out any time.</p>
+      </div>
+      <div class="sec-body">
+        <div class="contact-card">
+          <h3>Justin Greco</h3>
+          <p class="role">Owner, Dot Dynasty LLC &middot; DBA Best Solution</p>
+          <div class="contact-rows">
+            <a href="tel:+14142130084"><small>Phone / Text</small>414-213-0084</a>
+            <a href="mailto:BestSolutionPolish@gmail.com"><small>Email</small>BestSolutionPolish@gmail.com</a>
+            <a href="https://bestsolutionpolish.com"><small>Website</small>BestSolutionPolish.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <svg width="72" height="72" style="color:#fff;margin:0 auto 16px;display:block" aria-hidden="true"><use href="#bs-logo"/></svg>
+    <p class="motto">Clean. Restore. Protect.<small>Brilliant results. Every time.</small></p>
+    <div class="footer-badges">
+      <span><svg><use href="#i-shield"/></svg> Safe on All Metals &amp; Gemstones</span>
+      <span><svg><use href="#i-leaf"/></svg> No Ammonia &middot; No Acid &middot; No Abrasives</span>
+      <span><svg><use href="#i-medal"/></svg> 100% Satisfaction Guarantee</span>
+      <span><svg><use href="#i-flag"/></svg> Made in USA</span>
+    </div>
+    <div class="biz">
+      <strong>Justin Greco &middot; Owner, Dot Dynasty LLC &middot; DBA Best Solution</strong><br>
+      Professional Jewelry, Metal &amp; Glass Polish &middot; Trusted Since 1985<br>
+      <a href="tel:+14142130084">&#128222; 414-213-0084</a> &middot; <a href="sms:+14142130084">&#128172; Text</a> &middot; <a href="mailto:BestSolutionPolish@gmail.com">&#9993; BestSolutionPolish@gmail.com</a><br>
+      <a href="https://bestsolutionpolish.com">BestSolutionPolish.com</a>
+    </div>
+    <p class="fineprint">Best Solution&reg; &middot; Free shipping on every order &middot; 100% money-back guarantee</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY VIEW ORDER (MOBILE) ============ -->
 <div class="sticky" id="sticky">
   <button class="btn" id="sticky-btn" type="button">View Order &middot; $<span id="sticky-amt">0</span></button>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarged photo">
+  <button class="lb-x" type="button" aria-label="Close" onclick="closeLightbox()">&#10005;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
 </div>
 
 <script>
@@ -1130,18 +1424,48 @@ const FORMSPREE_ID = "xykqyrnz";
 const SHIP = 0;                        // FREE shipping (built into prices)
 function grandTotal(){ return orderTotal() + SHIP; }
 
+/* ---------- mobile nav ---------- */
+function toggleNav(btn){
+  const links = document.getElementById('nav-links');
+  const open = links.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+
 /* ---------- gallery show more / less ---------- */
 function toggleGallery(id, btn){
   const g = document.getElementById(id);
   const expanded = g.classList.toggle('expanded');
   btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
 }
-
 function toggleShows(btn){
   const box = btn.closest('.nextshows');
   const open = box.classList.toggle('open');
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+
+/* ---------- lightbox (click-to-enlarge) ---------- */
+const lb = document.getElementById('lightbox');
+function openLightbox(src, alt, cap){
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-img').alt = alt || '';
+  document.getElementById('lb-cap').textContent = cap || '';
+  lb.classList.add('show');
+}
+function closeLightbox(){ lb.classList.remove('show'); }
+lb.addEventListener('click', e=>{ if(e.target.id!=='lb-img') closeLightbox(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
+document.querySelectorAll('.ba-item img, .collage-shot img, .booth img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    const fig = img.closest('figure,.booth');
+    const cap = fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '';
+    openLightbox(img.src, img.alt, cap);
+  });
+});
 
 /* ---------- tiny safe DOM builder (no innerHTML, XSS-proof) ---------- */
 function el(tag, props){
@@ -1164,81 +1488,97 @@ function el(tag, props){
   }
   return n;
 }
+function icon(name){
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  const use = document.createElementNS('http://www.w3.org/2000/svg','use');
+  use.setAttribute('href','#'+name);
+  svg.appendChild(use);
+  return svg;
+}
 
-/* ---------- product data ---------- */
-const SPECIALS = [
-  {id:"show100", name:"$100 Show Special", contents:"32oz Refill + 8oz Sprayer + 2oz Sprayer, plus 8oz C5 (Large) + 2oz C5 (Small)", price:100, save:25, badge:"Show Special", special:true},
+/* ---------- product data (official price sheet) ---------- */
+const SETS_LARGE = [
+  {id:"b32L", name:"32oz Polish + Large C5 (8oz)", contents:"32 oz Best Solution + 8 oz C5", price:45, img:"b32L.jpg", badge:"Best Value",
+   uses:[["i-diamond","The complete large-size system"],["i-refresh","Restore, then polish"],["i-case","Stocks the whole house"]], tagline:"Our best seller for big collections"},
+  {id:"b16L", name:"16oz Polish + Large C5 (8oz)", contents:"16 oz Best Solution + 8 oz C5", price:40, img:"b16L.jpg", badge:"Most Popular",
+   uses:[["i-sparkle","Everyday polish + deep restore"],["i-refresh","Restore, then polish"],["i-glasses","Jewelry, eyewear & more"]], tagline:"The go-to two-step set"},
+  {id:"b8L",  name:"8oz Polish + Large C5 (8oz)",  contents:"8 oz Best Solution + 8 oz C5",  price:35, img:"b8L.jpg",
+   uses:[["i-watch","Personal jewelry & watches"],["i-refresh","Restore, then polish"],["i-case","Compact & convenient"]], tagline:"Matched pair, same size bottles"},
 ];
-const BUNDLES_LARGE = [
-  {id:"b32L", name:"32oz + C5 Large", contents:"32oz Polish + 8oz C5 Lotion", price:60, save:5, badge:"Best Value"},
-  {id:"b16L", name:"16oz + C5 Large", contents:"16oz Polish + 8oz C5 Lotion", price:55, save:5, badge:"Most Popular", popular:true},
-  {id:"b8L",  name:"8oz + C5 Large",  contents:"8oz Polish + 8oz C5 Lotion",  price:50, save:5},
+const SETS_SMALL = [
+  {id:"b32S", name:"32oz Polish + Small C5 (2oz)", contents:"32 oz Best Solution + 2 oz C5", price:35, img:"b32S.jpg",
+   uses:[["i-diamond","Big polish for big collections"],["i-sparkle","C5 for spot touch-ups"],["i-mirror","Mirrors & glass too"]], tagline:"Maximum polish, starter C5"},
+  {id:"b16S", name:"16oz Polish + Small C5 (2oz)", contents:"16 oz Best Solution + 2 oz C5", price:30, img:"b16S.jpg",
+   uses:[["i-sparkle","Everyday jewelry & accessories"],["i-glasses","Eyeglasses & sunglasses"],["i-ring","C5 for detail work"]], tagline:"Perfect everyday pairing"},
+  {id:"b8S",  name:"8oz Polish + Small C5 (2oz)",  contents:"8 oz Best Solution + 2 oz C5",  price:25, img:"b8S.jpg",
+   uses:[["i-watch","Personal jewelry & watches"],["i-ring","C5 for spot treatment"],["i-case","Travel & on the go"]], tagline:"Great value starter pair"},
 ];
-const BUNDLES_SMALL = [
-  {id:"b32S", name:"32oz + C5 Small", contents:"32oz Polish + 2oz C5 Lotion", price:50, save:5},
-  {id:"b16S", name:"16oz + C5 Small", contents:"16oz Polish + 2oz C5 Lotion", price:45, save:5},
-  {id:"b8S",  name:"8oz + C5 Small",  contents:"8oz Polish + 2oz C5 Lotion",  price:40, save:5},
-  {id:"b2S",  name:"2oz + C5 Small",  contents:"2oz Polish + 2oz C5 Lotion",  price:30, save:5, badge:"Gift / Starter Set"},
+const SETS_TRAVEL = [
+  {id:"b2S",  name:"2oz Polish + Small C5 (2oz)",  contents:"2 oz Best Solution + 2 oz C5",  price:20, img:"b2S.jpg", badge:"Travel / Starter", teal:true,
+   uses:[["i-plane","Travel & on the go"],["i-gift","Perfect first-time gift"],["i-sparkle","The full system, pocket size"]], tagline:"Perfect for first-time users"},
 ];
-const SINGLES = [
-  {id:"p32", name:"32oz Polish",   sub:"Best Solution",          price:35},
-  {id:"p16", name:"16oz Polish",   sub:"Best Solution",          price:30},
-  {id:"p8",  name:"8oz Polish",    sub:"Best Solution",          price:25},
-  {id:"p2",  name:"2oz Polish",    sub:"Best Solution",          price:15},
-  {id:"c8",  name:"8oz C5 Lotion", sub:"Fine metal restoration", price:30},
-  {id:"c2",  name:"2oz C5 Lotion", sub:"Fine metal restoration", price:20},
+const SINGLES_POLISH = [
+  {id:"p32", name:"32oz Best Solution", size:"32 oz bottle", price:25, img:"bottle-p32.jpg",
+   uses:[["i-diamond","Large jewelry collections"],["i-glasses","Eyeglasses & sunglasses"],["i-mirror","Mirrors & glass surfaces"]], tagline:"More Size, More Value"},
+  {id:"p16", name:"16oz Best Solution", size:"16 oz spray bottle", price:20, img:"bottle-p16.jpg",
+   uses:[["i-sparkle","Everyday jewelry & accessories"],["i-glasses","Eyeglasses & sunglasses"],["i-refresh","Quick clean & maintenance"]], tagline:"Perfect Everyday Size"},
+  {id:"p8",  name:"8oz Best Solution",  size:"8 oz spray bottle",  price:15, img:"bottle-p8.jpg",
+   uses:[["i-watch","Personal jewelry & watches"],["i-glasses","Eyeglasses & sunglasses"],["i-case","Travel & on the go"]], tagline:"Compact & Convenient"},
+  {id:"p2",  name:"2oz Best Solution",  size:"2 oz spray bottle",  price:10, img:"bottle-p2.jpg",
+   uses:[["i-bag","Pocket & purse size"],["i-plane","Travel & on the go"],["i-gift","Sample size / gifting"]], tagline:"Small Size, Big Power"},
+];
+const SINGLES_C5 = [
+  {id:"c8",  name:"Large C5 (8oz)", size:"8 oz metal restoration lotion", price:20, img:"bottle-c5l.jpg",
+   uses:[["i-sparkle","Heavy tarnish & oxidation removal"],["i-chain","Larger items & metals"],["i-refresh","Restore before you polish"]], tagline:"Metal Restoration Lotion"},
+  {id:"c2",  name:"Small C5 (2oz)", size:"2 oz metal restoration lotion", price:10, img:"bottle-c5s.jpg",
+   uses:[["i-sparkle","Spot treatment & touch-ups"],["i-ring","Small items & detail work"],["i-case","Travel & on the go"]], tagline:"Powerful in a Small Size"},
 ];
 const ALL = {};
-[...SPECIALS,...BUNDLES_LARGE,...BUNDLES_SMALL,...SINGLES].forEach(p=>ALL[p.id]=p);
+[...SETS_LARGE,...SETS_SMALL,...SETS_TRAVEL,...SINGLES_POLISH,...SINGLES_C5].forEach(p=>ALL[p.id]=p);
 
 /* ---------- state ---------- */
 const cart = {};        // id -> qty
 const pickerQty = {};   // id -> chosen qty before add
 let payment = "";
 
-/* ---------- build a bundle card ---------- */
-function bundleCard(b){
-  const valSpan = el('span', {class:'val', id:'val-'+b.id, text:'1'});
-  const card = el('div', {class:'card' + (b.popular ? ' popular' : '') + (b.special ? ' special' : ''), 'data-card':b.id},
-    el('img', {class:'card-img', src:'images/'+b.id+'.jpg', alt:b.name, loading:'lazy',
-      onError:function(){ this.style.display='none'; }}),
-    b.badge ? el('span', {class:'ribbon', text:b.badge}) : null,
-    el('div', {class:'name', text:b.name}),
-    el('div', {class:'contents', text:b.contents}),
-    el('div', {class:'price'}, '$'+b.price, el('span', {class:'ship', text:'Free shipping'})),
-    b.save ? el('div', {class:'save', text:'You save $'+b.save+' vs. buying separately'}) : null,
+/* ---------- build a product card ---------- */
+function productCard(p){
+  const valSpan = el('span', {class:'val', id:'val-'+p.id, text:'1'});
+  return el('div', {class:'pcard' + (p.teal ? ' teal-card' : ''), 'data-card':p.id},
+    p.badge ? el('span', {class:'ribbon', text:p.badge}) : null,
+    el('div', {class:'imgbox'},
+      el('img', {src:'images/'+p.img, alt:p.name + (p.contents ? ' set: '+p.contents : ' bottle'), loading:'lazy',
+        onError:function(){ this.closest('.imgbox').style.display='none'; }})
+    ),
+    el('h3', {text:p.name}),
+    el('div', {class:'sizes', text:p.contents || p.size || ''}),
+    el('ul', {class:'uses'},
+      p.uses.map(u=>el('li', null, icon(u[0]), u[1]))
+    ),
+    el('div', {class:'tagline', text:p.tagline || ''}),
+    el('div', {class:'buyrow'},
+      el('span', {class:'price', text:'$'+p.price}),
+      el('span', {class:'ship', text:'Free Shipping'})
+    ),
     el('div', {class:'card-actions'},
       el('div', {class:'qty'},
-        el('button', {type:'button', 'aria-label':'less', onClick:()=>stepPicker(b.id,-1,valSpan)}, '–'),
+        el('button', {type:'button', 'aria-label':'Fewer', onClick:()=>stepPicker(p.id,-1,valSpan)}, '–'),
         valSpan,
-        el('button', {type:'button', 'aria-label':'more', onClick:()=>stepPicker(b.id,1,valSpan)}, '+')
+        el('button', {type:'button', 'aria-label':'More', onClick:()=>stepPicker(p.id,1,valSpan)}, '+')
       ),
-      el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(b.id)}, 'Add to Order')
+      el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(p.id)}, 'Add to Order')
     )
   );
-  return card;
 }
 function stepPicker(id, step, valSpan){
   pickerQty[id] = Math.max(1, (pickerQty[id]||1) + step);
   valSpan.textContent = pickerQty[id];
 }
-SPECIALS.forEach(b=>document.getElementById('grid-special').append(bundleCard(b)));
-BUNDLES_LARGE.forEach(b=>document.getElementById('grid-large').append(bundleCard(b)));
-BUNDLES_SMALL.forEach(b=>document.getElementById('grid-small').append(bundleCard(b)));
-
-/* ---------- build singles rows ---------- */
-const singlesBox = document.getElementById('singles');
-SINGLES.forEach(s=>{
-  singlesBox.append(
-    el('div', {class:'single-row'},
-      el('div', {class:'s-name'}, s.name, el('small', {text:s.sub})),
-      el('div', {style:'display:flex;align-items:center;gap:10px'},
-        el('span', {class:'s-price'}, '$'+s.price, el('span', {style:'font-size:11px;color:#1a9e4b;font-weight:800', text:' · free ship'})),
-        el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(s.id)}, 'Add')
-      )
-    )
-  );
-});
+SETS_LARGE.forEach(p=>document.getElementById('grid-large').append(productCard(p)));
+SETS_SMALL.forEach(p=>document.getElementById('grid-small').append(productCard(p)));
+SETS_TRAVEL.forEach(p=>document.getElementById('grid-travel').append(productCard(p)));
+SINGLES_POLISH.forEach(p=>document.getElementById('grid-polish').append(productCard(p)));
+SINGLES_C5.forEach(p=>document.getElementById('grid-c5').append(productCard(p)));
 
 /* ---------- add to order ---------- */
 function addToCart(id){
@@ -1266,11 +1606,11 @@ function renderCart(){
       el('div', {class:'cart-item'},
         el('div', {class:'ci-info'},
           el('div', {class:'ci-name', text:p.name}),
-          el('div', {class:'ci-sub', text:p.contents||p.sub||''})
+          el('div', {class:'ci-sub', text:p.contents||p.size||''})
         ),
         el('span', {class:'ci-qty', text:'×'+cart[id]}),
         el('span', {class:'ci-line', text:'$'+line}),
-        el('button', {type:'button', class:'ci-remove', 'aria-label':'remove',
+        el('button', {type:'button', class:'ci-remove', 'aria-label':'Remove '+p.name,
           onClick:()=>{ delete cart[id]; renderCart(); }}, '×')
       )
     );
@@ -1283,25 +1623,26 @@ function renderCart(){
 /* ---------- sticky bar ---------- */
 function updateSticky(total){ if(window._paintSticky) window._paintSticky(); }
 document.getElementById('sticky-btn').addEventListener('click',()=>{
-  const t=document.getElementById('order-top')||document.getElementById('cart-section');
+  const t=document.getElementById('cart-section')||document.getElementById('order-top');
   t.scrollIntoView({behavior:'smooth',block:'start'});
 });
 /* quick-pick shortcuts */
 function quickPick(kind){
   if(kind==='b32L'||kind==='b16L'){ addToCart(kind); }
-  else { const d=document.querySelector('.singles'); if(d){ d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'}); } }
+  else if(kind==='polish'){ document.getElementById('grid-polish').scrollIntoView({behavior:'smooth',block:'start'}); }
+  else { document.getElementById('grid-c5').scrollIntoView({behavior:'smooth',block:'start'}); }
 }
-/* reorder sticky: shows on mobile when the order area is scrolled out of view */
+/* sticky shows on mobile when the order area is out of view */
 (function(){
   const sticky=document.getElementById('sticky'), btn=document.getElementById('sticky-btn');
-  const anchor=document.getElementById('order-top'); let inView=true;
+  const anchor=document.getElementById('order'); let inView=true;
   window._paintSticky=function(){
     const t=(typeof orderTotal==='function')?orderTotal():0;
-    btn.textContent = t>0 ? ('View Order \u00b7 $'+(t+SHIP).toFixed(2)+' \u2191') : 'Order Now \u2191';
-    sticky.classList.toggle('show', !inView);
+    btn.textContent = t>0 ? ('View Order · $'+(t+SHIP).toFixed(2)+' ↑') : 'Build Your Order ↑';
+    sticky.classList.toggle('show', !inView && !document.getElementById('success').classList.contains('show'));
   };
   if(anchor && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ inView=es[0].isIntersecting; window._paintSticky(); },{rootMargin:'0px 0px -55% 0px'}).observe(anchor);
+    new IntersectionObserver(function(es){ inView=es[0].isIntersecting; window._paintSticky(); },{rootMargin:'0px 0px -30% 0px'}).observe(anchor);
   } else { inView=false; }
   window._paintSticky();
 })();
@@ -1359,8 +1700,8 @@ form.addEventListener('submit', async (e)=>{
   const address = document.getElementById('address').value.trim();
   const notes   = document.getElementById('notes').value.trim();
 
-  if(orderTotal()===0){ showErrText("Your order is empty. Add a bundle first.");
-    document.getElementById('cart-section').scrollIntoView({behavior:'smooth'}); return; }
+  if(orderTotal()===0){ showErrText("Your order is empty. Add a product or set first.");
+    document.getElementById('shop').scrollIntoView({behavior:'smooth'}); return; }
   if(!name){ showErrText("Please add your name so Justin knows who to thank."); return; }
   if(!phone && !email){ showErrText("Add a phone OR email so Justin can reach you about shipping."); return; }
   if(!address){ showErrText("Add your shipping address so Justin knows where to mail it."); return; }
@@ -1440,7 +1781,7 @@ function legacyCopy(txt, done){
 
 /* ---------- refer a friend (Web Share API + copy fallback) ---------- */
 function shareSite(btn){
-  const url  = "https://jfgreco84-commits.github.io/bestsolution/";
+  const url  = "https://bestsolutionpolish.com/";
   const text = "You've got to try this jewelry & glass polish — order here:";
   if(navigator.share){
     navigator.share({title:"Best Solution Polish", text:text, url:url}).catch(()=>{});
@@ -1455,17 +1796,16 @@ function shareSite(btn){
 /* ---------- success ---------- */
 function showSuccess(name){
   document.getElementById('ok-name').textContent = (name.split(' ')[0] || "friend");
-  // payment call-to-action (deep-link the customer straight to the method they chose)
   const cta = document.getElementById('pay-cta');
   cta.replaceChildren();
   const action = payActionFor(payment, orderTotal());
   if(action && action.url){
     cta.append(el('a', {class:'btn btn-order', href:action.url, target:'_blank', rel:'noopener',
-      style:'display:flex;align-items:center;justify-content:center;text-decoration:none'}, action.label));
-    cta.append(el('p', {class:'gold-line', style:'font-size:12.5px;margin-top:8px',
+      style:'display:flex;align-items:center;justify-content:center;text-decoration:none;background:#fff;color:var(--royal-deep)'}, action.label));
+    cta.append(el('p', {class:'note-line', style:'font-size:12.5px;margin-top:8px',
       text:'Opens '+payment+'. Already paid? You’re all set.'}));
   } else if(action && action.text){
-    cta.append(el('p', {class:'gold-line', text:action.text}));
+    cta.append(el('p', {class:'note-line', text:action.text}));
   }
   form.style.display = 'none';
   const ok = document.getElementById('success');
