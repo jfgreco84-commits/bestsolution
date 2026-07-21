@@ -515,6 +515,23 @@ a{color:var(--royal)}
 .success p{font-weight:600;color:#E4E1F8}
 .success .note-line{color:#B9E8E8;font-weight:700;margin-top:10px;font-size:13.5px}
 .success .btn{margin-top:18px;background:#fff;color:var(--royal-deep)}
+.success .btn.btn-order{background:var(--grad-gold);color:var(--navy);margin-top:0}
+/* easy-to-follow payment steps card */
+.pay-steps{
+  background:#fff;border-radius:14px;padding:18px 18px 16px;margin:16px 0 14px;
+  text-align:left;color:var(--ink);box-shadow:0 8px 20px rgba(10,7,40,.25);
+}
+.pay-steps .ps-title{
+  display:block;font-weight:900;text-transform:uppercase;color:var(--royal-deep);
+  font-size:14px;letter-spacing:.8px;margin-bottom:12px;text-align:center;
+}
+.pay-steps ol{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.pay-steps li{display:flex;gap:11px;align-items:flex-start;font-weight:600;font-size:14.5px;line-height:1.45}
+.pay-steps .n{
+  flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad-gold);
+  color:var(--navy);font-weight:900;font-size:13px;display:flex;align-items:center;
+  justify-content:center;margin-top:1px;
+}
 
 /* ====================== HOW IT WORKS (2 STEPS) ====================== */
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -1025,7 +1042,7 @@ a{color:var(--royal)}
                   <button class="pay-btn" data-pay="Zelle">Zelle</button>
                   <button class="pay-btn" data-pay="Cash App">Cash App</button>
                 </div>
-                <p class="pay-note"><b>No card information is entered on this page.</b> Payment is completed through your selected secure payment method after submitting your order. Card payments happen on Square's secure checkout page.</p>
+                <p class="pay-note"><b>No card information is entered on this page.</b> Pick a method above, place your order, and you'll get simple 1-2-3 payment steps on the very next screen. Card payments happen on Square's secure checkout page.</p>
               </div>
             </div>
 
@@ -1923,20 +1940,47 @@ function shareSite(btn){
   } else { legacyCopy(url, done); }
 }
 
+/* ---------- easy payment steps per method ---------- */
+function payStepsFor(method, amt){
+  if(method==="Square")   return {title:"Pay by card · 3 easy steps", steps:[
+    "Tap the gold PAY BY CARD button below.",
+    `Square's secure page opens. Type in your total: $${amt}.`,
+    "Pay with credit, debit, Apple Pay, or Google Pay. That's it!"]};
+  if(method==="Venmo")    return {title:"Pay with Venmo · 3 easy steps", steps:[
+    "Tap the gold VENMO button below.",
+    `Venmo opens with your $${amt} already filled in for Justin (@${PAY_HANDLES.venmo}).`,
+    "Tap Pay to finish. That's it!"]};
+  if(method==="Cash App") return {title:"Pay with Cash App · 3 easy steps", steps:[
+    "Tap the gold CASH APP button below.",
+    `Cash App opens with your $${amt} ready to send to $${PAY_HANDLES.cashapp}.`,
+    "Confirm to finish. That's it!"]};
+  if(method==="Zelle")    return {title:"Pay with Zelle · 3 easy steps", steps:[
+    "Open your bank's app and choose Zelle.",
+    `Add Justin as a recipient: ${PAY_HANDLES.zelle}`,
+    `Send your total: $${amt}. That's it!`]};
+  return null;
+}
+
 /* ---------- success ---------- */
 function showSuccess(name){
   document.getElementById('ok-name').textContent = (name.split(' ')[0] || "friend");
   const cta = document.getElementById('pay-cta');
   cta.replaceChildren();
+  const amt = orderTotal().toFixed(2);
   const action = payActionFor(payment, orderTotal());
+  const guide = payStepsFor(payment, amt);
+  if(guide){
+    cta.append(el('div', {class:'pay-steps'},
+      el('span', {class:'ps-title', text:guide.title}),
+      el('ol', null, guide.steps.map((s,i)=>el('li', null, el('span', {class:'n', text:String(i+1)}), s)))
+    ));
+  }
   if(action && action.url){
     cta.append(el('a', {class:'btn btn-order', href:action.url, target:'_blank', rel:'noopener',
       style:'display:flex;align-items:center;justify-content:center;text-decoration:none'}, action.label));
-    cta.append(el('p', {class:'note-line', style:'font-size:12.5px;margin-top:8px',
-      text:action.note || ('Opens '+payment+'. Already paid? You’re all set.')}));
-  } else if(action && action.text){
-    cta.append(el('p', {class:'note-line', text:action.text}));
   }
+  cta.append(el('p', {class:'note-line', style:'font-size:12.5px;margin-top:10px',
+    text:'Already paid? You’re all set. Justin will confirm your order and ship it out.'}));
   form.style.display = 'none';
   const ok = document.getElementById('success');
   ok.classList.add('show');
