@@ -439,7 +439,13 @@ a{color:var(--royal)}
   font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
   background:#fff;border:2px solid var(--line);color:var(--royal-deep);
   border-radius:12px;min-height:54px;font-size:14.5px;cursor:pointer;transition:all .12s;
+  padding:8px 6px;
 }
+.pay-btn small{
+  display:block;font-weight:700;font-size:9.5px;letter-spacing:.6px;color:var(--muted);
+  text-transform:uppercase;margin-top:3px;
+}
+.pay-btn.active small{color:#C9C4F2}
 .pay-btn:hover{border-color:var(--royal)}
 .pay-btn.active{background:var(--royal);color:#fff;border-color:var(--royal);box-shadow:0 3px 12px rgba(56,48,155,.35)}
 .pay-note{color:var(--muted);font-size:12.5px;margin-top:12px;font-weight:600;text-align:center}
@@ -1004,12 +1010,12 @@ a{color:var(--royal)}
               <div class="panel-head"><svg><use href="#i-cart"/></svg> How would you like to pay?</div>
               <div class="panel-body">
                 <div class="pay-grid" id="pay-grid">
-                  <button class="pay-btn" data-pay="Square">Square</button>
+                  <button class="pay-btn" data-pay="Square">Credit / Debit Card<small>secure Square checkout</small></button>
                   <button class="pay-btn" data-pay="Venmo">Venmo</button>
                   <button class="pay-btn" data-pay="Zelle">Zelle</button>
                   <button class="pay-btn" data-pay="Cash App">Cash App</button>
                 </div>
-                <p class="pay-note"><b>No card information is entered on this page.</b> Payment is completed through your selected secure payment method after submitting your order.</p>
+                <p class="pay-note"><b>No card information is entered on this page.</b> Payment is completed through your selected secure payment method after submitting your order. Card payments happen on Square's secure checkout page.</p>
               </div>
             </div>
 
@@ -1365,7 +1371,7 @@ a{color:var(--royal)}
           </details>
           <details>
             <summary>How does shipping work?</summary>
-            <div class="a"><strong>Shipping is FREE</strong> on every order, big or small. Your total is exactly what you see, no surprises. When your order comes in, Justin sends you a quick, <strong>secure payment request</strong> for that total (Square, Venmo, Zelle, or Cash App). Nothing is auto-charged on this page.</div>
+            <div class="a"><strong>Shipping is FREE</strong> on every order, big or small. Your total is exactly what you see, no surprises. Right after you submit your order, you get a <strong>secure payment button</strong> for your total &mdash; credit or debit card through Square's secure checkout, Venmo, or Cash App &mdash; or simple Zelle instructions. Nothing is auto-charged on this page, and no card information is ever entered on this site.</div>
           </details>
         </div>
       </div>
@@ -1780,7 +1786,7 @@ const PAY_HANDLES = {
   cashapp:"DOTDynastyLLC2025",      // $DOTDynastyLLC2025
   zelle:  "jfgreco84@gmail.com"     // Zelle email (Justin Greco)
 };
-const SQUARE_LINK = "";             // <- paste your Square checkout link here when ready (real card checkout)
+const SQUARE_LINK = "https://square.link/u/L9khIDNr";  // Square secure card checkout (custom amount)
 
 function payActionFor(method, total){
   const amt  = total.toFixed(2);
@@ -1788,7 +1794,10 @@ function payActionFor(method, total){
   if(method==="Venmo")    return {url:`https://venmo.com/${PAY_HANDLES.venmo}?txn=pay&amount=${amt}&note=${note}`, label:`Pay $${amt} with Venmo`};
   if(method==="Cash App") return {url:`https://cash.app/$${PAY_HANDLES.cashapp}/${amt}`, label:`Pay $${amt} with Cash App`};
   if(method==="Zelle")    return {text:`To pay by Zelle: open your bank app, choose Zelle, and send $${amt} to ${PAY_HANDLES.zelle} (Justin Greco).`};
-  if(method==="Square")   return SQUARE_LINK ? {url:SQUARE_LINK, label:`Pay $${amt} by Card`} : {text:`Justin will text you a secure card link for $${amt} to pay by card.`};
+  if(method==="Square")   return SQUARE_LINK
+    ? {url:SQUARE_LINK, label:`Pay $${amt} by Card`,
+       note:`Square's secure page will open. Enter your total of $${amt} and pay by credit, debit, Apple Pay, or Google Pay.`}
+    : {text:`Justin will text you a secure card link for $${amt} to pay by card.`};
   return null;
 }
 
@@ -1913,7 +1922,7 @@ function showSuccess(name){
     cta.append(el('a', {class:'btn btn-order', href:action.url, target:'_blank', rel:'noopener',
       style:'display:flex;align-items:center;justify-content:center;text-decoration:none'}, action.label));
     cta.append(el('p', {class:'note-line', style:'font-size:12.5px;margin-top:8px',
-      text:'Opens '+payment+'. Already paid? You’re all set.'}));
+      text:action.note || ('Opens '+payment+'. Already paid? You’re all set.')}));
   } else if(action && action.text){
     cta.append(el('p', {class:'note-line', text:action.text}));
   }
