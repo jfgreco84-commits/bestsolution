@@ -67,7 +67,7 @@ body{
   color:var(--ink);background:var(--paper);
   line-height:1.55;overflow-x:hidden;
 }
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:var(--royal)}
 .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
@@ -165,6 +165,8 @@ a{color:var(--royal)}
   letter-spacing:1.2px;text-transform:uppercase;color:#B9E8E8;
 }
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero .h-reorder{margin-top:16px;font-weight:600;font-size:13.5px;color:#C9C4F2}
+.hero .h-reorder a{color:#fff;font-weight:800}
 .btn{
   font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;
   letter-spacing:.8px;border:0;border-radius:12px;cursor:pointer;
@@ -283,6 +285,7 @@ a{color:var(--royal)}
 }
 .pcard.teal-card{border-color:#BFE0E0}
 .pcard.teal-card .ribbon{background:var(--teal)}
+.pcard > .ribbon + h3{margin-top:32px} /* no-photo cards: keep title clear of the corner ribbon */
 .pcard .imgbox{
   height:200px;display:flex;align-items:flex-end;justify-content:center;
   background:#fff;border-radius:12px;margin-bottom:14px;padding:6px 6px 0;
@@ -293,6 +296,7 @@ a{color:var(--royal)}
   font-size:17px;line-height:1.2;letter-spacing:.3px;
 }
 .pcard .sizes{font-weight:700;color:var(--muted);font-size:12.5px;margin-top:3px}
+.pcard .desc{font-weight:500;color:#48466A;font-size:13px;line-height:1.5;margin-top:9px}
 .pcard .uses{list-style:none;margin:12px 0 4px;display:grid;gap:7px}
 .pcard .uses li{display:flex;align-items:center;gap:9px;font-weight:600;font-size:13px;color:var(--ink)}
 .pcard .uses svg{width:20px;height:20px;flex:none;color:var(--royal)}
@@ -300,6 +304,12 @@ a{color:var(--royal)}
   margin-top:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
   font-size:10.5px;color:var(--teal);
 }
+.pcard .save{
+  display:inline-block;margin-top:9px;background:#E9F8EF;border:1.5px solid #BEE7CD;
+  color:#137A39;font-weight:800;font-size:11.5px;padding:5px 11px;border-radius:999px;
+  align-self:flex-start;
+}
+.grid-1{max-width:420px;margin:0 auto}
 .pcard .buyrow{
   margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;
 }
@@ -335,6 +345,7 @@ a{color:var(--royal)}
   .grid-4 .qty .val{width:32px;font-size:15px}
 }
 .pcard.teal-card .btn-add{background:var(--teal)}
+.qp-label{text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;font-size:11px;color:var(--muted);margin:0 0 10px}
 .quickpicks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
 @media(max-width:640px){.quickpicks{grid-template-columns:repeat(2,1fr)}}
 .qp{
@@ -765,6 +776,12 @@ a{color:var(--royal)}
   <symbol id="i-screen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
     <rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/>
   </symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M4 20l8.5-8.5"/><path d="M11 5.5 14.5 2l1.5 1.5-2 2 2.5 2.5 2-2L20 7.5 16.5 11c-1.2 1.2-3 1.2-4.2 0l-1.3-1.3c-1.2-1.2-1.2-3 0-4.2z"/><circle cx="4.5" cy="19.5" r="1.6"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M6.5 9.5h6M6.5 12.5h11M6.5 15.5h8"/>
+  </symbol>
   <!-- Best Solution circular logo mark (line art) -->
   <symbol id="bs-logo" viewBox="0 0 100 100" fill="none" stroke="currentColor">
     <circle cx="50" cy="50" r="46" stroke-width="4"/>
@@ -816,6 +833,7 @@ a{color:var(--royal)}
           <a class="btn btn-primary" href="#shop">Shop Best Solution</a>
           <a class="btn btn-ghost" href="#before-after">See Before &amp; After Results</a>
         </div>
+        <p class="h-reorder">Already love it? <a href="#shop">Reorder in 30 seconds</a> &middot; free shipping on every order.</p>
       </div>
       <figure class="hero-photo">
         <img src="images/full-lineup.jpg" width="1200" height="800"
@@ -854,9 +872,10 @@ a{color:var(--royal)}
       <div class="sec-head">
         <span class="kicker">Free Shipping on Every Order</span>
         <h2>Sets &ndash; Best Value</h2>
-        <p class="sub">Pair your polish with C5 restoration lotion and get the full two-step system. From our family to yours, we ship every order free, right to your door.</p>
+        <p class="sub">You already love it. Reorder in 30 seconds, or pick the perfect first set. Every set pairs the purple polish with C5 restoration lotion, the full two-step system. From our family to yours, we ship every order free, right to your door.</p>
       </div>
       <div class="sec-body">
+        <p class="qp-label">Quick reorder favorites:</p>
         <div class="quickpicks" id="order-top">
           <button type="button" class="qp" onclick="quickPick('b32L')">32oz Set + Large C5</button>
           <button type="button" class="qp" onclick="quickPick('b16L')">16oz Set + Large C5</button>
@@ -865,6 +884,13 @@ a{color:var(--royal)}
         </div>
 
         <div class="setband">
+          <svg><use href="#i-sparkle"/></svg>
+          <span><b>Show Special</b><small>Our best deal &middot; the whole lineup at one low price</small></span>
+          <span class="tag">Save $25</span>
+        </div>
+        <div class="grid grid-1" id="grid-special"></div>
+
+        <div class="setband" style="margin-top:26px">
           <svg><use href="#i-diamond"/></svg>
           <span><b>Large Sets</b><small>Includes Large C5 (8oz)</small></span>
           <span class="tag">Best Value!</span>
@@ -881,9 +907,16 @@ a{color:var(--royal)}
         <div class="setband teal" style="margin-top:26px">
           <svg><use href="#i-plane"/></svg>
           <span><b>Travel / Starter Size</b><small>Perfect for first-time users or on the go!</small></span>
-          <span class="tag">$20</span>
+          <span class="tag">$30</span>
         </div>
         <div class="grid grid-3" id="grid-travel"></div>
+
+        <div class="setband teal" style="margin-top:26px">
+          <svg><use href="#i-glasses"/></svg>
+          <span><b>Glasses Sets</b><small>Polish + eyeglass repair kit + reorder &amp; instructions card</small></span>
+          <span class="tag">$15 &amp; $25</span>
+        </div>
+        <div class="grid grid-3" id="grid-glasses"></div>
       </div>
     </div>
   </section>
@@ -1302,7 +1335,6 @@ a{color:var(--royal)}
         <div class="nextshows open" id="nextshows">
           <button class="ns-btn" type="button" aria-expanded="true" onclick="toggleShows(this)"><span>&#128197; Where We'll Be Next</span><span class="ns-chev">&#9650;</span></button>
           <div class="ns-list">
-            <div class="ns-row"><span class="ns-name">Waukesha County Fair</span><span class="ns-meta">Jul 15&ndash;19 &middot; Waukesha, WI</span></div>
             <div class="ns-row"><span class="ns-name">McHenry County Fair</span><span class="ns-meta">Aug 4&ndash;9 &middot; McHenry County, IL</span></div>
             <div class="ns-row"><span class="ns-name">Cranberry Fest</span><span class="ns-meta">Sep 25&ndash;27 &middot; Warrens, WI</span></div>
             <div class="ns-foot">Come say hi &mdash; free demos all weekend! &#10022;</div>
@@ -1496,45 +1528,71 @@ function icon(name){
   return svg;
 }
 
-/* ---------- product data (official price sheet) ---------- */
+/* ---------- product data (website prices) ---------- */
+const SETS_SPECIAL = [
+  {id:"show100", name:"$100 Show Special", contents:"32oz Refill + 8oz Sprayer + 2oz Sprayer, plus 8oz C5 (Large) + 2oz C5 (Small)", price:100, save:25, img:"show100.jpg", badge:"Show Special",
+   desc:"One of everything we make: the purple polish in three sizes plus both sizes of C5 metal restoration lotion. The complete Best Solution system in one box.",
+   uses:[["i-diamond","The whole lineup in one box"],["i-refresh","Polish + C5, every size you need"],["i-gift","Stock up or split it as gifts"]], tagline:"Our best deal"},
+];
 const SETS_LARGE = [
-  {id:"b32L", name:"32oz Polish + Large C5 (8oz)", contents:"32 oz Best Solution + 8 oz C5", price:45, img:"b32L.jpg", badge:"Best Value",
+  {id:"b32L", name:"32oz Polish + Large C5 (8oz)", contents:"32 oz Best Solution + 8 oz C5", price:60, save:5, img:"b32L.jpg", badge:"Best Value",
+   desc:"The full two-step system, biggest sizes. C5 lotion strips heavy tarnish off the metal, then the purple polish cleans and brings back the sparkle on jewelry, stones, and glass.",
    uses:[["i-diamond","The complete large-size system"],["i-refresh","Restore, then polish"],["i-case","Stocks the whole house"]], tagline:"Our best seller for big collections"},
-  {id:"b16L", name:"16oz Polish + Large C5 (8oz)", contents:"16 oz Best Solution + 8 oz C5", price:40, img:"b16L.jpg", badge:"Most Popular",
+  {id:"b16L", name:"16oz Polish + Large C5 (8oz)", contents:"16 oz Best Solution + 8 oz C5", price:55, save:5, img:"b16L.jpg", badge:"Most Popular",
+   desc:"The two-step system most folks take home. Rub C5 on the metal to lift tarnish, then spray the polish to clean and shine jewelry, gemstones, and eyewear.",
    uses:[["i-sparkle","Everyday polish + deep restore"],["i-refresh","Restore, then polish"],["i-glasses","Jewelry, eyewear & more"]], tagline:"The go-to two-step set"},
-  {id:"b8L",  name:"8oz Polish + Large C5 (8oz)",  contents:"8 oz Best Solution + 8 oz C5",  price:35, img:"b8L.jpg",
+  {id:"b8L",  name:"8oz Polish + Large C5 (8oz)",  contents:"8 oz Best Solution + 8 oz C5",  price:50, save:5, img:"b8L.jpg",
+   desc:"The two-step system in matching 8 oz bottles. C5 restores dull, tarnished metal and the polish finishes the job with a brilliant, streak-free shine.",
    uses:[["i-watch","Personal jewelry & watches"],["i-refresh","Restore, then polish"],["i-case","Compact & convenient"]], tagline:"Matched pair, same size bottles"},
 ];
 const SETS_SMALL = [
-  {id:"b32S", name:"32oz Polish + Small C5 (2oz)", contents:"32 oz Best Solution + 2 oz C5", price:35, img:"b32S.jpg",
+  {id:"b32S", name:"32oz Polish + Small C5 (2oz)", contents:"32 oz Best Solution + 2 oz C5", price:50, save:5, img:"b32S.jpg",
+   desc:"A big bottle of the purple polish for everyday cleaning, plus a starter C5 for tarnished spots the polish alone can't fix.",
    uses:[["i-diamond","Big polish for big collections"],["i-sparkle","C5 for spot touch-ups"],["i-mirror","Mirrors & glass too"]], tagline:"Maximum polish, starter C5"},
-  {id:"b16S", name:"16oz Polish + Small C5 (2oz)", contents:"16 oz Best Solution + 2 oz C5", price:30, img:"b16S.jpg",
+  {id:"b16S", name:"16oz Polish + Small C5 (2oz)", contents:"16 oz Best Solution + 2 oz C5", price:45, save:5, img:"b16S.jpg",
+   desc:"The everyday spray polish for jewelry, stones, and glasses, plus a small C5 lotion for tarnish touch-ups and detail work.",
    uses:[["i-sparkle","Everyday jewelry & accessories"],["i-glasses","Eyeglasses & sunglasses"],["i-ring","C5 for detail work"]], tagline:"Perfect everyday pairing"},
-  {id:"b8S",  name:"8oz Polish + Small C5 (2oz)",  contents:"8 oz Best Solution + 2 oz C5",  price:25, img:"b8S.jpg",
+  {id:"b8S",  name:"8oz Polish + Small C5 (2oz)",  contents:"8 oz Best Solution + 2 oz C5",  price:40, save:5, img:"b8S.jpg",
+   desc:"A compact polish sprayer for jewelry and eyewear, paired with a small C5 lotion for spot-restoring tarnished metal.",
    uses:[["i-watch","Personal jewelry & watches"],["i-ring","C5 for spot treatment"],["i-case","Travel & on the go"]], tagline:"Great value starter pair"},
 ];
 const SETS_TRAVEL = [
-  {id:"b2S",  name:"2oz Polish + Small C5 (2oz)",  contents:"2 oz Best Solution + 2 oz C5",  price:20, img:"b2S.jpg", badge:"Travel / Starter", teal:true,
+  {id:"b2S",  name:"2oz Polish + Small C5 (2oz)",  contents:"2 oz Best Solution + 2 oz C5",  price:30, save:5, img:"b2S.jpg", badge:"Gift / Starter Set", teal:true,
+   desc:"The whole two-step system in pocket size: mini polish sprayer plus mini C5 lotion. A perfect first bottle, stocking stuffer, or travel kit.",
    uses:[["i-plane","Travel & on the go"],["i-gift","Perfect first-time gift"],["i-sparkle","The full system, pocket size"]], tagline:"Perfect for first-time users"},
 ];
+const SETS_GLASSES = [
+  {id:"gl15", name:"Glasses Set", contents:"2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:15, teal:true,
+   desc:"Everything for your glasses in one set: the polish that leaves lenses streak-free with no fog and no smudges, a mini screwdriver repair kit for loose frames, and our product, reorder, and instructions card.",
+   uses:[["i-glasses","Prescription, readers & sunglasses"],["i-tool","Repair kit with screwdrivers"],["i-card","Reorder & instructions card"]], tagline:"No fog, no smudges"},
+  {id:"gl25", name:"Glasses Set + 8oz", contents:"8 oz + 2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:25, teal:true, badge:"Most Complete",
+   desc:"The same glasses set plus a full 8 oz sprayer to keep at home. Kit and 2 oz bottle for your purse or car, big bottle by the mirror.",
+   uses:[["i-glasses","Prescription, readers & sunglasses"],["i-case","8oz for home, 2oz for the road"],["i-tool","Repair kit with screwdrivers"]], tagline:"The complete eyewear kit"},
+];
 const SINGLES_POLISH = [
-  {id:"p32", name:"32oz Best Solution", size:"32 oz bottle", price:25, img:"bottle-p32.jpg",
+  {id:"p32", name:"32oz Best Solution", size:"32 oz bottle", price:35, img:"bottle-p32.jpg",
+   desc:"Our purple polish in the big refill bottle. A gentle liquid cleaner that makes jewelry, gemstones, eyeglasses, mirrors, and glass sparkle like new. Soak pieces in it or refill your sprayers. No ammonia, no acid, no abrasives.",
    uses:[["i-diamond","Large jewelry collections"],["i-glasses","Eyeglasses & sunglasses"],["i-mirror","Mirrors & glass surfaces"]], tagline:"More Size, More Value"},
-  {id:"p16", name:"16oz Best Solution", size:"16 oz spray bottle", price:20, img:"bottle-p16.jpg",
+  {id:"p16", name:"16oz Best Solution", size:"16 oz spray bottle", price:30, img:"bottle-p16.jpg",
+   desc:"Our purple polish in the everyday spray bottle. Spray it on jewelry, stones, glasses, or glass, scrub gently with a soft brush, rinse, and the sparkle is back. No ammonia, no acid, no abrasives.",
    uses:[["i-sparkle","Everyday jewelry & accessories"],["i-glasses","Eyeglasses & sunglasses"],["i-refresh","Quick clean & maintenance"]], tagline:"Perfect Everyday Size"},
-  {id:"p8",  name:"8oz Best Solution",  size:"8 oz spray bottle",  price:15, img:"bottle-p8.jpg",
+  {id:"p8",  name:"8oz Best Solution",  size:"8 oz spray bottle",  price:25, img:"bottle-p8.jpg",
+   desc:"The same purple polish in a compact sprayer. Cleans and shines jewelry, watches, eyeglasses, and sunglasses anywhere you need it. No ammonia, no acid, no abrasives.",
    uses:[["i-watch","Personal jewelry & watches"],["i-glasses","Eyeglasses & sunglasses"],["i-case","Travel & on the go"]], tagline:"Compact & Convenient"},
-  {id:"p2",  name:"2oz Best Solution",  size:"2 oz spray bottle",  price:10, img:"bottle-p2.jpg",
+  {id:"p2",  name:"2oz Best Solution",  size:"2 oz spray bottle",  price:15, img:"bottle-p2.jpg",
+   desc:"Our purple polish in a purse-size sprayer. The exact same formula, small enough to carry everywhere. No ammonia, no acid, no abrasives.",
    uses:[["i-bag","Pocket & purse size"],["i-plane","Travel & on the go"],["i-gift","Sample size / gifting"]], tagline:"Small Size, Big Power"},
 ];
 const SINGLES_C5 = [
-  {id:"c8",  name:"Large C5 (8oz)", size:"8 oz metal restoration lotion", price:20, img:"bottle-c5l.jpg",
+  {id:"c8",  name:"Large C5 (8oz)", size:"8 oz metal restoration lotion", price:30, img:"bottle-c5l.jpg",
+   desc:"The white lotion, step one of our system. Shake well, rub it into metal with a cloth, and it lifts heavy tarnish, oxidation, and dullness so the original luster comes back. For metal only; polish afterward for the final shine.",
    uses:[["i-sparkle","Heavy tarnish & oxidation removal"],["i-chain","Larger items & metals"],["i-refresh","Restore before you polish"]], tagline:"Metal Restoration Lotion"},
-  {id:"c2",  name:"Small C5 (2oz)", size:"2 oz metal restoration lotion", price:10, img:"bottle-c5s.jpg",
+  {id:"c2",  name:"Small C5 (2oz)", size:"2 oz metal restoration lotion", price:20, img:"bottle-c5s.jpg",
+   desc:"The same white metal restoration lotion in travel size. Shake, rub onto tarnished metal, and watch the shine come back. Perfect for spot treatments and detailed pieces.",
    uses:[["i-sparkle","Spot treatment & touch-ups"],["i-ring","Small items & detail work"],["i-case","Travel & on the go"]], tagline:"Powerful in a Small Size"},
 ];
 const ALL = {};
-[...SETS_LARGE,...SETS_SMALL,...SETS_TRAVEL,...SINGLES_POLISH,...SINGLES_C5].forEach(p=>ALL[p.id]=p);
+[...SETS_SPECIAL,...SETS_LARGE,...SETS_SMALL,...SETS_TRAVEL,...SETS_GLASSES,...SINGLES_POLISH,...SINGLES_C5].forEach(p=>ALL[p.id]=p);
 
 /* ---------- state ---------- */
 const cart = {};        // id -> qty
@@ -1546,16 +1604,18 @@ function productCard(p){
   const valSpan = el('span', {class:'val', id:'val-'+p.id, text:'1'});
   return el('div', {class:'pcard' + (p.teal ? ' teal-card' : ''), 'data-card':p.id},
     p.badge ? el('span', {class:'ribbon', text:p.badge}) : null,
-    el('div', {class:'imgbox'},
+    p.img ? el('div', {class:'imgbox'},
       el('img', {src:'images/'+p.img, alt:p.name + (p.contents ? ' set: '+p.contents : ' bottle'), loading:'lazy',
         onError:function(){ this.closest('.imgbox').style.display='none'; }})
-    ),
+    ) : null,
     el('h3', {text:p.name}),
     el('div', {class:'sizes', text:p.contents || p.size || ''}),
+    p.desc ? el('p', {class:'desc', text:p.desc}) : null,
     el('ul', {class:'uses'},
       p.uses.map(u=>el('li', null, icon(u[0]), u[1]))
     ),
     el('div', {class:'tagline', text:p.tagline || ''}),
+    p.save ? el('div', {class:'save', text:'You save $'+p.save+' vs. buying separately'}) : null,
     el('div', {class:'buyrow'},
       el('span', {class:'price', text:'$'+p.price}),
       el('span', {class:'ship', text:'Free Shipping'})
@@ -1574,9 +1634,11 @@ function stepPicker(id, step, valSpan){
   pickerQty[id] = Math.max(1, (pickerQty[id]||1) + step);
   valSpan.textContent = pickerQty[id];
 }
+SETS_SPECIAL.forEach(p=>document.getElementById('grid-special').append(productCard(p)));
 SETS_LARGE.forEach(p=>document.getElementById('grid-large').append(productCard(p)));
 SETS_SMALL.forEach(p=>document.getElementById('grid-small').append(productCard(p)));
 SETS_TRAVEL.forEach(p=>document.getElementById('grid-travel').append(productCard(p)));
+SETS_GLASSES.forEach(p=>document.getElementById('grid-glasses').append(productCard(p)));
 SINGLES_POLISH.forEach(p=>document.getElementById('grid-polish').append(productCard(p)));
 SINGLES_C5.forEach(p=>document.getElementById('grid-c5').append(productCard(p)));
 
