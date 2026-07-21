@@ -223,16 +223,20 @@ a{color:var(--royal)}
   display:grid;grid-template-columns:1fr 1fr;gap:16px;
 }
 .duo .d{
-  background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);
-  border-radius:var(--radius);padding:18px 20px;
+  background:#fff;border-radius:var(--radius);padding:20px 22px;
+  box-shadow:0 14px 34px rgba(10,7,40,.4);border-top:4px solid var(--royal);
 }
+.duo .d.c5{border-top-color:var(--teal)}
 .duo .d b{
-  display:block;font-weight:900;text-transform:uppercase;letter-spacing:1px;
-  font-size:14.5px;margin-bottom:5px;
+  display:flex;align-items:center;gap:9px;font-weight:900;text-transform:uppercase;
+  letter-spacing:1px;font-size:15px;margin-bottom:9px;
 }
-.duo .d.polish b{color:#fff}
-.duo .d.c5 b{color:#B9E8E8}
-.duo .d p{font-weight:600;font-size:13.5px;color:#E4E1F8}
+.duo .d .d-ic{width:22px;height:22px;flex:none}
+.duo .d.polish b{color:var(--royal-deep)}
+.duo .d.c5 b{color:var(--teal-deep)}
+.duo .d p{font-weight:600;font-size:14px;color:var(--ink);line-height:1.55}
+.duo .d p + p{margin-top:9px}
+.duo .d p strong{color:var(--royal-deep)}
 @media(max-width:840px){
   .hero-grid{grid-template-columns:1fr;gap:26px}
   .duo{grid-template-columns:1fr}
@@ -246,7 +250,11 @@ a{color:var(--royal)}
   max-width:1120px;margin:0 auto;padding:0 20px;
 }
 .trust-grid .t{text-align:center;padding:6px 2px}
-.trust-grid .t svg{width:34px;height:34px;margin:0 auto 7px;display:block;color:var(--royal)}
+.trust-grid .t svg{
+  width:48px;height:48px;padding:11px;margin:0 auto 8px;display:block;
+  color:var(--royal);background:#EEEDFA;border-radius:50%;box-sizing:border-box;
+}
+.trust-grid .t.hl svg{background:#D8EFEF}
 .trust-grid .t b{
   display:block;font-weight:800;text-transform:uppercase;color:var(--royal-deep);
   font-size:11px;letter-spacing:.5px;line-height:1.3;
@@ -260,7 +268,17 @@ a{color:var(--royal)}
 /* ====================== SECTION SCAFFOLDING ====================== */
 .section{padding:54px 0}
 .section.alt{background:var(--mist)}
+.section.dark{background:var(--grad-hero)}
+.section.dark .sec-head h2{color:#fff}
+.section.dark .sec-head h2::before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.7))}
+.section.dark .sec-head h2::after{background:linear-gradient(90deg,rgba(255,255,255,.7),transparent)}
+.section.dark .sec-head .sub{color:#C9C4F2}
+.section.dark .more-btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.75)}
+.section.dark .more-btn:hover{background:#fff;color:var(--royal-deep)}
 .sec-head{text-align:center;margin-bottom:8px}
+.sec-head::before{ /* gold sparkle above every section title */
+  content:"\2726";display:block;color:var(--gold);font-size:19px;line-height:1;margin-bottom:8px;
+}
 .sec-head h2{
   display:flex;align-items:center;justify-content:center;gap:16px;
   font-weight:900;text-transform:uppercase;color:var(--royal-deep);
@@ -663,7 +681,8 @@ a{color:var(--royal)}
 @media(max-width:920px){.reviews{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.reviews{grid-template-columns:1fr}}
 .review{
-  background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+  background:var(--paper);border:1.5px solid var(--line);border-top:3px solid #E8A413;
+  border-radius:var(--radius);
   padding:18px 18px 16px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
 }
 .review .rs{color:#E8A413;font-size:15px;letter-spacing:3px;margin-bottom:9px}
@@ -926,12 +945,14 @@ a{color:var(--royal)}
     </div>
     <div class="duo">
       <div class="d polish">
-        <b>Best Solution &middot; Purple Polish</b>
-        <p>No acid, no ammonia. Safe on every gemstone, from diamonds, rubies, emeralds, and sapphires to soft, porous opals and pearls. It's the only jewelry polish you can use on an opal or a pearl. Shines eyeglasses, mirrors, and glass too, and works on metal, making gold look fantastic.</p>
+        <b><svg class="d-ic"><use href="#i-diamond"/></svg>Best Solution &middot; Purple Polish</b>
+        <p>No acid, no ammonia, safe on every gemstone: from diamonds, rubies, emeralds, and sapphires all the way to soft, porous opals and pearls. <strong>It's the only jewelry polish you can use on an opal or a pearl.</strong></p>
+        <p>And it doesn't stop at jewelry. Spray it on eyeglasses, mirrors, and glass for a streak-free shine, and use it on metal to make gold look fantastic.</p>
       </div>
       <div class="d c5">
-        <b>C5 &middot; White Restoration Lotion</b>
-        <p>Removes tarnish, oxidation, and light surface scratches from every real metal: gold, silver, sterling, platinum, brass, copper, and stainless. Real metal only, not for plated or costume jewelry.</p>
+        <b><svg class="d-ic"><use href="#i-refresh"/></svg>C5 &middot; White Restoration Lotion</b>
+        <p>Rub it on and watch years of tarnish, oxidation, and light surface scratches lift off every real metal: gold, silver, sterling, platinum, brass, copper, and stainless.</p>
+        <p><strong>Real metal only</strong>, not for plated or costume jewelry.</p>
       </div>
     </div>
   </section>
@@ -1149,7 +1170,7 @@ a{color:var(--royal)}
   </section>
 
   <!-- ============ BEFORE & AFTER ============ -->
-  <section class="section alt" id="before-after">
+  <section class="section dark" id="before-after">
     <div class="container">
       <div class="sec-head">
         <h2>Before &amp; After</h2>
