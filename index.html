@@ -151,15 +151,37 @@ a{color:var(--royal)}
 .hero h1{
   font-weight:900;text-transform:uppercase;line-height:1.04;
   font-size:clamp(30px,5vw,52px);letter-spacing:.5px;
+  background:linear-gradient(110deg,#FFFFFF 42%,#9FE8E4 50%,#FFFFFF 58%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine-sweep 6s ease-in-out infinite;
 }
+@keyframes shine-sweep{0%,55%{background-position:130% 0}90%,100%{background-position:-70% 0}}
 .hero h1 .reg{font-size:.45em;vertical-align:super}
+/* gentle twinkling sparkles */
+.spark{
+  position:absolute;color:#fff;pointer-events:none;opacity:0;
+  animation:twinkle 4.5s ease-in-out infinite;font-size:20px;
+}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0)}50%{opacity:.85;transform:scale(1.15) rotate(18deg)}}
+.hero .h-stars{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  font-weight:700;font-size:13px;color:#E4E1F8;text-decoration:none;
+}
+.hero .h-stars .st{color:#F5C542;letter-spacing:2px;font-size:14px}
+.hero .h-stars:hover{color:#fff}
+@media(prefers-reduced-motion:reduce){
+  .hero h1{animation:none;background-position:50% 0}
+  .spark{animation:none;opacity:.4}
+}
 .hero .h-sub{
   font-weight:800;text-transform:uppercase;letter-spacing:1.4px;
   font-size:clamp(13px,1.8vw,17px);color:#C9C4F2;margin-top:12px;
 }
 .hero .h-shine{
-  font-weight:700;font-size:clamp(16px,2.2vw,21px);color:#fff;margin-top:8px;
+  font-weight:700;font-size:clamp(17px,2.4vw,23px);color:#fff;margin-top:8px;
 }
+.hero .h-shine em{font-style:normal;color:#7FE0DC;font-weight:900}
 .hero .h-pills{
   margin-top:16px;font-weight:800;font-size:clamp(11px,1.6vw,13.5px);
   letter-spacing:1.2px;text-transform:uppercase;color:#B9E8E8;
@@ -279,7 +301,7 @@ a{color:var(--royal)}
 }
 .pcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .pcard .ribbon{
-  position:absolute;top:14px;right:-1px;background:var(--royal);color:#fff;
+  position:absolute;top:14px;right:-1px;background:linear-gradient(155deg,#4A3FB8,#2A2273);color:#fff;
   font-weight:800;text-transform:uppercase;font-size:10.5px;letter-spacing:.8px;
   padding:6px 12px;border-radius:8px 0 0 8px;box-shadow:0 2px 8px rgba(28,22,85,.25);
 }
@@ -314,10 +336,10 @@ a{color:var(--royal)}
   margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;
 }
 .pcard .price{
-  background:var(--royal);color:#fff;font-weight:900;font-size:22px;line-height:1;
+  background:linear-gradient(155deg,#4A3FB8,#2A2273);color:#fff;font-weight:900;font-size:22px;line-height:1;
   border-radius:12px;padding:11px 16px;box-shadow:0 3px 10px rgba(56,48,155,.3);white-space:nowrap;
 }
-.pcard.teal-card .price{background:var(--teal)}
+.pcard.teal-card .price{background:linear-gradient(155deg,#11A0A0,#0A6E6E)}
 .pcard .ship{font-weight:700;font-size:11px;color:var(--ok);text-transform:uppercase;letter-spacing:.4px}
 .card-actions{display:flex;gap:10px;margin-top:12px}
 .qty{
@@ -337,8 +359,16 @@ a{color:var(--royal)}
 .btn-add{
   flex:1;background:var(--royal);color:#fff;min-height:48px;font-size:13.5px;border-radius:12px;
   box-shadow:0 3px 10px rgba(56,48,155,.28);padding:0 10px;white-space:nowrap;
+  position:relative;overflow:hidden;
 }
-.btn-add:hover{filter:brightness(1.1)}
+.btn-add::after{
+  content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);
+  transform:skewX(-18deg);transition:left .45s ease;
+}
+.btn-add:hover{filter:brightness(1.08)}
+.btn-add:hover::after{left:130%}
+@media(prefers-reduced-motion:reduce){.btn-add::after{display:none}}
 @media(min-width:561px){
   .grid-4 .btn-add{font-size:11.5px;letter-spacing:.4px}
   .grid-4 .qty button{width:34px}
@@ -777,7 +807,7 @@ a{color:var(--royal)}
     <rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/>
   </symbol>
   <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M4 20l8.5-8.5"/><path d="M11 5.5 14.5 2l1.5 1.5-2 2 2.5 2.5 2-2L20 7.5 16.5 11c-1.2 1.2-3 1.2-4.2 0l-1.3-1.3c-1.2-1.2-1.2-3 0-4.2z"/><circle cx="4.5" cy="19.5" r="1.6"/>
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
   </symbol>
   <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
     <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M6.5 9.5h6M6.5 12.5h11M6.5 15.5h8"/>
@@ -822,13 +852,18 @@ a{color:var(--royal)}
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <span class="spark" style="top:5%;left:64%" aria-hidden="true">&#10022;</span>
+    <span class="spark" style="top:22%;left:6%;animation-delay:1.4s;font-size:15px" aria-hidden="true">&#10022;</span>
+    <span class="spark" style="top:70%;left:38%;animation-delay:2.6s;font-size:17px" aria-hidden="true">&#10022;</span>
+    <span class="spark" style="top:12%;right:5%;animation-delay:3.4s" aria-hidden="true">&#10022;</span>
     <div class="hero-grid">
       <div>
         <span class="hero-badge">&#10022; The Original &middot; Since 1985 &#10022;</span>
         <h1>The Original<br>Best Solution<span class="reg">&reg;</span></h1>
         <p class="h-sub">Professional Jewelry, Metal &amp; Glass Polish</p>
-        <p class="h-shine">Bring back the shine in seconds.</p>
+        <p class="h-shine">Bring back the shine <em>in seconds</em>.</p>
         <p class="h-pills">No Ammonia &bull; No Acid &bull; No Abrasives &bull; Trusted Since 1985</p>
+        <a class="h-stars" href="#reviews"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Five-star reviews from real show customers</a>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#shop">Shop Best Solution</a>
           <a class="btn btn-ghost" href="#before-after">See Before &amp; After Results</a>
@@ -1562,10 +1597,10 @@ const SETS_TRAVEL = [
    uses:[["i-plane","Travel & on the go"],["i-gift","Perfect first-time gift"],["i-sparkle","The full system, pocket size"]], tagline:"Perfect for first-time users"},
 ];
 const SETS_GLASSES = [
-  {id:"gl15", name:"Glasses Set", contents:"2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:15, teal:true,
+  {id:"gl15", name:"Glasses Set", contents:"2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:15, teal:true, img:"set-glasses15.jpg",
    desc:"Everything for your glasses in one set: the polish that leaves lenses streak-free with no fog and no smudges, a mini screwdriver repair kit for loose frames, and our product, reorder, and instructions card.",
    uses:[["i-glasses","Prescription, readers & sunglasses"],["i-tool","Repair kit with screwdrivers"],["i-card","Reorder & instructions card"]], tagline:"No fog, no smudges"},
-  {id:"gl25", name:"Glasses Set + 8oz", contents:"8 oz + 2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:25, teal:true, badge:"Most Complete",
+  {id:"gl25", name:"Glasses Set + 8oz", contents:"8 oz + 2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:25, teal:true, badge:"Most Complete", img:"set-glasses25.jpg",
    desc:"The same glasses set plus a full 8 oz sprayer to keep at home. Kit and 2 oz bottle for your purse or car, big bottle by the mirror.",
    uses:[["i-glasses","Prescription, readers & sunglasses"],["i-case","8oz for home, 2oz for the road"],["i-tool","Repair kit with screwdrivers"]], tagline:"The complete eyewear kit"},
 ];
