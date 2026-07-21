@@ -400,6 +400,27 @@ a{color:var(--royal)}
   .grid-4 .qty .val{width:32px;font-size:15px}
 }
 .pcard.teal-card .btn-add{background:var(--teal)}
+.lineup-toggle{
+  display:block;margin:0 auto;cursor:pointer;background:#fff;color:var(--royal);
+  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+  font-size:14px;padding:15px 34px;border-radius:999px;border:2px solid var(--royal);
+  box-shadow:var(--shadow-sm);
+}
+.lineup-toggle:hover{background:var(--royal);color:#fff}
+.proof-teaser{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  background:var(--grad-band);color:#fff;text-decoration:none;
+  padding:16px 20px;text-align:center;
+}
+.proof-teaser .pt-stars{color:#F5C542;letter-spacing:3px;font-size:16px}
+.proof-teaser .pt-text{font-weight:600;font-size:14.5px;color:#E4E1F8}
+.proof-teaser .pt-text b{color:#fff;font-weight:800}
+.proof-teaser .pt-go{
+  background:var(--grad-gold);color:var(--navy);font-weight:900;text-transform:uppercase;
+  letter-spacing:.5px;font-size:12.5px;padding:9px 18px;border-radius:999px;white-space:nowrap;
+  box-shadow:var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.55);
+}
+.proof-teaser:hover .pt-go{filter:brightness(1.05)}
 .qp-label{text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;font-size:11px;color:var(--muted);margin:0 0 10px}
 .quickpicks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
 @media(max-width:640px){.quickpicks{grid-template-columns:repeat(2,1fr)}}
@@ -1026,23 +1047,33 @@ a{color:var(--royal)}
     </div>
   </section>
 
-  <!-- ============ INDIVIDUAL BOTTLES ============ -->
-  <section class="section">
+  <!-- ============ INDIVIDUAL BOTTLES (collapsed by default) ============ -->
+  <section class="section" id="singles">
     <div class="container">
       <div class="sec-head">
-        <h2>Shop the Full Lineup</h2>
-        <p class="sub">Every size of Best Solution purple polish, plus C5 metal restoration lotion on its own. All bottles ship free.</p>
+        <h2>Single Bottles</h2>
+        <p class="sub">Just need one bottle? Every size of the purple polish and C5 lotion is available on its own, free shipping included.</p>
       </div>
-      <div class="sec-body">
-        <div class="grid grid-4" id="grid-polish"></div>
-        <div class="setband" style="margin-top:26px">
-          <svg><use href="#i-refresh"/></svg>
-          <span><b>C5 Metal Restoration Lotion</b><small>Restore the metal, then bring the shine</small></span>
+      <div class="sec-body" style="margin-top:20px">
+        <button class="lineup-toggle" id="lineup-toggle" type="button" aria-expanded="false" onclick="toggleLineup()">&#9660; Show All Single Bottles</button>
+        <div id="lineup-wrap" hidden>
+          <div class="grid grid-4" id="grid-polish" style="margin-top:26px"></div>
+          <div class="setband" style="margin-top:26px">
+            <svg><use href="#i-refresh"/></svg>
+            <span><b>C5 Metal Restoration Lotion</b><small>Restore the metal, then bring the shine</small></span>
+          </div>
+          <div class="grid grid-3" id="grid-c5"></div>
         </div>
-        <div class="grid grid-3" id="grid-c5"></div>
       </div>
     </div>
   </section>
+
+  <!-- ============ PROOF TEASER ============ -->
+  <a class="proof-teaser" href="#before-after">
+    <span class="pt-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span class="pt-text"><b>Don't take our word for it.</b> See real customer before &amp; afters</span>
+    <span class="pt-go">See the Proof &#8594;</span>
+  </a>
 
   <!-- ============ BUILD YOUR ORDER ============ -->
   <section class="section alt" id="order">
@@ -1137,39 +1168,6 @@ a{color:var(--royal)}
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="section" id="how-it-works">
-    <div class="container">
-      <div class="sec-head">
-        <h2>Easy Two-Step Process</h2>
-        <p class="sub">Two products, endless shine. Restore the metal, then bring the shine.</p>
-      </div>
-      <div class="sec-body">
-        <div class="steps">
-          <div class="step">
-            <img class="bottle" src="images/step-c5.png" alt="C5 metal restoration lotion, white 8oz bottle" loading="lazy">
-            <div>
-              <span class="num">Step 1 &middot; C5 Restoration Lotion</span>
-              <h3>Shake &amp; Rub</h3>
-              <p>Shake it well first. <b>C5</b> settles like orange juice (it never dries out or goes bad).</p>
-              <p>Dab a little on a paper towel, old t-shirt, or microfiber cloth and rub the metal <span class="hot">hard</span>. It removes heavy tarnish, oxidation, cloudiness, and dullness from metal. The shine is back in seconds.</p>
-            </div>
-          </div>
-          <div class="step two">
-            <img class="bottle" src="images/step-polish.png" alt="Best Solution purple polish, 8oz spray bottle" loading="lazy">
-            <div>
-              <span class="num">Step 2 &middot; Best Solution Polish</span>
-              <h3>Spray, Brush, Wipe, or Soak</h3>
-              <p><b>Soak</b> dirty pieces a few hours or overnight, then rinse. (Never soak old <b>opals or pearls</b>.)</p>
-              <p>Or <b>spray</b> it on, get it wet, and scrub with a <b>soft toothbrush</b>, getting behind the stones. Safe on every stone, no ammonia or acid. Rinse and done, brilliance restored.</p>
-            </div>
-          </div>
-        </div>
-        <p class="step-divider"><b>C5 restores the metal.</b> &nbsp;Best Solution cleans, polishes, and brings back the final shine.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ BEFORE & AFTER ============ -->
   <section class="section dark" id="before-after">
     <div class="container">
@@ -1206,6 +1204,39 @@ a{color:var(--royal)}
           <figure class="ba-item more"><img src="images/ba-silverware.jpg" alt="Silverware set, tarnished pieces next to freshly cleaned ones" loading="lazy"><figcaption>Silverware</figcaption></figure>
         </div>
         <button class="more-btn" type="button" data-more="&#9660; Show More Before &amp; Afters" data-less="&#9650; Show Fewer" onclick="toggleGallery('ba-grid',this)">&#9660; Show More Before &amp; Afters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section alt" id="how-it-works">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Easy Two-Step Process</h2>
+        <p class="sub">Two products, endless shine. Restore the metal, then bring the shine.</p>
+      </div>
+      <div class="sec-body">
+        <div class="steps">
+          <div class="step">
+            <img class="bottle" src="images/step-c5.png" alt="C5 metal restoration lotion, white 8oz bottle" loading="lazy">
+            <div>
+              <span class="num">Step 1 &middot; C5 Restoration Lotion</span>
+              <h3>Shake &amp; Rub</h3>
+              <p>Shake it well first. <b>C5</b> settles like orange juice (it never dries out or goes bad).</p>
+              <p>Dab a little on a paper towel, old t-shirt, or microfiber cloth and rub the metal <span class="hot">hard</span>. It removes heavy tarnish, oxidation, cloudiness, and dullness from metal. The shine is back in seconds.</p>
+            </div>
+          </div>
+          <div class="step two">
+            <img class="bottle" src="images/step-polish.png" alt="Best Solution purple polish, 8oz spray bottle" loading="lazy">
+            <div>
+              <span class="num">Step 2 &middot; Best Solution Polish</span>
+              <h3>Spray, Brush, Wipe, or Soak</h3>
+              <p><b>Soak</b> dirty pieces a few hours or overnight, then rinse. (Never soak old <b>opals or pearls</b>.)</p>
+              <p>Or <b>spray</b> it on, get it wet, and scrub with a <b>soft toothbrush</b>, getting behind the stones. Safe on every stone, no ammonia or acid. Rinse and done, brilliance restored.</p>
+            </div>
+          </div>
+        </div>
+        <p class="step-divider"><b>C5 restores the metal.</b> &nbsp;Best Solution cleans, polishes, and brings back the final shine.</p>
       </div>
     </div>
   </section>
@@ -1794,11 +1825,21 @@ document.getElementById('sticky-btn').addEventListener('click',()=>{
   const t = orderTotal() > 0 ? document.getElementById('order') : document.getElementById('shop');
   t.scrollIntoView({behavior:'auto',block:'start'});
 });
+/* single-bottles section expand/collapse */
+function toggleLineup(open){
+  const wrap = document.getElementById('lineup-wrap');
+  const btn = document.getElementById('lineup-toggle');
+  const show = (typeof open === 'boolean') ? open : wrap.hidden;
+  wrap.hidden = !show;
+  btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+  btn.innerHTML = show ? '&#9650; Hide Single Bottles' : '&#9660; Show All Single Bottles';
+}
 /* quick-pick shortcuts */
 function quickPick(kind){
-  if(kind==='b32L'||kind==='b16L'){ addToCart(kind); }
-  else if(kind==='polish'){ document.getElementById('grid-polish').scrollIntoView({behavior:'auto',block:'start'}); }
-  else { document.getElementById('grid-c5').scrollIntoView({behavior:'auto',block:'start'}); }
+  if(kind==='b32L'||kind==='b16L'){ addToCart(kind); return; }
+  toggleLineup(true);
+  const t = kind==='polish' ? document.getElementById('grid-polish') : document.getElementById('grid-c5');
+  t.scrollIntoView({behavior:'auto',block:'start'});
 }
 /* sticky shows on mobile when the order area is out of view */
 (function(){
