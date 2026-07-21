@@ -505,7 +505,7 @@ a{color:var(--royal)}
 }
 .proof-teaser:hover .pt-go{filter:brightness(1.05)}
 .qp-label{text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;font-size:11px;color:var(--muted);margin:0 0 10px}
-.quickpicks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
+.quickpicks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 26px}
 @media(max-width:640px){.quickpicks{grid-template-columns:repeat(2,1fr)}}
 .qp{
   cursor:pointer;background:var(--grad-gold);color:var(--navy);border:0;
@@ -1090,6 +1090,8 @@ a{color:var(--royal)}
           <button type="button" class="qp" onclick="quickPick('show100')">$100 Show Special</button>
           <button type="button" class="qp" onclick="quickPick('b32L')">32oz + Large C5</button>
           <button type="button" class="qp" onclick="quickPick('b16L')">16oz + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('b8L')">8oz + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('b8S')">8oz + Small C5</button>
           <button type="button" class="qp" onclick="quickPick('singles')">Single Bottles</button>
         </div>
 
@@ -1925,7 +1927,7 @@ function toggleLineup(open){
 }
 /* quick-pick shortcuts */
 function quickPick(kind){
-  if(kind==='show100'||kind==='b32L'||kind==='b16L'){ addToCart(kind); return; }
+  if(kind!=='singles'){ addToCart(kind); return; }
   toggleLineup(true);
   document.getElementById('singles').scrollIntoView({behavior:'auto',block:'start'});
 }
