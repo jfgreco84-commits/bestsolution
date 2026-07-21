@@ -404,12 +404,13 @@ a{color:var(--royal)}
 .quickpicks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
 @media(max-width:640px){.quickpicks{grid-template-columns:repeat(2,1fr)}}
 .qp{
-  cursor:pointer;background:#fff;color:var(--royal-deep);border:2px solid var(--line);
-  border-radius:12px;padding:13px 8px;font-family:'Montserrat',sans-serif;font-weight:800;
+  cursor:pointer;background:var(--grad-gold);color:var(--navy);border:0;
+  border-radius:12px;padding:13px 8px;font-family:'Montserrat',sans-serif;font-weight:900;
   text-transform:uppercase;font-size:12.5px;letter-spacing:.3px;min-height:48px;
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.55);
+  transition:transform .12s,filter .12s;
 }
-.qp:hover{border-color:var(--royal);color:var(--royal)}
+.qp:hover{filter:brightness(1.05);transform:translateY(-1px)}
 
 /* ====================== ORDER / CART ====================== */
 .freeship-banner{
