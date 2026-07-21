@@ -64,7 +64,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:86px}
+html{scroll-padding-top:86px} /* instant jumps: smooth-scrolling this long, image-heavy page janks older devices */
 body{
   font-family:'Montserrat',system-ui,sans-serif;
   color:var(--ink);background:var(--paper);
@@ -401,7 +401,10 @@ a{color:var(--royal)}
   padding:11px 16px;border-radius:12px;margin:0 0 22px;
 }
 .order-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
-@media(max-width:840px){.order-grid{grid-template-columns:1fr}}
+@media(max-width:840px){
+  .order-grid{grid-template-columns:1fr}
+  .cart-sticky{order:-1;position:static} /* phones: order summary first, then payment & info */
+}
 .panel{
   background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);overflow:hidden;
@@ -436,18 +439,21 @@ a{color:var(--royal)}
 /* payment picker */
 .pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
 .pay-btn{
-  font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
-  background:#fff;border:2px solid var(--line);color:var(--royal-deep);
+  font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.5px;
+  background:var(--grad-gold);border:0;color:var(--navy);
   border-radius:12px;min-height:54px;font-size:14.5px;cursor:pointer;transition:all .12s;
-  padding:8px 6px;
+  padding:8px 6px;box-shadow:var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.55);
 }
 .pay-btn small{
-  display:block;font-weight:700;font-size:9.5px;letter-spacing:.6px;color:var(--muted);
+  display:block;font-weight:800;font-size:9.5px;letter-spacing:.6px;color:#6B5200;
   text-transform:uppercase;margin-top:3px;
 }
 .pay-btn.active small{color:#C9C4F2}
-.pay-btn:hover{border-color:var(--royal)}
-.pay-btn.active{background:var(--royal);color:#fff;border-color:var(--royal);box-shadow:0 3px 12px rgba(56,48,155,.35)}
+.pay-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.pay-btn.active{
+  background:var(--grad-band);color:#fff;
+  box-shadow:0 3px 12px rgba(56,48,155,.4),inset 0 0 0 2px rgba(255,255,255,.35);
+}
 .pay-note{color:var(--muted);font-size:12.5px;margin-top:12px;font-weight:600;text-align:center}
 .pay-note b{color:var(--royal-deep)}
 /* form */
@@ -474,15 +480,19 @@ a{color:var(--royal)}
   width:100%;min-height:60px;font-size:clamp(16px,4vw,19px);letter-spacing:1px;
   background:var(--grad-gold);color:var(--navy);font-weight:900;border-radius:14px;
   box-shadow:0 8px 22px rgba(28,22,85,.22),var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.55);
-  animation:gold-pulse 2.6s ease-in-out infinite;
+  position:relative;
 }
-@keyframes gold-pulse{
-  0%,100%{box-shadow:0 8px 22px rgba(28,22,85,.22),0 0 0 0 rgba(242,172,15,.0),inset 0 1px 0 rgba(255,255,255,.55)}
-  50%{box-shadow:0 8px 22px rgba(28,22,85,.22),0 0 20px 3px rgba(242,172,15,.55),inset 0 1px 0 rgba(255,255,255,.55)}
+/* glow pulse animates opacity only, so it stays smooth on older devices */
+.btn-order::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:0 0 20px 4px rgba(242,172,15,.55);opacity:0;
+  animation:glow-fade 2.6s ease-in-out infinite;
 }
+@keyframes glow-fade{0%,100%{opacity:0}50%{opacity:1}}
 .btn-order:hover{filter:brightness(1.06);transform:translateY(-1px)}
-.btn-order:disabled{filter:grayscale(.5) brightness(.95);cursor:not-allowed;animation:none}
-@media(prefers-reduced-motion:reduce){.btn-order{animation:none}}
+.btn-order:disabled{filter:grayscale(.5) brightness(.95);cursor:not-allowed}
+.btn-order:disabled::before{animation:none;opacity:0}
+@media(prefers-reduced-motion:reduce){.btn-order::before{animation:none;opacity:0}}
 .msg{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;display:none;font-size:14px}
 .msg.show{display:block}
 .msg.err{background:#FDEEEC;border:2px solid #E8B4AE;color:#9A2A2A}
@@ -1700,7 +1710,7 @@ SINGLES_C5.forEach(p=>document.getElementById('grid-c5').append(productCard(p)))
 function addToCart(id){
   cart[id] = (cart[id]||0) + (pickerQty[id]||1);
   renderCart();
-  document.getElementById('cart-section').scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('cart-section').scrollIntoView({behavior:'auto',block:'center'});
 }
 
 /* ---------- render cart ---------- */
@@ -1739,14 +1749,15 @@ function renderCart(){
 /* ---------- sticky bar ---------- */
 function updateSticky(total){ if(window._paintSticky) window._paintSticky(); }
 document.getElementById('sticky-btn').addEventListener('click',()=>{
-  const t=document.getElementById('cart-section')||document.getElementById('order-top');
-  t.scrollIntoView({behavior:'smooth',block:'start'});
+  // items in the cart -> jump to the order section; empty cart -> jump to the shop
+  const t = orderTotal() > 0 ? document.getElementById('order') : document.getElementById('shop');
+  t.scrollIntoView({behavior:'auto',block:'start'});
 });
 /* quick-pick shortcuts */
 function quickPick(kind){
   if(kind==='b32L'||kind==='b16L'){ addToCart(kind); }
-  else if(kind==='polish'){ document.getElementById('grid-polish').scrollIntoView({behavior:'smooth',block:'start'}); }
-  else { document.getElementById('grid-c5').scrollIntoView({behavior:'smooth',block:'start'}); }
+  else if(kind==='polish'){ document.getElementById('grid-polish').scrollIntoView({behavior:'auto',block:'start'}); }
+  else { document.getElementById('grid-c5').scrollIntoView({behavior:'auto',block:'start'}); }
 }
 /* sticky shows on mobile when the order area is out of view */
 (function(){
@@ -1820,7 +1831,7 @@ form.addEventListener('submit', async (e)=>{
   const notes   = document.getElementById('notes').value.trim();
 
   if(orderTotal()===0){ showErrText("Your order is empty. Add a product or set first.");
-    document.getElementById('shop').scrollIntoView({behavior:'smooth'}); return; }
+    document.getElementById('shop').scrollIntoView({behavior:'auto'}); return; }
   if(!name){ showErrText("Please add your name so Justin knows who to thank."); return; }
   if(!phone && !email){ showErrText("Add a phone OR email so Justin can reach you about shipping."); return; }
   if(!address){ showErrText("Add your shipping address so Justin knows where to mail it."); return; }
@@ -1929,7 +1940,7 @@ function showSuccess(name){
   form.style.display = 'none';
   const ok = document.getElementById('success');
   ok.classList.add('show');
-  ok.scrollIntoView({behavior:'smooth',block:'center'});
+  ok.scrollIntoView({behavior:'auto',block:'center'});
   document.getElementById('sticky').classList.remove('show');
 }
 document.getElementById('new-order-btn').addEventListener('click',()=>{
@@ -1943,7 +1954,7 @@ document.getElementById('new-order-btn').addEventListener('click',()=>{
   document.getElementById('success').classList.remove('show');
   form.style.display='block';
   renderCart();
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'auto'});
 });
 
 /* ---------- init ---------- */
