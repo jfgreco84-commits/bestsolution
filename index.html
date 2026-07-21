@@ -330,7 +330,7 @@ a{color:var(--royal)}
 /* ====================== TRUST STRIP ====================== */
 .trust-strip{background:var(--paper);border-bottom:1px solid var(--line);padding:26px 0}
 .trust-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
   max-width:1120px;margin:0 auto;padding:0 20px;
 }
 .trust-grid .t{text-align:center;padding:6px 2px}
@@ -346,7 +346,7 @@ a{color:var(--royal)}
 .trust-grid .t.hl{background:#EAF6F6;border-radius:12px;padding:10px 4px 8px}
 .trust-grid .t.hl svg{color:var(--teal)}
 .trust-grid .t.hl b{color:var(--teal-deep)}
-@media(max-width:520px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ====================== SECTION SCAFFOLDING ====================== */
 .section{padding:54px 0}
@@ -954,6 +954,12 @@ a{color:var(--royal)}
   <symbol id="i-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
     <circle cx="12" cy="9" r="5.5"/><path d="M9.5 13.8 8 21l4-2 4 2-1.5-7.2M10 9l1.5 1.5L15 7"/>
   </symbol>
+  <symbol id="i-ultrasonic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M4 10h16l-1.5 8a2 2 0 0 1-2 1.6h-9a2 2 0 0 1-2-1.6L4 10z"/><path d="M7 13.5c1 .8 2.3.8 3.3 0s2.4-.8 3.4 0 2.3.8 3.3 0"/><path d="M9.5 7c.4-1 .4-2-.2-3M12.5 7c.4-1 .4-2-.2-3M15.5 7c.4-1 .4-2-.2-3"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 20.5S3.5 15.2 3.5 9.6A4.6 4.6 0 0 1 8.1 5c1.6 0 3.1.8 3.9 2.1A4.7 4.7 0 0 1 15.9 5a4.6 4.6 0 0 1 4.6 4.6c0 5.6-8.5 10.9-8.5 10.9z"/>
+  </symbol>
   <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
     <path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/>
   </symbol>
@@ -1072,7 +1078,9 @@ a{color:var(--royal)}
       <div class="t"><svg><use href="#i-medal"/></svg><b>100% Money-Back Guarantee</b></div>
       <div class="t"><svg><use href="#i-flag"/></svg><b>Made in the USA</b></div>
       <div class="t"><svg><use href="#i-shield"/></svg><b>Trusted Since 1985</b></div>
-      <div class="t"><svg><use href="#i-glasses"/></svg><b>Prevents Fog &amp; Fingerprints on All Coated &amp; Non-Coated Glass</b></div>
+      <div class="t"><svg><use href="#i-glasses"/></svg><b>Prevents Fog &amp; Fingerprints</b></div>
+      <div class="t"><svg><use href="#i-ultrasonic"/></svg><b>Great for Ultrasonic Machines</b></div>
+      <div class="t"><svg><use href="#i-heart"/></svg><b>Antique Enthusiasts Love It</b></div>
     </div>
   </div>
 
