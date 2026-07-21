@@ -1156,6 +1156,7 @@ a{color:var(--royal)}
                 <div class="cart-empty" id="cart-empty">No items yet. Tap <strong>Add to Order</strong> on any product or set above.</div>
                 <div class="cart-total" id="cart-total" style="display:none">
                   <div class="ct-row"><span>Subtotal</span><span>$<span id="subtotal-amt">0</span></span></div>
+                  <div class="ct-row"><span>Sales Tax (5.5%)</span><span>$<span id="tax-amt">0</span></span></div>
                   <div class="ct-row"><span>Shipping</span><span class="freeship">Free</span></div>
                   <div class="ct-row ct-grand"><span class="lbl">Total</span><span class="amt">$<span id="total-amt">0</span></span></div>
                 </div>
@@ -1590,7 +1591,9 @@ a{color:var(--royal)}
 ============================================================ */
 const FORMSPREE_ID = "xykqyrnz";
 const SHIP = 0;                        // FREE shipping (built into prices)
-function grandTotal(){ return orderTotal() + SHIP; }
+const TAX_RATE = 0.055;                // 5.5% sales tax
+function taxAmount(){ return Math.round(orderTotal() * TAX_RATE * 100) / 100; }
+function grandTotal(){ return Math.round((orderTotal() + taxAmount() + SHIP) * 100) / 100; }
 
 /* ---------- mobile nav ---------- */
 function toggleNav(btn){
@@ -1814,7 +1817,8 @@ function renderCart(){
     );
   });
   document.getElementById('subtotal-amt').textContent = total.toFixed(2);
-  document.getElementById('total-amt').textContent = (total + SHIP).toFixed(2);
+  document.getElementById('tax-amt').textContent = taxAmount().toFixed(2);
+  document.getElementById('total-amt').textContent = grandTotal().toFixed(2);
   updateSticky(total);
 }
 
@@ -1847,7 +1851,7 @@ function quickPick(kind){
   const anchor=document.getElementById('order'); let inView=true;
   window._paintSticky=function(){
     const t=(typeof orderTotal==='function')?orderTotal():0;
-    btn.textContent = t>0 ? ('View Order · $'+(t+SHIP).toFixed(2)+' ↑') : 'Build Your Order ↑';
+    btn.textContent = t>0 ? ('View Order · $'+grandTotal().toFixed(2)+' ↑') : 'Build Your Order ↑';
     sticky.classList.toggle('show', !inView && !document.getElementById('success').classList.contains('show'));
   };
   if(anchor && 'IntersectionObserver' in window){
@@ -1925,7 +1929,7 @@ form.addEventListener('submit', async (e)=>{
     customer_contact: contact,
     shipping_address: address,
     order_items: orderItemsText(),
-    order_total: `$${orderTotal()}.00 (free shipping)`,
+    order_total: `$${grandTotal().toFixed(2)} total ($${orderTotal().toFixed(2)} subtotal + $${taxAmount().toFixed(2)} sales tax 5.5%, free shipping)`,
     payment_method: payment,
     notes: notes || "(none)",
     timestamp: new Date().toLocaleString(),
@@ -2031,8 +2035,8 @@ function showSuccess(name){
   document.getElementById('ok-name').textContent = (name.split(' ')[0] || "friend");
   const cta = document.getElementById('pay-cta');
   cta.replaceChildren();
-  const amt = orderTotal().toFixed(2);
-  const action = payActionFor(payment, orderTotal());
+  const amt = grandTotal().toFixed(2);
+  const action = payActionFor(payment, grandTotal());
   const guide = payStepsFor(payment, amt);
   if(guide){
     cta.append(el('div', {class:'pay-steps'},
