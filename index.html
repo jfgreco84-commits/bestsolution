@@ -403,7 +403,7 @@ a{color:var(--royal)}
 .order-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
 @media(max-width:840px){
   .order-grid{grid-template-columns:1fr}
-  .cart-sticky{order:-1;position:static} /* phones: order summary first, then payment & info */
+  .order-grid .cart-sticky{order:-1;position:static} /* phones: order summary first, then payment & info */
 }
 .panel{
   background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
@@ -416,7 +416,9 @@ a{color:var(--royal)}
 }
 .panel-head svg{width:22px;height:22px}
 .panel-body{padding:16px 20px 20px}
-.cart-sticky{position:sticky;top:96px}
+/* summary is sticky ONLY on desktop, where it sits beside the form;
+   on phones it scrolls away normally so it never covers the fields */
+@media(min-width:841px){.cart-sticky{position:sticky;top:96px}}
 .cart-empty{color:var(--muted);text-align:center;padding:24px 6px;font-weight:600;font-size:14px}
 .cart-item{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
 .cart-item:last-child{border-bottom:0}
