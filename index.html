@@ -81,6 +81,7 @@ a{color:var(--royal)}
   padding:8px 14px;
 }
 .topbar .dot{color:#8F86E8;padding:0 4px}
+@media(max-width:640px){.topbar .tb-x{display:none}}
 .header{
   position:sticky;top:0;z-index:90;
   background:var(--grad-band);
@@ -912,7 +913,7 @@ a{color:var(--royal)}
 
 <!-- ============ HEADER ============ -->
 <div class="topbar">
-  Professional Results <span class="dot">&bull;</span> Safe <span class="dot">&bull;</span> Trusted Since 1985 <span class="dot">&bull;</span> No Ammonia <span class="dot">&bull;</span> No Acid <span class="dot">&bull;</span> No Abrasives <span class="dot">&bull;</span> 100% Money-Back Guarantee
+  <span class="tb-x">Professional Results <span class="dot">&bull;</span> Safe <span class="dot">&bull;</span> </span>Trusted Since 1985 <span class="dot">&bull;</span> <span class="tb-x">No Ammonia <span class="dot">&bull;</span> No Acid <span class="dot">&bull;</span> No Abrasives <span class="dot">&bull;</span> </span>100% Money-Back Guarantee
 </div>
 <header class="header">
   <nav class="nav">
@@ -949,7 +950,6 @@ a{color:var(--royal)}
       <div>
         <span class="hero-badge">&#10022; The Original &middot; Since 1985 &#10022;</span>
         <h1>The Original<br>Best Solution<span class="reg">&reg;</span></h1>
-        <p class="h-sub">Professional Jewelry, Metal &amp; Glass Polish</p>
         <p class="h-shine">Bring back the shine <em>in seconds</em>.</p>
         <p class="h-pills">No Ammonia &bull; No Acid &bull; No Abrasives &bull; Trusted Since 1985</p>
         <a class="h-stars" href="#reviews"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Five-star reviews from real show customers</a>
@@ -998,15 +998,15 @@ a{color:var(--royal)}
       <div class="sec-head">
         <span class="kicker">Free Shipping on Every Order</span>
         <h2>Best Value Sets</h2>
-        <p class="sub">You already love it. Reorder in 30 seconds, or pick the perfect first set. Every set pairs the purple polish with C5 restoration lotion, the full two-step system. From our family to yours, we ship every order free, right to your door.</p>
+        <p class="sub">You already love it, reorder in 30 seconds. Every set pairs the purple polish with C5, the full two-step system, shipped free to your door.</p>
       </div>
       <div class="sec-body">
         <p class="qp-label">Quick reorder favorites:</p>
         <div class="quickpicks" id="order-top">
-          <button type="button" class="qp" onclick="quickPick('b32L')">32oz Set + Large C5</button>
-          <button type="button" class="qp" onclick="quickPick('b16L')">16oz Set + Large C5</button>
-          <button type="button" class="qp" onclick="quickPick('polish')">Just the Polish</button>
-          <button type="button" class="qp" onclick="quickPick('c5')">Just C5</button>
+          <button type="button" class="qp" onclick="quickPick('show100')">$100 Show Special</button>
+          <button type="button" class="qp" onclick="quickPick('b32L')">32oz + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('b16L')">16oz + Large C5</button>
+          <button type="button" class="qp" onclick="quickPick('singles')">Single Bottles</button>
         </div>
 
         <div class="setband">
@@ -1131,6 +1131,7 @@ a{color:var(--royal)}
                   <span><b>100% Money-Back Guarantee</b><small>Love it or your money back. That's a promise.</small></span>
                 </div>
                 <button type="submit" class="btn btn-order" id="submit-btn">Place My Order</button>
+                <div class="hint" style="text-align:center;margin-top:9px">Nothing is charged on this page. You complete payment on the next screen.</div>
                 <div class="msg err" id="err-msg"></div>
               </div>
             </form>
@@ -1670,42 +1671,42 @@ function icon(name){
 /* ---------- product data (website prices) ---------- */
 const SETS_SPECIAL = [
   {id:"show100", name:"$100 Show Special", contents:"32oz Refill + 8oz Sprayer + 2oz Sprayer, plus 8oz C5 (Large) + 2oz C5 (Small)", price:100, save:25, img:"show100.jpg", badge:"Show Special",
-   desc:"One of everything we make: the purple polish in three sizes plus both sizes of C5 metal restoration lotion. The complete Best Solution system in one box.",
+   desc:"One of everything we make. The complete Best Solution system in one box.",
    uses:[["i-diamond","The whole lineup in one box"],["i-refresh","Polish + C5, every size you need"],["i-gift","Stock up or split it as gifts"]], tagline:"Our best deal"},
 ];
 const SETS_LARGE = [
   {id:"b32L", name:"32oz Polish + Large C5 (8oz)", contents:"32 oz Best Solution + 8 oz C5", price:60, save:5, img:"b32L.jpg", badge:"Best Value",
-   desc:"The full two-step system, biggest sizes. C5 lotion strips heavy tarnish off the metal, then the purple polish cleans and brings back the sparkle on jewelry, stones, and glass.",
-   uses:[["i-diamond","The complete large-size system"],["i-refresh","Restore, then polish"],["i-case","Stocks the whole house"]], tagline:"Our best seller for big collections"},
+   desc:"The complete two-step system in the biggest sizes.",
+   uses:[["i-diamond","For big jewelry collections"],["i-refresh","Restore, then polish"],["i-case","Stocks the whole house"]], tagline:"Our best seller for big collections"},
   {id:"b16L", name:"16oz Polish + Large C5 (8oz)", contents:"16 oz Best Solution + 8 oz C5", price:55, save:5, img:"b16L.jpg", badge:"Most Popular",
-   desc:"The two-step system most folks take home. Rub C5 on the metal to lift tarnish, then spray the polish to clean and shine jewelry, gemstones, and eyewear.",
+   desc:"Our most popular pairing: everyday polish plus the full-size C5.",
    uses:[["i-sparkle","Everyday polish + deep restore"],["i-refresh","Restore, then polish"],["i-glasses","Jewelry, eyewear & more"]], tagline:"The go-to two-step set"},
   {id:"b8L",  name:"8oz Polish + Large C5 (8oz)",  contents:"8 oz Best Solution + 8 oz C5",  price:50, save:5, img:"b8L.jpg",
-   desc:"The two-step system in matching 8 oz bottles. C5 restores dull, tarnished metal and the polish finishes the job with a brilliant, streak-free shine.",
+   desc:"Everything you need to restore and shine.",
    uses:[["i-watch","Personal jewelry & watches"],["i-refresh","Restore, then polish"],["i-case","Compact & convenient"]], tagline:"Matched pair, same size bottles"},
 ];
 const SETS_SMALL = [
   {id:"b32S", name:"32oz Polish + Small C5 (2oz)", contents:"32 oz Best Solution + 2 oz C5", price:50, save:5, img:"b32S.jpg",
-   desc:"A big bottle of the purple polish for everyday cleaning, plus a starter C5 for tarnished spots the polish alone can't fix.",
+   desc:"The big bottle of polish plus a starter C5 for touch-ups.",
    uses:[["i-diamond","Big polish for big collections"],["i-sparkle","C5 for spot touch-ups"],["i-mirror","Mirrors & glass too"]], tagline:"Maximum polish, starter C5"},
   {id:"b16S", name:"16oz Polish + Small C5 (2oz)", contents:"16 oz Best Solution + 2 oz C5", price:45, save:5, img:"b16S.jpg",
-   desc:"The everyday spray polish for jewelry, stones, and glasses, plus a small C5 lotion for tarnish touch-ups and detail work.",
+   desc:"Everyday polish with a travel-size C5 for detail work.",
    uses:[["i-sparkle","Everyday jewelry & accessories"],["i-glasses","Eyeglasses & sunglasses"],["i-ring","C5 for detail work"]], tagline:"Perfect everyday pairing"},
   {id:"b8S",  name:"8oz Polish + Small C5 (2oz)",  contents:"8 oz Best Solution + 2 oz C5",  price:40, save:5, img:"b8S.jpg",
-   desc:"A compact polish sprayer for jewelry and eyewear, paired with a small C5 lotion for spot-restoring tarnished metal.",
+   desc:"A compact polish and C5 pair, the perfect starter.",
    uses:[["i-watch","Personal jewelry & watches"],["i-ring","C5 for spot treatment"],["i-case","Travel & on the go"]], tagline:"Great value starter pair"},
 ];
 const SETS_TRAVEL = [
   {id:"b2S",  name:"2oz Polish + Small C5 (2oz)",  contents:"2 oz Best Solution + 2 oz C5",  price:30, save:5, img:"b2S.jpg", badge:"Gift / Starter Set", teal:true,
-   desc:"The whole two-step system in pocket size: mini polish sprayer plus mini C5 lotion. A perfect first bottle, stocking stuffer, or travel kit.",
+   desc:"The whole system in pocket size. Perfect first bottle or gift.",
    uses:[["i-plane","Travel & on the go"],["i-gift","Perfect first-time gift"],["i-sparkle","The full system, pocket size"]], tagline:"Perfect for first-time users"},
 ];
 const SETS_GLASSES = [
   {id:"gl15", name:"Glasses Set", contents:"2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:15, teal:true, img:"set-glasses15.jpg",
-   desc:"Everything for your glasses in one set: the polish that leaves lenses streak-free with no fog and no smudges, a mini screwdriver repair kit for loose frames, and our product, reorder, and instructions card.",
+   desc:"Streak-free, fog-free lenses plus a repair kit and reorder card, all in one set.",
    uses:[["i-glasses","Prescription, readers & sunglasses"],["i-tool","Repair kit with screwdrivers"],["i-card","Reorder & instructions card"]], tagline:"No fog, no smudges"},
   {id:"gl25", name:"Glasses Set + 8oz", contents:"8 oz + 2 oz Best Solution + eyeglass repair kit (screwdrivers) + product, reorder & instructions card", price:25, teal:true, badge:"Most Complete", img:"set-glasses25.jpg",
-   desc:"The same glasses set plus a full 8 oz sprayer to keep at home. Kit and 2 oz bottle for your purse or car, big bottle by the mirror.",
+   desc:"The same glasses set plus a full 8 oz sprayer to keep at home.",
    uses:[["i-glasses","Prescription, readers & sunglasses"],["i-case","8oz for home, 2oz for the road"],["i-tool","Repair kit with screwdrivers"]], tagline:"The complete eyewear kit"},
 ];
 const SINGLES_POLISH = [
@@ -1840,10 +1841,9 @@ function toggleLineup(open){
 }
 /* quick-pick shortcuts */
 function quickPick(kind){
-  if(kind==='b32L'||kind==='b16L'){ addToCart(kind); return; }
+  if(kind==='show100'||kind==='b32L'||kind==='b16L'){ addToCart(kind); return; }
   toggleLineup(true);
-  const t = kind==='polish' ? document.getElementById('grid-polish') : document.getElementById('grid-c5');
-  t.scrollIntoView({behavior:'auto',block:'start'});
+  document.getElementById('singles').scrollIntoView({behavior:'auto',block:'start'});
 }
 /* sticky shows on mobile when the order area is out of view */
 (function(){
