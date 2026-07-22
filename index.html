@@ -1985,10 +1985,15 @@ function payActionFor(method, total){
   if(method==="Venmo")    return {url:`https://venmo.com/${PAY_HANDLES.venmo}?txn=pay&amount=${amt}&note=${note}`, label:`Pay $${amt} with Venmo`};
   if(method==="Cash App") return {url:`https://cash.app/$${PAY_HANDLES.cashapp}/${amt}`, label:`Pay $${amt} with Cash App`};
   if(method==="Zelle")    return {text:`To pay by Zelle: open your bank app, choose Zelle, and send $${amt} to ${PAY_HANDLES.zelle} (Justin Greco).`};
-  if(method==="Square")   return SQUARE_LINK
-    ? {url:SQUARE_LINK, label:`Pay $${amt} by Card`,
-       note:`Square's secure page will open. Enter your total of $${amt} and pay by credit, debit, Apple Pay, or Google Pay.`}
-    : {text:`Justin will text you a secure card link for $${amt} to pay by card.`};
+  if(method==="Square"){
+    // Square's card link adds the 5.5% tax itself, so send it the PRE-TAX subtotal
+    // (not the grand total) or the tax gets charged twice. Other methods below get the full total.
+    const sub = orderTotal().toFixed(2), tax = taxAmount().toFixed(2), grand = grandTotal().toFixed(2);
+    return SQUARE_LINK
+      ? {url:SQUARE_LINK, label:`Pay by Card`,
+         note:`Square's secure page will open. Enter $${sub}. Square adds the 5.5% sales tax ($${tax}) automatically, for your total of $${grand}. Pay by credit, debit, Apple Pay, or Google Pay.`}
+      : {text:`Justin will text you a secure card link for $${grand} to pay by card.`};
+  }
   return null;
 }
 
@@ -2107,8 +2112,8 @@ function shareSite(btn){
 function payStepsFor(method, amt){
   if(method==="Square")   return {title:"Pay by card · 3 easy steps", steps:[
     "Tap the gold PAY BY CARD button below.",
-    `Square's secure page opens. Type in your total: $${amt}.`,
-    "Pay with credit, debit, Apple Pay, or Google Pay. That's it!"]};
+    `Square's secure page opens. Enter $${orderTotal().toFixed(2)}. Square adds the 5.5% sales tax ($${taxAmount().toFixed(2)}) automatically.`,
+    `Your total comes to $${grandTotal().toFixed(2)}. Pay with credit, debit, Apple Pay, or Google Pay. That's it!`]};
   if(method==="Venmo")    return {title:"Pay with Venmo · 3 easy steps", steps:[
     "Tap the gold VENMO button below.",
     `Venmo opens with your $${amt} already filled in for Justin (@${PAY_HANDLES.venmo}).`,
