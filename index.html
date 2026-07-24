@@ -581,6 +581,32 @@ a{color:var(--royal)}
 }
 .pay-note{color:var(--muted);font-size:12.5px;margin-top:12px;font-weight:600;text-align:center}
 .pay-note b{color:var(--royal-deep)}
+/* remember your salesman */
+.rep-panel{margin-bottom:22px}
+.rep-blurb{font-size:14px;font-weight:600;color:var(--ink);line-height:1.6;margin-bottom:16px}
+.rep-blurb b{color:var(--royal-deep)}
+.rep-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:860px){.rep-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:520px){.rep-grid{grid-template-columns:repeat(3,1fr)}}
+.rep-card{
+  background:var(--paper);border:2px solid var(--line);border-radius:14px;
+  padding:12px 6px 10px;cursor:pointer;text-align:center;
+  font-family:'Montserrat',sans-serif;transition:transform .12s,border-color .12s,box-shadow .12s;
+}
+.rep-card:hover{transform:translateY(-2px);border-color:var(--royal)}
+.rep-card.sel{border-color:var(--gold);box-shadow:var(--gold-glow);background:#FFFBEE}
+.rep-photo{
+  position:relative;width:62px;height:62px;border-radius:50%;margin:0 auto 7px;
+  background:var(--grad-hero);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:21px;overflow:hidden;border:2.5px solid var(--line);
+}
+.rep-card.sel .rep-photo{border-color:var(--gold)}
+.rep-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rep-name{display:block;font-weight:800;font-size:11.5px;color:var(--royal-deep);text-transform:uppercase;letter-spacing:.4px}
+.rep-card.sel .rep-name::after{content:" \2713";color:var(--ok)}
+.rep-note{display:none;margin-top:16px}
+.rep-note.show{display:block}
+
 /* form */
 .field{margin-bottom:14px}
 .field label{
@@ -1178,6 +1204,35 @@ a{color:var(--royal)}
       </div>
       <div class="sec-body">
         <p class="freeship-banner"><svg width="22" height="22" style="color:#137A39"><use href="#i-truck"/></svg> Free Shipping on Every Order &middot; Ships Same or Next Day</p>
+
+        <!-- REMEMBER YOUR SALESMAN -->
+        <div class="panel rep-panel" id="rep-panel">
+          <div class="panel-head"><svg><use href="#i-medal"/></svg> Do You Remember Your Salesman?</div>
+          <div class="panel-body">
+            <p class="rep-blurb">Our crew works on commission, so when you reorder it isn't just good for the company, <b>it goes right to the person who took care of you at the show</b>. And honestly, nothing makes them happier than hearing a customer is still smiling. Tap whoever helped you so they get the credit, and feel free to leave them a quick note or review. They read every one.</p>
+            <div class="rep-grid" id="rep-grid">
+              <button type="button" class="rep-card" data-rep="Justin"><span class="rep-photo"><span>J</span><img src="images/rep-justin.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Justin</span></button>
+              <button type="button" class="rep-card" data-rep="Alivia"><span class="rep-photo"><span>A</span><img src="images/rep-alivia.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Alivia</span></button>
+              <button type="button" class="rep-card" data-rep="Jason"><span class="rep-photo"><span>J</span><img src="images/rep-jason.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Jason</span></button>
+              <button type="button" class="rep-card" data-rep="Isaiah"><span class="rep-photo"><span>I</span><img src="images/rep-isaiah.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Isaiah</span></button>
+              <button type="button" class="rep-card" data-rep="Anthony"><span class="rep-photo"><span>A</span><img src="images/rep-anthony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Anthony</span></button>
+              <button type="button" class="rep-card" data-rep="Adam"><span class="rep-photo"><span>A</span><img src="images/rep-adam.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Adam</span></button>
+              <button type="button" class="rep-card" data-rep="Les"><span class="rep-photo"><span>L</span><img src="images/rep-les.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Les</span></button>
+              <button type="button" class="rep-card" data-rep="Andre"><span class="rep-photo"><span>A</span><img src="images/rep-andre.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Andre</span></button>
+              <button type="button" class="rep-card" data-rep="Michele"><span class="rep-photo"><span>M</span><img src="images/rep-michele.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Michele</span></button>
+              <button type="button" class="rep-card" data-rep="TJ"><span class="rep-photo"><span>TJ</span><img src="images/rep-tj.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">TJ</span></button>
+              <button type="button" class="rep-card" data-rep="Ronny"><span class="rep-photo"><span>R</span><img src="images/rep-ronny.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Ronny</span></button>
+            </div>
+            <div class="rep-note" id="rep-note-wrap">
+              <div class="field" style="margin-bottom:0">
+                <label for="rep-note">Leave <span id="rep-note-name">them</span> a note or review (optional)</label>
+                <textarea id="rep-note" placeholder="Say hi, tell them how the polish worked out, anything you like."></textarea>
+                <div class="hint">Your note goes straight to <span id="rep-note-name2">your salesman</span> with your order.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="order-grid">
 
           <!-- LEFT: payment + customer info -->
@@ -1443,8 +1498,8 @@ a{color:var(--royal)}
             <div class="who">Patricia L.<small>Carol Stream, IL</small></div></div>
 
           <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>"My grandmother's silver tea set was badly tarnished. About twenty minutes with this and it looked like new. Really impressed."</p>
-            <div class="who">Dan R.<small>Green Bay, WI</small></div></div>
+            <p>"Jason would not let me walk by without cleaning my glasses, and I'm so glad he didn't. Not one streak, then he blew his breath right on the lens and it wouldn't fog up. That's what sold me. Nicest guy in the world, too."</p>
+            <div class="who">Diane W.<small>Fort Myers, FL</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Alivia helped me at the booth and knew the product better than most grown-ups. She cleaned my necklace right there and it looked brand new. Great kid, great family."</p>
@@ -1453,6 +1508,10 @@ a{color:var(--royal)}
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"My granddaughter loved watching Alivia do a little demo on my bracelet. You can tell she's proud of the family business. The polish worked just like she showed us."</p>
             <div class="who">Patty G.<small>Oconomowoc, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"My grandmother's silver tea set was badly tarnished. About twenty minutes with this and it looked like new. Really impressed."</p>
+            <div class="who">Dan R.<small>Green Bay, WI</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Bought from Justin and his daughter Alivia at the fair. She's a natural and so sweet with everyone who stopped by. The stuff really works, been using it ever since."</p>
@@ -1471,6 +1530,10 @@ a{color:var(--royal)}
             <div class="who">Kevin S.<small>Milwaukee, WI</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Met Jason Hantman at a show up here in Maine. He kept after me about my eyeglasses until I finally handed them over, now I can't stop looking through them. Clear as the day I bought them. Super nice guy, never pushy, he just knows the stuff works."</p>
+            <div class="who">Paul B.<small>Bangor, ME</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"I was nervous about cleaning my mom's pearls, but they explained there's no acid or ammonia so it's safe. They came out beautiful."</p>
             <div class="who">Linda S.<small>Brookfield, WI</small></div></div>
 
@@ -1485,6 +1548,10 @@ a{color:var(--royal)}
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Picked it up at a fair and now I keep it on hand. Shipped quickly out to Montana and it lasts a long time."</p>
             <div class="who">Dale F.<small>Billings, MT</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Jason cleaned my glasses at the booth, showed me there wasn't a single streak, then huffed on them to prove they don't fog. They didn't. Bought a bottle on the spot and now I use it on everything. Genuinely one of the nicest guys you'll ever meet."</p>
+            <div class="who">Ellen C.<small>Rehoboth Beach, DE</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Adam cleaned half of a filthy chrome rim and left the other half dirty so you could compare. That sold me. Works just like he showed."</p>
@@ -2005,6 +2072,32 @@ function showErrText(msg){
 }
 function clearErr(){ errBox.replaceChildren(); errBox.classList.remove('show'); }
 
+/* ---------- remember your salesman ---------- */
+let salesRep = "";
+const repNoteWrap = document.getElementById('rep-note-wrap');
+const repCards = document.querySelectorAll('.rep-card');
+repCards.forEach(card=>{
+  card.addEventListener('click',()=>{
+    if(salesRep === card.dataset.rep){            /* tap again to unselect */
+      salesRep = ""; card.classList.remove('sel');
+      repNoteWrap.classList.remove('show');
+      return;
+    }
+    repCards.forEach(c=>c.classList.remove('sel'));
+    card.classList.add('sel');
+    salesRep = card.dataset.rep;
+    document.getElementById('rep-note-name').textContent = salesRep;
+    document.getElementById('rep-note-name2').textContent = salesRep;
+    repNoteWrap.classList.add('show');
+  });
+});
+function resetSalesRep(){
+  salesRep = "";
+  repCards.forEach(c=>c.classList.remove('sel'));
+  document.getElementById('rep-note').value = "";
+  repNoteWrap.classList.remove('show');
+}
+
 /* ---------- submit ---------- */
 const form = document.getElementById('order-form');
 form.addEventListener('submit', async (e)=>{
@@ -2030,6 +2123,8 @@ form.addEventListener('submit', async (e)=>{
     order_items: orderItemsText(),
     order_total: `$${grandTotal().toFixed(2)} total ($${orderTotal().toFixed(2)} subtotal + $${taxAmount().toFixed(2)} sales tax 5.5%, free shipping)`,
     payment_method: payment,
+    salesman: salesRep || "(didn't pick one)",
+    salesman_note: salesRep ? (document.getElementById('rep-note').value.trim() || "(none)") : "(none)",
     notes: notes || "(none)",
     timestamp: new Date().toLocaleString(),
     _subject: `New Best Solution order: ${name} ($${grandTotal().toFixed(2)})`
@@ -2071,6 +2166,8 @@ Ship to: ${payload.shipping_address}
 Items: ${payload.order_items}
 Total: ${payload.order_total}
 Pay: ${payload.payment_method}
+Salesman: ${payload.salesman}
+Note to salesman: ${payload.salesman_note}
 Notes: ${payload.notes}
 Time: ${payload.timestamp}`;
   const copyBtn = el('button', {type:'button'}, 'Copy My Order');
@@ -2160,7 +2257,7 @@ document.getElementById('new-order-btn').addEventListener('click',()=>{
   Object.keys(pickerQty).forEach(k=>delete pickerQty[k]);
   document.querySelectorAll('.val').forEach(v=>v.textContent="1");
   document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('active'));
-  payment=""; form.reset(); clearErr();
+  payment=""; form.reset(); clearErr(); resetSalesRep();
   const btn = document.getElementById('submit-btn');
   btn.disabled=false; btn.textContent="Place My Order";
   document.getElementById('success').classList.remove('show');
