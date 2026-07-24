@@ -1211,17 +1211,18 @@ a{color:var(--royal)}
           <div class="panel-body">
             <p class="rep-blurb">Our crew works on commission, so when you reorder it isn't just good for the company, <b>it goes right to the person who took care of you at the show</b>. And honestly, nothing makes them happier than hearing a customer is still smiling. Tap whoever helped you so they get the credit, and feel free to leave them a quick note or review. They read every one.</p>
             <div class="rep-grid" id="rep-grid">
+              <button type="button" class="rep-card" data-rep="Batman"><span class="rep-photo"><span>B</span><img src="images/rep-batman.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Batman</span></button>
               <button type="button" class="rep-card" data-rep="Justin"><span class="rep-photo"><span>J</span><img src="images/rep-justin.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Justin</span></button>
-              <button type="button" class="rep-card" data-rep="Alivia"><span class="rep-photo"><span>A</span><img src="images/rep-alivia.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Alivia</span></button>
-              <button type="button" class="rep-card" data-rep="Jason"><span class="rep-photo"><span>J</span><img src="images/rep-jason.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Jason</span></button>
               <button type="button" class="rep-card" data-rep="Isaiah"><span class="rep-photo"><span>I</span><img src="images/rep-isaiah.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Isaiah</span></button>
-              <button type="button" class="rep-card" data-rep="Anthony"><span class="rep-photo"><span>A</span><img src="images/rep-anthony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Anthony</span></button>
-              <button type="button" class="rep-card" data-rep="Adam"><span class="rep-photo"><span>A</span><img src="images/rep-adam.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Adam</span></button>
-              <button type="button" class="rep-card" data-rep="Les"><span class="rep-photo"><span>L</span><img src="images/rep-les.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Les</span></button>
+              <button type="button" class="rep-card" data-rep="Jason"><span class="rep-photo"><span>J</span><img src="images/rep-jason.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Jason</span></button>
               <button type="button" class="rep-card" data-rep="Andre"><span class="rep-photo"><span>A</span><img src="images/rep-andre.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Andre</span></button>
-              <button type="button" class="rep-card" data-rep="Michele"><span class="rep-photo"><span>M</span><img src="images/rep-michele.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Michele</span></button>
               <button type="button" class="rep-card" data-rep="TJ"><span class="rep-photo"><span>TJ</span><img src="images/rep-tj.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">TJ</span></button>
+              <button type="button" class="rep-card" data-rep="Anthony"><span class="rep-photo"><span>A</span><img src="images/rep-anthony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Anthony</span></button>
+              <button type="button" class="rep-card" data-rep="Les"><span class="rep-photo"><span>L</span><img src="images/rep-les.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Les</span></button>
               <button type="button" class="rep-card" data-rep="Ronny"><span class="rep-photo"><span>R</span><img src="images/rep-ronny.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Ronny</span></button>
+              <button type="button" class="rep-card" data-rep="Dave"><span class="rep-photo"><span>D</span><img src="images/rep-dave.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Dave</span></button>
+              <button type="button" class="rep-card" data-rep="Michele"><span class="rep-photo"><span>M</span><img src="images/rep-michele.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Michele</span></button>
+              <button type="button" class="rep-card" data-rep="Alivia"><span class="rep-photo"><span>A</span><img src="images/rep-alivia.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Alivia</span></button>
             </div>
             <div class="rep-note" id="rep-note-wrap">
               <div class="field" style="margin-bottom:0">
@@ -1947,7 +1948,8 @@ SINGLES_C5.forEach(p=>document.getElementById('grid-c5').append(productCard(p)))
 function addToCart(id){
   cart[id] = (cart[id]||0) + (pickerQty[id]||1);
   renderCart();
-  document.getElementById('cart-section').scrollIntoView({behavior:'auto',block:'center'});
+  /* land on the rep faces first, then they scroll down into payment/cart */
+  document.getElementById('rep-panel').scrollIntoView({behavior:'auto',block:'start'});
 }
 
 /* ---------- render cart ---------- */
@@ -1987,8 +1989,8 @@ function renderCart(){
 /* ---------- sticky bar ---------- */
 function updateSticky(total){ if(window._paintSticky) window._paintSticky(); }
 document.getElementById('sticky-btn').addEventListener('click',()=>{
-  // items in the cart -> jump to the order section; empty cart -> jump to the shop
-  const t = orderTotal() > 0 ? document.getElementById('order') : document.getElementById('shop');
+  // items in the cart -> jump to the rep faces at the top of the order; empty cart -> jump to the shop
+  const t = orderTotal() > 0 ? document.getElementById('rep-panel') : document.getElementById('shop');
   t.scrollIntoView({behavior:'auto',block:'start'});
 });
 /* single-bottles section expand/collapse */
