@@ -19,7 +19,7 @@
       "url": "https://bestsolutionpolish.com/",
       "telephone": "+1-414-213-0084",
       "email": "BestSolutionPolish@gmail.com",
-      "founder": {"@type": "Person", "name": "Justin Greco"},
+      "founder": {"@type": "Person", "name": "Mark Martone"},
       "address": {"@type": "PostalAddress", "addressLocality": "Waterford", "addressRegion": "WI", "addressCountry": "US"},
       "description": "Family-run maker of Best Solution professional jewelry, metal and glass polish, sold at fairs and shows across the Midwest and online since 1985.",
       "slogan": "Clean. Restore. Protect. Brilliant results. Every time."
@@ -581,18 +581,31 @@ a{color:var(--royal)}
 }
 .pay-note{color:var(--muted);font-size:12.5px;margin-top:12px;font-weight:600;text-align:center}
 .pay-note b{color:var(--royal-deep)}
-/* remember your salesman */
+/* remember your salesman: the family tree */
 .rep-panel{margin-bottom:22px}
 .rep-blurb{font-size:14px;font-weight:600;color:var(--ink);line-height:1.6;margin-bottom:16px}
 .rep-blurb b{color:var(--royal-deep)}
-.rep-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-@media(max-width:860px){.rep-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:520px){.rep-grid{grid-template-columns:repeat(3,1fr)}}
+.family{position:relative;padding:4px 0 2px;text-align:center}
+.fam-tier{position:relative;padding-top:40px}
+.fam-tier.first{padding-top:0}
+.fam-tier+.fam-tier::before{
+  content:"";position:absolute;left:50%;top:0;width:2px;height:40px;
+  background:linear-gradient(180deg,var(--gold),#C98C00);transform:translateX(-50%);
+}
+.fam-label{
+  display:inline-block;position:relative;z-index:1;background:#fff;border:1.5px solid var(--gold);
+  color:var(--royal-deep);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;
+  padding:5px 13px;border-radius:999px;margin-bottom:12px;
+}
+.fam-label b{color:#9A5A00}
+.fam-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .rep-card{
+  width:104px;flex:none;
   background:var(--paper);border:2px solid var(--line);border-radius:14px;
   padding:12px 6px 10px;cursor:pointer;text-align:center;
   font-family:'Montserrat',sans-serif;transition:transform .12s,border-color .12s,box-shadow .12s;
 }
+@media(max-width:420px){.rep-card{width:92px}}
 .rep-card:hover{transform:translateY(-2px);border-color:var(--royal)}
 .rep-card.sel{border-color:var(--gold);box-shadow:var(--gold-glow);background:#FFFBEE}
 .rep-photo{
@@ -600,11 +613,39 @@ a{color:var(--royal)}
   background:var(--grad-hero);color:#fff;display:flex;align-items:center;justify-content:center;
   font-weight:900;font-size:21px;overflow:hidden;border:2.5px solid var(--line);
 }
+.rep-card.lead .rep-photo{border-color:var(--gold)}
 .rep-card.sel .rep-photo{border-color:var(--gold)}
 .rep-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rep-name{display:block;font-weight:800;font-size:11.5px;color:var(--royal-deep);text-transform:uppercase;letter-spacing:.4px}
 .rep-card.sel .rep-name::after{content:" \2713";color:var(--ok)}
-.rep-note{display:none;margin-top:16px}
+/* the founder card at the top of the tree */
+.don-card{
+  display:flex;align-items:center;gap:22px;text-align:left;max-width:820px;margin:0 auto;
+  background:linear-gradient(135deg,#FFFBEE 0%,#FFFFFF 70%);border:2px solid var(--gold);border-radius:18px;
+  padding:18px 22px;box-shadow:var(--gold-glow);cursor:pointer;font-family:'Montserrat',sans-serif;
+  transition:transform .12s,box-shadow .12s;
+}
+.don-card:hover{transform:translateY(-2px)}
+.don-card.sel{background:#FFF6D6;box-shadow:0 0 0 3px rgba(242,172,15,.35),var(--gold-glow)}
+.don-photo{
+  width:136px;height:136px;border-radius:50%;flex:none;border:4px solid var(--gold);
+  box-shadow:0 6px 18px rgba(28,22,85,.25);overflow:hidden;background:var(--grad-hero);
+}
+.don-photo img{width:100%;height:100%;object-fit:cover}
+.don-tag{
+  display:inline-block;background:var(--grad-gold);color:var(--navy);font-size:10.5px;font-weight:900;
+  letter-spacing:1.6px;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-bottom:7px;
+}
+.don-name{font-size:clamp(20px,4.5vw,26px);font-weight:900;color:var(--royal-deep);text-transform:uppercase;letter-spacing:.6px;line-height:1.1}
+.don-card.sel .don-name::after{content:" \2713";color:var(--ok)}
+.don-sub{font-size:12px;font-weight:800;color:#9A5A00;text-transform:uppercase;letter-spacing:1px;margin-top:5px}
+.don-story{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.6;margin-top:10px}
+.don-story b{color:var(--royal-deep)}
+@media(max-width:600px){
+  .don-card{flex-direction:column;text-align:center;padding:18px 14px;gap:12px}
+  .don-photo{width:118px;height:118px}
+}
+.rep-note{display:none;margin-top:18px}
 .rep-note.show{display:block}
 
 /* form */
@@ -882,6 +923,9 @@ a{color:var(--royal)}
   border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:28px;text-align:center;
 }
 .contact-card h3{font-weight:900;text-transform:uppercase;color:var(--royal-deep);font-size:19px;letter-spacing:.6px}
+.contact-card .madeby{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#9A5A00;margin-bottom:3px}
+.contact-card h3.creator{font-size:23px}
+.contact-divider{height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 16px;max-width:360px}
 .contact-card .role{font-weight:700;color:var(--muted);font-size:13.5px;margin-top:3px}
 .contact-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 @media(max-width:640px){.contact-rows{grid-template-columns:1fr}}
@@ -1205,25 +1249,67 @@ a{color:var(--royal)}
       <div class="sec-body">
         <p class="freeship-banner"><svg width="22" height="22" style="color:#137A39"><use href="#i-truck"/></svg> Free Shipping on Every Order &middot; Ships Same or Next Day</p>
 
-        <!-- REMEMBER YOUR SALESMAN -->
+        <!-- REMEMBER YOUR SALESMAN: THE FAMILY TREE -->
         <div class="panel rep-panel" id="rep-panel">
-          <div class="panel-head"><svg><use href="#i-medal"/></svg> Do You Remember Your Salesman?</div>
+          <div class="panel-head"><svg><use href="#i-medal"/></svg> The Family &middot; Do You Remember Your Salesman?</div>
           <div class="panel-body">
-            <p class="rep-blurb">Our crew works on commission, so when you reorder it isn't just good for the company, <b>it goes right to the person who took care of you at the show</b>. And honestly, nothing makes them happier than hearing a customer is still smiling. Tap whoever helped you so they get the credit, and feel free to leave them a quick note or review. They read every one.</p>
-            <div class="rep-grid" id="rep-grid">
-              <button type="button" class="rep-card" data-rep="Batman"><span class="rep-photo"><span>B</span><img src="images/rep-batman.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Batman</span></button>
-              <button type="button" class="rep-card" data-rep="Justin"><span class="rep-photo"><span>J</span><img src="images/rep-justin.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Justin</span></button>
-              <button type="button" class="rep-card" data-rep="Isaiah"><span class="rep-photo"><span>I</span><img src="images/rep-isaiah.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Isaiah</span></button>
+            <p class="rep-blurb">Our crew works on commission, so when you reorder it isn&rsquo;t just good for the company, <b>it goes right to the person who took care of you at the show</b>. And honestly, nothing makes them happier than hearing a customer is still smiling. Every one of us traces back to one man, so here is the whole family. Tap whoever helped you so they get the credit, and feel free to leave them a quick note or review. They read every one.</p>
+            <div class="family" id="rep-grid">
+
+              <div class="fam-tier first">
+                <button type="button" class="don-card" data-rep="Mark Martone">
+                  <span class="don-photo"><img src="images/rep-mark.jpg" alt="Mark Martone, creator of Best Solution" loading="lazy"></span>
+                  <span>
+                    <span class="don-tag">&#10022; Founder &middot; Est. 1985 &#10022;</span>
+                    <span class="don-name" style="display:block">Mark Martone</span>
+                    <span class="don-sub" style="display:block">Creator of Best Solution &middot; Born &amp; Raised in New Jersey</span>
+                    <span class="don-story" style="display:block">Born and raised on the mean streets of New Jersey, Mark always had a vision: build a product he could create and sell on the American free market, one that would give the people who work for him real financial independence and put real smiles on our customers&rsquo; faces. <b>Top tier quality, and memories preserved for a lifetime.</b> Everything you see here started with him.</span>
+                  </span>
+                </button>
+              </div>
+
+              <div class="fam-tier">
+                <span class="fam-label">The Originals &middot; Brought in by <b>Mark</b></span>
+                <div class="fam-row">
+              <button type="button" class="rep-card lead" data-rep="Matt"><span class="rep-photo"><span>M</span><img src="images/rep-matt.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Matt</span></button>
               <button type="button" class="rep-card" data-rep="Jason"><span class="rep-photo"><span>J</span><img src="images/rep-jason.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Jason</span></button>
+              <button type="button" class="rep-card" data-rep="Lugo"><span class="rep-photo"><span>L</span><img src="images/rep-lugo.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Lugo</span></button>
+              <button type="button" class="rep-card" data-rep="Joe"><span class="rep-photo"><span>J</span><img src="images/rep-joe.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Joe</span></button>
+              <button type="button" class="rep-card" data-rep="Tony Huber"><span class="rep-photo"><span>T</span><img src="images/rep-tony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Tony Huber</span></button>
+              <button type="button" class="rep-card" data-rep="Columbia"><span class="rep-photo"><span>C</span><img src="images/rep-columbia.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Columbia</span></button>
+                </div>
+              </div>
+
+              <div class="fam-tier">
+                <span class="fam-label">Brought in by <b>Matt</b></span>
+                <div class="fam-row">
+              <button type="button" class="rep-card lead" data-rep="Batman"><span class="rep-photo"><span>B</span><img src="images/rep-batman.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Batman</span></button>
+                </div>
+              </div>
+
+              <div class="fam-tier">
+                <span class="fam-label">Brought in by <b>Batman</b></span>
+                <div class="fam-row">
+              <button type="button" class="rep-card lead" data-rep="Justin"><span class="rep-photo"><span>J</span><img src="images/rep-justin.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Justin</span></button>
+              <button type="button" class="rep-card" data-rep="Isaiah"><span class="rep-photo"><span>I</span><img src="images/rep-isaiah.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Isaiah</span></button>
+              <button type="button" class="rep-card" data-rep="Les"><span class="rep-photo"><span>L</span><img src="images/rep-les.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Les</span></button>
+              <button type="button" class="rep-card" data-rep="Anthony"><span class="rep-photo"><span>A</span><img src="images/rep-anthony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Anthony</span></button>
+                </div>
+              </div>
+
+              <div class="fam-tier">
+                <span class="fam-label">Brought in by <b>Justin</b></span>
+                <div class="fam-row">
               <button type="button" class="rep-card" data-rep="Andre"><span class="rep-photo"><span>A</span><img src="images/rep-andre.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Andre</span></button>
               <button type="button" class="rep-card" data-rep="TJ"><span class="rep-photo"><span>TJ</span><img src="images/rep-tj.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">TJ</span></button>
-              <button type="button" class="rep-card" data-rep="Anthony"><span class="rep-photo"><span>A</span><img src="images/rep-anthony.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Anthony</span></button>
               <button type="button" class="rep-card" data-rep="Snacks"><span class="rep-photo"><span>S</span><img src="images/rep-snacks.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Snacks</span></button>
-              <button type="button" class="rep-card" data-rep="Les"><span class="rep-photo"><span>L</span><img src="images/rep-les.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Les</span></button>
               <button type="button" class="rep-card" data-rep="Ronny"><span class="rep-photo"><span>R</span><img src="images/rep-ronny.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Ronny</span></button>
               <button type="button" class="rep-card" data-rep="Dave"><span class="rep-photo"><span>D</span><img src="images/rep-dave.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Dave</span></button>
               <button type="button" class="rep-card" data-rep="Michele"><span class="rep-photo"><span>M</span><img src="images/rep-michele.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Michele</span></button>
               <button type="button" class="rep-card" data-rep="Alivia"><span class="rep-photo"><span>A</span><img src="images/rep-alivia.jpg" alt="" loading="lazy" onerror="this.remove()"></span><span class="rep-name">Alivia</span></button>
+                </div>
+              </div>
+
             </div>
             <div class="rep-note" id="rep-note-wrap">
               <div class="field" style="margin-bottom:0">
@@ -1472,6 +1558,18 @@ a{color:var(--royal)}
             <div class="who">Karen M.<small>Waukesha, WI</small></div></div>
 
           <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Mark cleaned my mother&rsquo;s silver bracelet at his table like he&rsquo;d done it ten thousand times, and he probably has. Told me he&rsquo;s been at this since 1985 and I believe it. The man knows his stuff."</p>
+            <div class="who">Josephine R.<small>Toms River, NJ</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Matt spent ten minutes with me even though I told him I wasn&rsquo;t buying. He cleaned my watch band and a pair of sunglasses, no pressure at all. I came back an hour later and bought two."</p>
+            <div class="who">Linda K.<small>Naperville, IL</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Lugo had my whole family laughing while he shined up my wife&rsquo;s ring. Great guy, and the polish works exactly like he showed us."</p>
+            <div class="who">Tom V.<small>Kenosha, WI</small></div></div>
+
+          <div class="review"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Isaiah did a demo on my wedding ring at the Kane County Fair. It honestly looked new again. Bought two bottles and I'm glad I did."</p>
             <div class="who">Megan D.<small>Kane County Fair, IL</small></div></div>
 
@@ -1556,7 +1654,7 @@ a{color:var(--royal)}
             <div class="who">Ellen C.<small>Rehoboth Beach, DE</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>"Adam cleaned half of a filthy chrome rim and left the other half dirty so you could compare. That sold me. Works just like he showed."</p>
+            <p>"Batman (yes, that is really what everyone calls him) cleaned half of a filthy chrome rim and left the other half dirty so you could compare. That sold me. Works just like he showed."</p>
             <div class="who">Nicole R.<small>Chicago, IL</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -1566,6 +1664,22 @@ a{color:var(--royal)}
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Bought the gift set for the family and we use it on everything. Easy to use, and the results speak for themselves."</p>
             <div class="who">Rachel T.<small>Oshkosh, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Joe took a tarnished pocket watch that was my grandfather&rsquo;s and brought it back in about a minute. I honestly got a little emotional. Wonderful people, wonderful product."</p>
+            <div class="who">Barbara S.<small>Racine, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Tony demoed it on the stainless on my travel mug and then on my ring. Both came out spotless. Down to earth guy who didn&rsquo;t oversell it, the product did the talking."</p>
+            <div class="who">Steve M.<small>Janesville, WI</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Columbia cleaned my glasses so well I thought he&rsquo;d swapped them for a new pair. Super friendly, explained everything, and the bottle has lasted me months."</p>
+            <div class="who">Maria G.<small>Elgin, IL</small></div></div>
+
+          <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The young guy they call Snacks cleaned my earrings at the fair and had me grinning the whole time. Ordered a bigger bottle online a week later and it showed up in two days."</p>
+            <div class="who">Denise P.<small>West Allis, WI</small></div></div>
 
           <div class="review more"><div class="rs">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p>"Justin followed up personally about my order. Good service and a product that works. Hard to beat that combination."</p>
@@ -1702,8 +1816,13 @@ a{color:var(--royal)}
       </div>
       <div class="sec-body">
         <div class="contact-card">
+          <p class="madeby">Created By</p>
+          <h3 class="creator">Mark Martone</h3>
+          <p class="role">Best Solution &middot; Est. 1985</p>
+          <div class="contact-divider"></div>
+          <p class="madeby">Orders &amp; Questions</p>
           <h3>Justin Greco</h3>
-          <p class="role">Owner, Dot Dynasty LLC &middot; DBA Best Solution</p>
+          <p class="role">Dot Dynasty LLC &middot; DBA Best Solution &middot; Waterford, Wisconsin</p>
           <div class="contact-rows">
             <a href="tel:+14142130084"><small>Phone / Text</small>414-213-0084</a>
             <a href="mailto:BestSolutionPolish@gmail.com"><small>Email</small>BestSolutionPolish@gmail.com</a>
@@ -1728,7 +1847,8 @@ a{color:var(--royal)}
       <span><svg><use href="#i-flag"/></svg> Made in USA</span>
     </div>
     <div class="biz">
-      <strong>Justin Greco &middot; Owner, Dot Dynasty LLC &middot; DBA Best Solution</strong><br>
+      <strong>Created by Mark Martone &middot; Est. 1985</strong><br>
+      Justin Greco &middot; Dot Dynasty LLC &middot; DBA Best Solution<br>
       Professional Jewelry, Metal &amp; Glass Polish &middot; Trusted Since 1985<br>
       <a href="tel:+14142130084">&#128222; 414-213-0084</a> &middot; <a href="sms:+14142130084">&#128172; Text</a> &middot; <a href="mailto:BestSolutionPolish@gmail.com">&#9993; BestSolutionPolish@gmail.com</a><br>
       <a href="https://bestsolutionpolish.com">BestSolutionPolish.com</a>
@@ -2078,7 +2198,7 @@ function clearErr(){ errBox.replaceChildren(); errBox.classList.remove('show'); 
 /* ---------- remember your salesman ---------- */
 let salesRep = "";
 const repNoteWrap = document.getElementById('rep-note-wrap');
-const repCards = document.querySelectorAll('.rep-card');
+const repCards = document.querySelectorAll('#rep-grid [data-rep]');
 repCards.forEach(card=>{
   card.addEventListener('click',()=>{
     if(salesRep === card.dataset.rep){            /* tap again to unselect */

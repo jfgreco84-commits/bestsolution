@@ -1,4 +1,4 @@
-# Best Solution — Reorder Page
+# Best Solution, Reorder Page
 
 A single-file customer reorder page for **Best Solution** polish & C5 lotion
 (Dot Dynasty LLC). Text the link to customers between shows. They pick bundles,
@@ -12,7 +12,7 @@ confirms shipping and collects payment manually.
 3. Repo **Settings → Pages → Deploy from branch → main / root → Save**.
 4. Live at: `https://jfgreco84.github.io/bestsolution`
 
-## Connect the order email (REQUIRED — one line)
+## Connect the order email (REQUIRED, one line)
 
 Orders won't reach Justin until the Formspree form ID is set.
 
@@ -49,4 +49,4 @@ All prices are **+ shipping** (quoted by Justin after the order comes in).
 To change a price, edit the `BUNDLES_LARGE`, `BUNDLES_SMALL`, or `SINGLES`
 arrays in the `<script>`.
 
-> C5 is a **fine metal restoration lotion** — never labeled a cloth, wipe, or pad.
+> C5 is a **fine metal restoration lotion**, never labeled a cloth, wipe, or pad.
