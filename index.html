@@ -483,6 +483,7 @@ a{color:var(--royal)}
   .grid-4 .qty .val{width:32px;font-size:15px}
 }
 .pcard.teal-card .btn-add{background:var(--teal)}
+.btn-add.added,.qp.added{background:var(--ok);color:#fff}
 .lineup-toggle{
   display:block;margin:0 auto;cursor:pointer;background:#fff;color:var(--royal);
   font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
@@ -980,7 +981,7 @@ a{color:var(--royal)}
   background:var(--grad-gold);color:var(--navy);font-weight:900;min-height:54px;font-size:16px;
   box-shadow:0 6px 18px rgba(0,0,0,.35),var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.55);
 }
-@media(min-width:761px){.sticky{display:none!important}}
+@media(min-width:761px){.sticky:not(.has-items){display:none!important}}
 </style>
 </head>
 <body>
@@ -2164,7 +2165,7 @@ function productCard(p){
         valSpan,
         el('button', {type:'button', 'aria-label':'More', onClick:()=>stepPicker(p.id,1,valSpan)}, '+')
       ),
-      el('button', {type:'button', class:'btn btn-add', onClick:()=>addToCart(p.id)}, 'Add to Order')
+      el('button', {type:'button', class:'btn btn-add', onClick:e=>addToCart(p.id, e.currentTarget)}, 'Add to Order')
     )
   );
 }
@@ -2181,11 +2182,16 @@ SINGLES_POLISH.forEach(p=>document.getElementById('grid-polish').append(productC
 SINGLES_C5.forEach(p=>document.getElementById('grid-c5').append(productCard(p)));
 
 /* ---------- add to order ---------- */
-function addToCart(id){
+function addToCart(id, btn){
   cart[id] = (cart[id]||0) + (pickerQty[id]||1);
   renderCart();
-  /* land on the rep faces first, then they scroll down into payment/cart */
-  document.getElementById('rep-panel').scrollIntoView({behavior:'auto',block:'start'});
+  /* stay put so they can keep shopping; the Go to Cart bar takes them to the reps */
+  if(btn){
+    if(!btn.dataset.label) btn.dataset.label = btn.textContent;
+    clearTimeout(btn._added);
+    btn.classList.add('added'); btn.textContent = '\u2713 Added';
+    btn._added = setTimeout(()=>{ btn.classList.remove('added'); btn.textContent = btn.dataset.label; }, 1400);
+  }
 }
 
 /* ---------- render cart ---------- */
@@ -2240,7 +2246,7 @@ function toggleLineup(open){
 }
 /* quick-pick shortcuts */
 function quickPick(kind){
-  if(kind!=='singles'){ addToCart(kind); return; }
+  if(kind!=='singles'){ addToCart(kind, event.currentTarget); return; }
   toggleLineup(true);
   document.getElementById('singles').scrollIntoView({behavior:'auto',block:'start'});
 }
@@ -2250,7 +2256,8 @@ function quickPick(kind){
   const anchor=document.getElementById('order'); let inView=true;
   window._paintSticky=function(){
     const t=(typeof orderTotal==='function')?orderTotal():0;
-    btn.textContent = t>0 ? ('View Order · $'+grandTotal().toFixed(2)+' ↑') : 'Build Your Order ↑';
+    btn.textContent = t>0 ? ('Go to Cart · $'+grandTotal().toFixed(2)+' ↑') : 'Build Your Order ↑';
+    sticky.classList.toggle('has-items', t>0);
     sticky.classList.toggle('show', !inView && !document.getElementById('success').classList.contains('show'));
   };
   if(anchor && 'IntersectionObserver' in window){
