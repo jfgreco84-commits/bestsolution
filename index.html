@@ -669,11 +669,11 @@ a{color:var(--royal)}
   display:block;font-weight:800;text-transform:uppercase;letter-spacing:.7px;
   color:var(--royal-deep);font-size:12px;margin-bottom:6px;
 }
-.field input,.field textarea{
+.field input,.field textarea,.field select{
   width:100%;border:2px solid var(--line);border-radius:12px;padding:13px 14px;
   font-family:'Montserrat',sans-serif;font-size:16px;color:var(--ink);background:#fff;
 }
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--royal);box-shadow:0 0 0 3px rgba(107,82,166,.15)}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--royal);box-shadow:0 0 0 3px rgba(107,82,166,.15)}
 .field textarea{min-height:80px;resize:vertical}
 .hint{font-size:12px;color:var(--muted);margin-top:5px;font-weight:600}
 .guarantee{
@@ -1399,6 +1399,11 @@ a{color:var(--royal)}
                   <div class="hint">Give a phone OR email so Justin can reach you.</div>
                 </div>
                 <div class="field">
+                  <label for="ship-state">Ship-To State</label>
+                  <select id="ship-state" name="ship_state" autocomplete="address-level1"><option value="">Pick your state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select>
+                  <div class="hint">Sales tax only applies to orders shipping to Wisconsin.</div>
+                </div>
+                <div class="field">
                   <label for="address">Shipping Address</label>
                   <textarea id="address" name="address" autocomplete="street-address" placeholder="Street, City, State, ZIP"></textarea>
                   <div class="hint">Where should we mail your order?</div>
@@ -1438,7 +1443,7 @@ a{color:var(--royal)}
                 <div class="cart-empty" id="cart-empty">No items yet. Tap <strong>Add to Order</strong> on any product or set above.</div>
                 <div class="cart-total" id="cart-total" style="display:none">
                   <div class="ct-row"><span>Subtotal</span><span>$<span id="subtotal-amt">0</span></span></div>
-                  <div class="ct-row"><span>Sales Tax (5.5%)</span><span>$<span id="tax-amt">0</span></span></div>
+                  <div class="ct-row"><span id="tax-label">Sales Tax (WI orders only)</span><span>$<span id="tax-amt">0</span></span></div>
                   <div class="ct-row"><span>Shipping</span><span class="freeship">Free</span></div>
                   <div class="ct-row ct-grand"><span class="lbl">Total</span><span class="amt">$<span id="total-amt">0</span></span></div>
                 </div>
@@ -1992,8 +1997,11 @@ a{color:var(--royal)}
 ============================================================ */
 const FORMSPREE_ID = "xykqyrnz";
 const SHIP = 0;                        // FREE shipping (built into prices)
-const TAX_RATE = 0.055;                // 5.5% sales tax
-function taxAmount(){ return Math.round(orderTotal() * TAX_RATE * 100) / 100; }
+const TAX_RATE = 0.055;                // 5.5% Wisconsin sales tax
+const TAX_STATE = "WI";                // only orders shipping to Wisconsin are taxed
+function shipState(){ const s = document.getElementById('ship-state'); return s ? s.value : ""; }
+function isTaxed(){ return shipState() === TAX_STATE; }
+function taxAmount(){ return isTaxed() ? Math.round(orderTotal() * TAX_RATE * 100) / 100 : 0; }
 function grandTotal(){ return Math.round((orderTotal() + taxAmount() + SHIP) * 100) / 100; }
 
 /* ---------- mobile nav ---------- */
@@ -2225,6 +2233,9 @@ function renderCart(){
   });
   document.getElementById('subtotal-amt').textContent = total.toFixed(2);
   document.getElementById('tax-amt').textContent = taxAmount().toFixed(2);
+  const st = shipState();
+  document.getElementById('tax-label').textContent =
+    isTaxed() ? 'Sales Tax (5.5% WI)' : st ? 'Sales Tax (none, ships to '+st+')' : 'Sales Tax (WI orders only)';
   document.getElementById('total-amt').textContent = grandTotal().toFixed(2);
   updateSticky(total);
 }
@@ -2297,12 +2308,13 @@ function payActionFor(method, total){
   const note = encodeURIComponent("Best Solution order");
   if(method==="Venmo")    return {url:`https://venmo.com/${PAY_HANDLES.venmo}?txn=pay&amount=${amt}&note=${note}`, label:`Pay $${amt} with Venmo`};
   if(method==="Cash App") return {url:`https://cash.app/$${PAY_HANDLES.cashapp}/${amt}`, label:`Pay $${amt} with Cash App`};
-  if(method==="Zelle")    return {text:`To pay by Zelle: open your bank app, choose Zelle, and send $${amt} to ${PAY_HANDLES.zelle} (Justin Greco).`};
+  if(method==="Zelle")    return {text:`To pay by Zelle: open your bank app, choose Zelle, and send $${amt} to ${PAY_HANDLES.zelle}. The name on the account is Justin Greco, not Best Solution.`};
   if(method==="Square"){
     // Square's card link adds the 5.5% tax itself, so send it the PRE-TAX subtotal
     // (not the grand total) or the tax gets charged twice. Other methods below get the full total.
+    // Out-of-state orders owe no tax, so they skip that link and get a card link from Justin instead.
     const sub = orderTotal().toFixed(2), tax = taxAmount().toFixed(2), grand = grandTotal().toFixed(2);
-    return SQUARE_LINK
+    return (SQUARE_LINK && isTaxed())
       ? {url:SQUARE_LINK, label:`Pay by Card`,
          note:`Square's secure page will open. Enter $${sub}. Square adds the 5.5% sales tax ($${tax}) automatically, for your total of $${grand}. Pay by credit, debit, Apple Pay, or Google Pay.`}
       : {text:`Justin will text you a secure card link for $${grand} to pay by card.`};
@@ -2359,12 +2371,14 @@ form.addEventListener('submit', async (e)=>{
   const phone   = document.getElementById('phone').value.trim();
   const email   = document.getElementById('email').value.trim();
   const address = document.getElementById('address').value.trim();
+  const state   = shipState();
   const notes   = document.getElementById('notes').value.trim();
 
   if(orderTotal()===0){ showErrText("Your order is empty. Add a product or set first.");
     document.getElementById('shop').scrollIntoView({behavior:'auto'}); return; }
   if(!name){ showErrText("Please add your name so Justin knows who to thank."); return; }
   if(!phone && !email){ showErrText("Add a phone OR email so Justin can reach you about shipping."); return; }
+  if(!state){ showErrText("Pick the state we're shipping to."); return; }
   if(!address){ showErrText("Add your shipping address so Justin knows where to mail it."); return; }
   if(!payment){ showErrText("Pick how you'd like to pay (Square, Venmo, Zelle, or Cash App)."); return; }
 
@@ -2372,9 +2386,9 @@ form.addEventListener('submit', async (e)=>{
   const payload = {
     customer_name: name,
     customer_contact: contact,
-    shipping_address: address,
+    shipping_address: address + "  [State: " + state + "]",
     order_items: orderItemsText(),
-    order_total: `$${grandTotal().toFixed(2)} total ($${orderTotal().toFixed(2)} subtotal + $${taxAmount().toFixed(2)} sales tax 5.5%, free shipping)`,
+    order_total: `$${grandTotal().toFixed(2)} total ($${orderTotal().toFixed(2)} subtotal + $${taxAmount().toFixed(2)} ${isTaxed() ? "sales tax 5.5% WI" : "sales tax, none (ships to "+state+")"}, free shipping)`,
     payment_method: payment,
     salesman: salesRep || "(didn't pick one)",
     salesman_note: salesRep ? (document.getElementById('rep-note').value.trim() || "(none)") : "(none)",
@@ -2460,6 +2474,9 @@ function shareSite(btn){
 
 /* ---------- easy payment steps per method ---------- */
 function payStepsFor(method, amt){
+  if(method==="Square" && !isTaxed()) return {title:"Pay by card · 2 easy steps", steps:[
+    `Justin will text you a secure Square card link for exactly $${grandTotal().toFixed(2)} (no sales tax, it ships outside Wisconsin).`,
+    "Tap the link and pay with credit, debit, Apple Pay, or Google Pay. That's it!"]};
   if(method==="Square")   return {title:"Pay by card · 3 easy steps", steps:[
     "Tap the gold PAY BY CARD button below.",
     `Square's secure page opens. Enter $${orderTotal().toFixed(2)}. Square adds the 5.5% sales tax ($${taxAmount().toFixed(2)}) automatically.`,
@@ -2474,7 +2491,7 @@ function payStepsFor(method, amt){
     "Confirm to finish. That's it!"]};
   if(method==="Zelle")    return {title:"Pay with Zelle · 3 easy steps", steps:[
     "Open your bank's app and choose Zelle.",
-    `Add Justin as a recipient: ${PAY_HANDLES.zelle}`,
+    `Add Justin as a recipient: ${PAY_HANDLES.zelle}. The name will show as Justin Greco (not Best Solution).`,
     `Send your total: $${amt}. That's it!`]};
   return null;
 }
@@ -2518,6 +2535,9 @@ document.getElementById('new-order-btn').addEventListener('click',()=>{
   renderCart();
   window.scrollTo({top:0,behavior:'auto'});
 });
+
+/* ---------- ship-to state: tax is WI-only, so re-total when it changes ---------- */
+document.getElementById('ship-state').addEventListener('change', renderCart);
 
 /* ---------- init ---------- */
 renderCart();
