@@ -2310,13 +2310,12 @@ function payActionFor(method, total){
   if(method==="Cash App") return {url:`https://cash.app/$${PAY_HANDLES.cashapp}/${amt}`, label:`Pay $${amt} with Cash App`};
   if(method==="Zelle")    return {text:`To pay by Zelle: open your bank app, choose Zelle, and send $${amt} to ${PAY_HANDLES.zelle}. The name on the account is Justin Greco, not Best Solution.`};
   if(method==="Square"){
-    // Square's card link adds the 5.5% tax itself, so send it the PRE-TAX subtotal
-    // (not the grand total) or the tax gets charged twice. Other methods below get the full total.
+    // Square's card link does NOT add tax, so the customer enters the full total with the 5.5% tax already in it.
     // Out-of-state orders owe no tax, so they skip that link and get a card link from Justin instead.
-    const sub = orderTotal().toFixed(2), tax = taxAmount().toFixed(2), grand = grandTotal().toFixed(2);
+    const tax = taxAmount().toFixed(2), grand = grandTotal().toFixed(2);
     return (SQUARE_LINK && isTaxed())
       ? {url:SQUARE_LINK, label:`Pay by Card`,
-         note:`Square's secure page will open. Enter $${sub}. Square adds the 5.5% sales tax ($${tax}) automatically, for your total of $${grand}. Pay by credit, debit, Apple Pay, or Google Pay.`}
+         note:`Square's secure page will open. Enter your full total of $${grand} (this already includes the 5.5% sales tax of $${tax}). Pay by credit, debit, Apple Pay, or Google Pay.`}
       : {text:`Justin will text you a secure card link for $${grand} to pay by card.`};
   }
   return null;
@@ -2479,8 +2478,8 @@ function payStepsFor(method, amt){
     "Tap the link and pay with credit, debit, Apple Pay, or Google Pay. That's it!"]};
   if(method==="Square")   return {title:"Pay by card · 3 easy steps", steps:[
     "Tap the gold PAY BY CARD button below.",
-    `Square's secure page opens. Enter $${orderTotal().toFixed(2)}. Square adds the 5.5% sales tax ($${taxAmount().toFixed(2)}) automatically.`,
-    `Your total comes to $${grandTotal().toFixed(2)}. Pay with credit, debit, Apple Pay, or Google Pay. That's it!`]};
+    `Square's secure page opens. Enter your full total: $${grandTotal().toFixed(2)}. That already includes the 5.5% sales tax ($${taxAmount().toFixed(2)}).`,
+    "Pay with credit, debit, Apple Pay, or Google Pay. That's it!"]};
   if(method==="Venmo")    return {title:"Pay with Venmo · 3 easy steps", steps:[
     "Tap the gold VENMO button below.",
     `Venmo opens with your $${amt} already filled in for Justin (@${PAY_HANDLES.venmo}).`,
