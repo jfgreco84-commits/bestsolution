@@ -31,12 +31,21 @@ Orders won't reach Justin until the Formspree form ID is set.
 Until then, the order button shows a friendly message and lets the customer
 **copy their order** to text to Justin, so nothing is ever lost.
 
-## How payment works
+## How ordering and payment work
 
-The page is an **order intake form, not a checkout**. The payment buttons
-(Square / Venmo / Zelle / Cash App) just tell Justin how the customer wants to
-pay. Justin sends the request manually after confirming shipping. No card is
-ever charged on the page.
+Step 1 is the shipping form: name, phone or email, **street, city, state, ZIP as
+separate required boxes** (the order will not send without city and a 5-digit ZIP).
+Step 2 is the payment pick. The gold button says exactly what happens next, for
+example "Place Order & Pay $70.00 by Card".
+
+The order email goes out first (Formspree), then the customer sees the payment step:
+Venmo and Cash App open with the total filled in, Zelle shows who to send to, card
+goes to Square. **The email always says NOT PAID YET. Confirm the money before shipping.**
+
+Card today: Wisconsin orders open the Square link and type the amount. Out-of-state
+orders get a one-tap "Text Justin for my card link" button. The fix for both is the
+exact-amount Square checkout in `supabase/functions/square-checkout/` (built, not
+switched on yet, see its README).
 
 ## Prices
 
