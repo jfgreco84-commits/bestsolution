@@ -5,20 +5,20 @@ the site sends the cart here, this builds a Square payment link for the exact or
 (with WI sales tax when it ships to Wisconsin), and the customer lands on Square's
 secure page with the total already filled in. No typing an amount. No waiting on a text.
 
-**Status: built, NOT switched on.** It needs a Square access token, and it has not been
-run against Square yet. Until it is on, card orders use the older flow.
+**Status: deployed and wired to the site.** It runs on the Supabase project
+`froggy-money` as the Edge Function `square-checkout` (Verify JWT off), and
+`CHECKOUT_API` in `index.html` points at it. It does nothing until the Square token
+is added. Until then, and any time it errors, card orders use the older flow.
 
-## Turn it on
+## The one step left
 
 1. **Square token.** developer.squareup.com > Apps > create an app (any name) >
    Credentials > **Production** > copy the Access token.
-2. **Deploy** this folder as a Supabase Edge Function named `square-checkout`
-   with **Verify JWT turned OFF** (the website calls it without a login).
-3. **Add the secret** in Supabase > Edge Functions > Secrets:
-   `SQUARE_ACCESS_TOKEN` = the token from step 1. Never paste it into a file or a chat.
-4. **Paste the function URL** into `index.html`:
-   `const CHECKOUT_API = "https://<project>.supabase.co/functions/v1/square-checkout";`
-5. **Test it** with a real small order and refund it in Square.
+2. **Add the secret** in Supabase > Edge Functions > Secrets:
+   `SQUARE_ACCESS_TOKEN` = that token. Never paste it into a file or a chat.
+3. **Test it** with a real small card order on the site, then refund it in Square.
+
+To change the function, edit `index.ts` and redeploy it under the same name.
 
 ## Keep in step
 

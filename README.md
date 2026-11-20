@@ -44,8 +44,8 @@ goes to Square. **The email always says NOT PAID YET. Confirm the money before s
 
 Card today: Wisconsin orders open the Square link and type the amount. Out-of-state
 orders get a one-tap "Text Justin for my card link" button. The fix for both is the
-exact-amount Square checkout in `supabase/functions/square-checkout/` (built, not
-switched on yet, see its README).
+exact-amount Square checkout in `supabase/functions/square-checkout/` (deployed, waiting
+on the Square token, see its README).
 
 ## Prices
 
